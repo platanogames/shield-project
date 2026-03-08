@@ -47,6 +47,60 @@ Final search hit rate: 100% (1,691 queries, 1,691 hits).
 
 ---
 
+## What It Looks Like
+
+The brain starts empty and grows with each project. Here's the progression from Day 3.
+
+### Early brain — single project (46 nodes, 197 edges)
+
+<p align="center">
+  <img src="assets/02-brain-early-46-nodes.png" alt="Early brain with 46 nodes" width="800">
+</p>
+
+First scan complete. One project (Shield itself). The graph is small but already clustering — architecture nodes pull together, conventions form their own group.
+
+### BEI 38 — first measurement
+
+<p align="center">
+  <img src="assets/05-brain-bei-38-baseline.png" alt="BEI 38 baseline" width="800">
+</p>
+
+The Session Efficiency panel showing our starting point. BEI 38 — the brain exists but isn't paying for itself yet. The replay timeline at the bottom records every brain operation for later analysis.
+
+### Workers operating autonomously
+
+<p align="center">
+  <img src="assets/06-workers-autonomous.png" alt="Autonomous workers" width="800">
+</p>
+
+10 completed workers, 29 processes in the registry. Each worker runs independently — different models (Ollama local, Codex cloud), different tasks (security audit, conventions, logic review). The main agent delegates and moves on.
+
+### Multi-project — brain expanding across domains
+
+<p align="center">
+  <img src="assets/09-dashboard-multi-project.png" alt="Multi-project dashboard" width="800">
+</p>
+
+Three projects bootstrapped. 61 nodes, 285 edges. The tab bar shows per-project views. BEI climbing to 57 — cognitive leverage at 21%, search hit rate already at 100%. The recordings panel logs every session for replay.
+
+### BEI 65 — latency stability under growth
+
+<p align="center">
+  <img src="assets/10-bei-65-latency.png" alt="BEI 65 with latency sparkline" width="800">
+</p>
+
+The latency sparkline (cyan line at bottom) shows milliseconds-per-node as the brain grows. It stays flat — meaning activation time doesn't degrade with scale. 1,277 searches, 1,277 hits. Score: 31 on latency (room to improve, but stable).
+
+### Final state — 5 projects, BEI 79
+
+<p align="center">
+  <img src="assets/12-brain-final-bei-79.png" alt="Final brain state BEI 79" width="800">
+</p>
+
+477 edges across 5 projects (including WordPress/PHP, which the system had never seen). BEI 79: Leverage 46, Latency 100, Search 100, ROI 70. ~46K tokens saved. The graph now includes nodes from `platanogamesacademy` — a WordPress project that transferred knowledge from Python projects with minimal BEI loss.
+
+---
+
 ## What Surprised Us
 
 We documented 16 moments where the system did things we **didn't program it to do**. Some highlights:
@@ -123,7 +177,21 @@ We built a real-time dashboard that visualizes the brain as a force-directed gra
 
 It's not just pretty — it's how we caught most of our bugs. When you can see 95 nodes and 441 edges pulsing in real time, anomalies jump out.
 
-We'll share screenshots and recordings when the system is more stable.
+### Neural map close-up
+
+<p align="center">
+  <img src="assets/07-neural-map-detail.png" alt="Neural map detail" width="800">
+</p>
+
+Each node is a knowledge unit (architecture decision, convention, pattern). Colors indicate categories: orange = architecture, purple = design, green = core, cyan = per-project. Edge thickness reflects confidence. The graph self-organizes — related concepts cluster naturally.
+
+### Infrastructure view
+
+<p align="center">
+  <img src="assets/04-dashboard-gateway.png" alt="Dashboard gateway view" width="800">
+</p>
+
+The Gateway tab shows the persistent daemon that survives between sessions. Worker status, permission log, system health. The gateway runs independently of any LLM — it's pure Python infrastructure that keeps the brain alive.
 
 ---
 
