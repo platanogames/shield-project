@@ -33,6 +33,8 @@ This is a 5-day-old research project. Everything here is real, measured, and rep
 | **Total Workers** | 150+ across all projects |
 | **Measurement Note** | All metrics measured via CLI tools, not direct API — conservative lower bound |
 
+> **Why CLI?** We validated the architecture first, optimized transport never (yet). CLI tools require zero infrastructure, provide sandboxing for free, and run on flat-rate subscriptions. If the system works well with CLI overhead (~23-29% of wall clock), it works better without it. Published numbers are the floor, not the ceiling. Migration to direct API is designed and budgeted (€60 across 3 providers for full benchmark). Estimated improvement: worker launch 40-60x faster, keeper 8-10x faster, BEI +10 points. Knowledge metrics (Search 99%, ROI 88%) are transport-independent — pure Python, zero API calls.
+
 ## What We're Measuring
 
 **BEI (Brain Efficiency Index)** — a composite metric that answers: *is the brain getting smarter, or just bigger?*
