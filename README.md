@@ -113,6 +113,7 @@ Full catalog of all 48 behaviors: [Emergent Behaviors wiki page](https://github.
 - **Score 1/10 on first external project** — a single prefix in the worker config was making the documentation agent audit instead of document. One-line fix → 9/10.
 - **800 shell windows** — a subprocess flag was missing. Workers opened visible terminals.
 - **Benchmark repos treated as audit targets** — 233K tokens wasted before the system itself caught the error and flagged it.
+- **BEI measured the dashboard, not the brain** — Our visualization system polls the knowledge graph every 5 seconds for real-time display. Those polls generated 90% of the telemetry events used to compute BEI latency. During heavy workloads (multiple workers running), disk I/O contention inflated load times 5x, dragging the composite score down 13 points. Fix: statistical filtering to isolate brain performance from infrastructure noise. BEI jumped from 64 to 77 immediately. The trend had been *improving* all along.
 - **Fix that fixed the wrong thing (E-045)** — system implemented a path exclusion, verified against reality, found its own assumption was wrong, corrected transparently.
 
 ## What's Next
