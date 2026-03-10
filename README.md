@@ -89,8 +89,9 @@ BEI never decreased between projects. The system got cheaper to operate with eve
 
 7. **Brain-driven inference**: The system assembled correct conclusions from distributed knowledge fragments written in different sessions for different purposes. No single fragment contained the answer. The architecture enables novel reasoning from accumulated context.
 
+8. **The brain pays for itself in tokens**: Same model (Opus 4.6), same task, different environment. The agent with accumulated knowledge completed 5 code changes to a 4109-line file in 7.7k output tokens. Over 2,700 knowledge lookups replaced what would have been LLM exploration cycles — estimated 3x token savings vs the same model without the brain. The cognitive architecture does not make the model smarter; it makes the model cheaper to operate by offloading exploration to zero-cost symbolic search.
+
 ## What Surprised Us (Selected)
-8. **The brain pays for itself in tokens**: Same model (Opus 4.6), same task, different environment. The agent with accumulated knowledge completed 5 code changes to a 4109-line file in 7.7k output tokens. Over 2,700 knowledge lookups replaced what would have been LLM exploration cycles — estimated 3× token savings vs the same model without the brain. The cognitive architecture does not make the model smarter; it makes the model cheaper to operate by offloading exploration to zero-cost symbolic search.
 
 - **The self-analyst (E-042)**: 31 workers in 2 waves on its own codebase. Converged semantically, then analyzed its own resource consumption, detected pipeline misrouting, and deferred to human. A complete executive reasoning cycle.
 
