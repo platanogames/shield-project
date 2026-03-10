@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/day-5-yellow" alt="Day 5">
   <img src="https://img.shields.io/badge/BEI%20peak-99-brightgreen" alt="BEI 99">
   <img src="https://img.shields.io/badge/projects-7%20validated-orange" alt="7 Projects">
-  <img src="https://img.shields.io/badge/emergent%20behaviors-50-orange" alt="Emergent Behaviors">
+  <img src="https://img.shields.io/badge/emergent%20behaviors-51-orange" alt="Emergent Behaviors">
   <img src="https://img.shields.io/badge/languages-Python%20%7C%20PHP%20%7C%20JS%20%7C%20C++-lightgrey" alt="Languages">
 </p>
 
@@ -28,7 +28,7 @@ This is a 5-day-old research project. Everything here is real, measured, and rep
 | **Cross-Domain Transfer** | Python → PHP: -1 BEI point |
 | **Autonomy Record** | 70 min, 27 workers, 14 bug fixes, zero human input |
 | **Search Hit Rate** | 99%+ |
-| **Emergent Behaviors** | 50 documented |
+| **Emergent Behaviors** | 51 documented |
 | **Self-Audit Finding** | 33% defect rate without independent audit → 0% with |
 | **Total Workers** | 150+ across all projects |
 | **Measurement Note** | All metrics measured via CLI tools, not direct API — conservative lower bound |
