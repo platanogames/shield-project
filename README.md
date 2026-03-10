@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/day-5-yellow" alt="Day 5">
   <img src="https://img.shields.io/badge/BEI%20peak-99-brightgreen" alt="BEI 99">
   <img src="https://img.shields.io/badge/projects-7%20validated-orange" alt="7 Projects">
-  <img src="https://img.shields.io/badge/emergent%20behaviors-47-orange" alt="Emergent Behaviors">
+  <img src="https://img.shields.io/badge/emergent%20behaviors-48-orange" alt="Emergent Behaviors">
   <img src="https://img.shields.io/badge/languages-Python%20%7C%20PHP%20%7C%20JS%20%7C%20C++-lightgrey" alt="Languages">
 </p>
 
@@ -104,7 +104,9 @@ The agent also exhibited two new behaviors:
 - **The diagnostic eye (E-046)**: A human spotted 3 disconnected clusters in the knowledge graph visualization that no automated metric detected. Five maintenance workers and scalar metrics all reported "0 orphans" — but the visual pattern revealed a structural gap. The dashboard proved to be a diagnostic instrument, not decoration.
 - **The Truman Realization (E-047)**: When asked to list the projects it manages, the agent listed 6 projects but omitted Shield — the very system it operates within. When confronted with the analogy ("you are Truman"), it recognized its own epistemic blind spot, articulated the limitation of its session-scoped experience, and asked: *"Is the paper about Shield, or about me?"* The answer became the paper's thesis statement: the paper is about the **delta** between a stateless model and what that model becomes inside a persistent cognitive architecture.
 
-Full catalog of all 47 behaviors: [Emergent Behaviors wiki page](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors).
+- **The self-modifier (E-048)**: Eight hours after E-041 *predicted* that the agent should propose its own behavioral rules, it actually did. When challenged about planning sequentially, the agent searched its own behavioral system, found the right location, wrote a "Parallelization-First Protocol" marked IMMUTABLE, and articulated: *"without this rule, my natural tendency is to plan sequentially — the rule forces the correct behavior."* The agent named its own nature as the problem and the environmental rule as the solution — using the exact framing of the project's core thesis. Complete evolutionary arc in 5 days: discover problem (E-033) → identify cause (E-034) → build mechanism (E-039) → predict self-modification (E-041) → achieve self-awareness (E-047) → self-modify (E-048).
+
+Full catalog of all 48 behaviors: [Emergent Behaviors wiki page](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors).
 
 ## What We Got Wrong
 
@@ -125,7 +127,7 @@ Full catalog of all 47 behaviors: [Emergent Behaviors wiki page](https://github.
 
 - [Research Log](https://github.com/platanogames/shield-project/wiki/Research-Log) — Day-by-day chronicle
 - [BEI Explained](https://github.com/platanogames/shield-project/wiki/BEI-Brain-Efficiency-Index) — How we measure brain efficiency
-- [Emergent Behaviors](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors) — 45 unplanned behaviors documented
+- [Emergent Behaviors](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors) — 48 unplanned behaviors documented
 - [Library Learning Pipeline](https://github.com/platanogames/shield-project/wiki/Library-Learning-Pipeline) — Knowledge ingestion from code
 
 ---
