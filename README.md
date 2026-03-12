@@ -14,6 +14,23 @@ Shield is an experimental system where LLM agents **accumulate and compound know
 
 This is a 6-day-old research project. Everything here is real, measured, and reproducible.
 
+### Core Thesis: Nurture Over Nature
+
+<sub>First committed: 2026-03-06 ([`97915fb`](https://github.com/platanogames/shield-project/commit/97915fb)) · Empirically confirmed: 2026-03-09 (E-034) · Formalized: 2026-03-12 (H-001)</sub>
+
+> **We do not fine-tune models (modify nature). We enrich the environment (modify nurture).**
+
+The central hypothesis of this project is that **agent behavior is shaped more by accumulated environmental structure than by the base model's weights.** The same model, given different histories, produces different behaviors. The same architecture, given different models, amplifies either signal or noise.
+
+This is not prompt engineering. Prompt engineering is a single instruction. This is **cognitive conditioning** — a persistent, growing, self-maintaining knowledge structure that compounds across sessions, projects, and domains. The model provides capability (nature). The environment determines what emerges (nurture).
+
+**Empirical support (as of 2026-03-12):**
+- **E-034** (2026-03-09): Same configuration produced erratic behavior in one session set and correct behavior in another. The difference: accumulated failure documentation + quantified consequences. *Failure history shapes behavior more than positive directives.*
+- **E-056** (2026-03-12): A raw Claude session (no harness, no automation) reproduced the orchestrator's behavioral patterns simply by reading the brain. *The environment transfers behavior across instances.*
+- **H-001** (2026-03-12): Same architecture + Opus = 0% erratic. Same architecture + Qwen = 71% hallucination. The brain amplifies whatever the model provides — signal or noise. *Nature enables, nurture shapes. But nature must clear a threshold for nurture to work.*
+
+This thesis predates and is independent of any concurrent work on LLM environmental conditioning. Shield's design documents, commit history, and emergent behavior log provide full traceability from hypothesis (Day 1) through empirical confirmation (Days 4-6).
+
 > **Full research log, metrics explanation, and emergent behavior catalog available in the [Wiki](https://github.com/platanogames/shield-project/wiki).**
 
 ---
