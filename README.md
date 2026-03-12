@@ -19,7 +19,7 @@ This is a 6-day-old research project. Everything here is real, measured, and rep
 ---
 
 <p align="center">
-  <img src="assets/bei-3.0-dashboard.png" alt="BEI 3.0 Dashboard" width="700">
+  <img src="assets/bei-3.0-dashboard.png" alt="BEI 3.0 Dashboard" width="550">
   <br><i>BEI 3.0 Dashboard — metrics finally reflect actual brain performance.</i>
 </p>
 
