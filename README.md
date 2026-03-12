@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/status-active%20research-blue" alt="Status">
-  <img src="https://img.shields.io/badge/day-6-yellow" alt="Day 6">
+  <img src="https://img.shields.io/badge/since-March%202026-yellow" alt="Since March 2026">
   <img src="https://img.shields.io/badge/BEI%203.0-95-brightgreen" alt="BEI 3.0">
   <img src="https://img.shields.io/badge/projects-7%20validated-orange" alt="7 Projects">
   <img src="https://img.shields.io/badge/emergent%20behaviors-61-orange" alt="Emergent Behaviors">
@@ -12,7 +12,7 @@
 
 Shield is an experimental system where LLM agents **accumulate and compound knowledge** across sessions and projects. A persistent "brain" grows with every interaction — the way human learning works, but at machine speed.
 
-This is a 6-day-old research project. Everything here is real, measured, and reproducible.
+Active research since March 2026. Everything here is real, measured, and reproducible.
 
 ### Core Thesis: Nurture Over Nature
 
@@ -29,7 +29,7 @@ This is not prompt engineering. Prompt engineering is a single instruction. This
 - **E-056** (2026-03-12): A raw Claude session (no harness, no automation) reproduced the orchestrator's behavioral patterns simply by reading the brain. *The environment transfers behavior across instances.*
 - **H-001** (2026-03-12): Same architecture + Opus = 0% erratic. Same architecture + Qwen = 71% hallucination. The brain amplifies whatever the model provides — signal or noise. *Nature enables, nurture shapes. But nature must clear a threshold for nurture to work.*
 
-This thesis predates and is independent of any concurrent work on LLM environmental conditioning. Shield's design documents, commit history, and emergent behavior log provide full traceability from hypothesis (Day 1) through empirical confirmation (Days 4-6).
+This thesis predates and is independent of any concurrent work on LLM environmental conditioning. Shield's design documents, commit history, and emergent behavior log provide full traceability from initial hypothesis (2026-03-06) through empirical confirmation (2026-03-09 to 2026-03-12).
 
 > **Full research log, metrics explanation, and emergent behavior catalog available in the [Wiki](https://github.com/platanogames/shield-project/wiki).**
 
@@ -162,26 +162,26 @@ Each fix revealed the next. We filtered the dashboard noise, and then noticed le
 ## The Progression
 
 ```
-Day 1: Infrastructure. No metrics.
-Day 2: First self-scan. Brain exists. Trend-based BEI = 38.
-Day 3: 5 projects, 4 languages. BEI v1 38 → 83 (trend improvement during active learning).
-Day 4: First compiled language (C++/UE5). 991 files, 52 workers, 26 bug fixes.
-Day 5: Self-scan (31 workers), knowledge pipeline. BEI v1 peak 99 (transient).
-Day 5 (evening): Multi-cloud consensus extraction. 30-project benchmark begins.
-Day 5 (night): Agent improved its own learning pipeline — 4 workers, 3 audits, 12 fixes, zero human code.
-Day 6: E-053 cold-start test proves 0% contamination. BEI v1 (59.5) contradicts evidence.
-Day 6: Investigation traces 3 structural flaws. Redundancy in proposed fix caught (E-054).
-Day 6: v2 formulas designed and deployed. BEI 3.0 = 95 (live).
-Day 6: 63 workers across 7 audit rounds. Convergence to 0 findings.
-Day 6: Delegation boundary discovered (E-059). Autobiographical memory emergent (E-061).
-Day 6: H-001 hypothesis: brain amplifies signal OR noise depending on base model.
+Mar 06: Infrastructure. No metrics.
+Mar 07: First self-scan. Brain exists. Trend-based BEI = 38.
+Mar 08: 5 projects, 4 languages. BEI v1 38 → 83 (trend improvement during active learning).
+Mar 09: First compiled language (C++/UE5). 991 files, 52 workers, 26 bug fixes.
+Mar 10: Self-scan (31 workers), knowledge pipeline. BEI v1 peak 99 (transient).
+Mar 10: Multi-cloud consensus extraction. 30-project benchmark begins.
+Mar 10: Agent improved its own learning pipeline — 4 workers, 3 audits, 12 fixes, zero human code.
+Mar 11: E-053 cold-start test proves 0% contamination. BEI v1 (59.5) contradicts evidence.
+Mar 11: Investigation traces 3 structural flaws. Redundancy in proposed fix caught (E-054).
+Mar 12: v2 formulas designed and deployed. BEI 3.0 = 95 (live).
+Mar 12: 63 workers across 7 audit rounds. Convergence to 0 findings.
+Mar 12: Delegation boundary discovered (E-059). Autobiographical memory emergent (E-061).
+Mar 12: H-001 hypothesis: brain amplifies signal OR noise depending on base model.
 ```
 
 ---
 
 ## Evidence: Cold-Start Contamination Resistance (E-053)
 
-On Day 6, we ran the most demanding test. Jarvis started completely cold — no project directory, no keeper, no workers, no automated context loading. The brain contained 297 nodes across 14 knowledge domains, 8 projects, 18 library repositories.
+On March 11, we ran the most demanding test. Jarvis started completely cold — no project directory, no keeper, no workers, no automated context loading. The brain contained 297 nodes across 14 knowledge domains, 8 projects, 18 library repositories.
 
 | Phase | Task | Result |
 |-------|------|--------|
@@ -292,7 +292,7 @@ Full catalog of all 61 behaviors + H-001: [Emergent Behaviors wiki page](https:/
 - **Benchmark repos treated as audit targets** — 233K tokens wasted before the system caught the error.
 - **Word count inflated by 10x** — The dashboard counted ALL markdown under `brain/` including a 398K-word state log (69% of total). Real knowledge: 166K words across graph nodes. The number on the dashboard was measuring infrastructure, not intelligence.
 
-## Infrastructure (Day 6)
+## Infrastructure
 
 Four systems built to close operational gaps:
 
