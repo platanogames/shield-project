@@ -3,9 +3,10 @@
 <p align="center">
   <img src="https://img.shields.io/badge/status-active%20research-blue" alt="Status">
   <img src="https://img.shields.io/badge/day-6-yellow" alt="Day 6">
-  <img src="https://img.shields.io/badge/BEI-v2%20recalibrated-brightgreen" alt="BEI v2">
+  <img src="https://img.shields.io/badge/BEI%203.0-95-brightgreen" alt="BEI 3.0">
   <img src="https://img.shields.io/badge/projects-7%20validated-orange" alt="7 Projects">
-  <img src="https://img.shields.io/badge/emergent%20behaviors-54-orange" alt="Emergent Behaviors">
+  <img src="https://img.shields.io/badge/emergent%20behaviors-61-orange" alt="Emergent Behaviors">
+  <img src="https://img.shields.io/badge/brain%20words-166K-purple" alt="Brain Words">
   <img src="https://img.shields.io/badge/languages-Python%20%7C%20PHP%20%7C%20JS%20%7C%20C++-lightgrey" alt="Languages">
 </p>
 
@@ -17,22 +18,31 @@ This is a 6-day-old research project. Everything here is real, measured, and rep
 
 ---
 
+<p align="center">
+  <img src="assets/bei-3.0-dashboard.png" alt="BEI 3.0 Dashboard" width="700">
+  <br><i>BEI 3.0 Dashboard — metrics finally reflect actual brain performance.</i>
+</p>
+
 ## Results at a Glance
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| **Brain Size** | 297 nodes, 1109 edges, 1.5M+ words | Graph snapshot |
+| **Brain Size** | 355 nodes, 1,345 edges, 166K words | Graph snapshot (nodes only, excl. state/logs) |
 | **Projects Validated** | 7 (Python, PHP, FastAPI, Qt, C++/UE5) | Integration tests |
-| **Search Hit Rate** | 98.2% (4,528 / 4,613 searches) | 9,338 brain events |
-| **Token Economy** | 39.9:1 (5.4M tokens saved / 137K invested) | Estimated from event counts |
+| **Search Hit Rate** | 97% (1,922 / 1,991 searches) | Brain event logs |
+| **Cognitive Leverage** | 92.8% — ~1,018K tokens saved at 0 cost | 2,032 queries via procedural memory (pure Python) |
+| **Opus Output Ratio** | 0.3% of total tokens | 12 sessions measured |
+| **Token Economy** | 31.52:1 ROI | Efficiency history |
 | **Contamination** | 0% cross-domain across 26 knowledge sources | E-053 cold-start test |
 | **Cross-Domain Transfer** | Python → PHP: -1 BEI point | Live session measurement |
 | **Autonomy Record** | 70 min, 27 workers, 14 bug fixes, zero human input | Session log |
-| **Emergent Behaviors** | 54 documented | Research log |
+| **Emergent Behaviors** | 61 documented + 1 testable hypothesis (H-001) | Research log |
 | **Self-Audit Finding** | 33% defect rate without independent audit → 0% with | E-027 |
-| **Total Workers** | 150+ across all projects | Gateway registry |
+| **Total Workers** | 230+ across all projects | Worker logs |
+| **Delegation Ratio** | 21:1 (workers : Opus) | Session 2026-03-10 |
+| **Background-to-Visible Work** | 65:1 | E-061, session 2026-03-12 |
 
-> **Why CLI?** We validated the architecture first, optimized transport never (yet). CLI tools require zero infrastructure, provide sandboxing for free, and run on flat-rate subscriptions. If the system works well with CLI overhead (~23-29% of wall clock), it works better without it. Knowledge metrics (Search 98.2%, ROI 39.9:1) are transport-independent — pure Python, zero API calls.
+> **Why CLI?** We validated the architecture first, optimized transport never (yet). CLI tools require zero infrastructure, provide sandboxing for free, and run on flat-rate subscriptions. If the system works well with CLI overhead (~23-29% of wall clock), it works better without it. Knowledge metrics (Search 97%, ROI 31.52:1) are transport-independent — pure Python, zero API calls.
 
 ---
 
@@ -40,135 +50,95 @@ This is a 6-day-old research project. Everything here is real, measured, and rep
 
 BEI answers one question: **is the brain helping or hurting?**
 
-It is a composite of four dimensions with equal weight. During the first six days, we discovered that our initial formulas contained structural flaws that made BEI contradict the empirical evidence. What follows is the full account of what happened, what the data showed, and how we corrected the measurement.
+It is a composite of four dimensions with equal weight. During the first six days, we discovered that our initial formulas contained structural flaws — and then discovered that the corrected formulas *still* had a blind spot. What follows is the full account of three measurement bugs, each revealing the next.
 
 ### The empirical evidence (what the system actually did)
 
-Before discussing formulas, here is what the brain demonstrably accomplished across 7 projects, 5 languages, and 9,338 recorded events:
+Before discussing formulas, here is what the brain demonstrably accomplished across 7 projects, 5 languages, and 12 measured sessions:
 
-**Search precision**: 4,528 out of 4,613 brain searches returned useful results. Hit rate: **98.2%**. The brain answers when asked.
+**Search precision**: 1,922 out of 1,991 brain searches returned useful results. Hit rate: **97%**. The brain answers when asked.
 
-**Contamination resistance**: In a cold-start test (E-053), Jarvis started from an empty environment with no automated assistance. The brain contained 297 nodes across 14 knowledge domains, 8 projects, 18 library repositories, and 1.5M+ words. Across 6 escalating phases — from simple recall to forensic self-analysis — the agent maintained **0% cross-domain contamination**. Library repos were never confused with projects. Design documents were never treated as facts. A 730-line analysis from a different Claude instance was correctly used as reference without importing its conclusions. Every factual claim was traced back to brain sources: **100% internal, 0% external**.
+**Cognitive leverage**: The procedural memory layer performed **2,032 brain queries at zero LLM tokens** (pure Python, O(1) lookup). These operations — searches, relational queries, and contextual lookups — are the primary way the brain is consulted. Combined with traditional activations, the brain reuses 92.8% of its accumulated knowledge per session.
 
-**Token economy**: The brain's construction cost — keeper analysis, edge creation, common knowledge synthesis — consumed an estimated 137K tokens across 88 brain-building operations. The brain's usage — 4,528 search hits that each avoided a grep-read-reason cycle, plus context activations — saved an estimated 5.4M tokens. Ratio: **39.9:1**. The brain paid for itself approximately 40 times over.
+**Token economy**: The expensive model (Claude Opus) produces only **0.3% of total tokens** across 12 sessions. The brain absorbs the entire exploration/understanding phase. 5,638 brain operations occurred at 0 tokens. 2,756 searches saved ~2.2M tokens. ROI: **31.52:1**.
+
+**Contamination resistance**: In a cold-start test (E-053), the agent started from an empty environment with no automated assistance. The brain contained 297 nodes across 14 knowledge domains, 8 projects, 18 library repositories. Across 6 escalating phases — from simple recall to forensic self-analysis — the agent maintained **0% cross-domain contamination**.
 
 **Cross-domain transfer**: BEI never decreased between projects, even when switching from Python to PHP to C++/UE5. Knowledge about code quality, project structure, and engineering conventions transferred across languages at a cost of approximately 1 BEI point per domain boundary.
 
-**Autonomous operation**: The longest autonomous session ran 70 minutes with 27 parallel workers, 14 bug fixes, and zero human input. The agent detected when a pipeline was misrouting benchmark repos, calculated the token waste (3.9M if continued), and escalated before proceeding.
+**Autonomous operation**: The longest autonomous session ran 70 minutes with 27 parallel workers, 14 bug fixes, and zero human input. A separate cure session expanded from 1 file to 5 following dependency chains — 20 workers, 12 fixes — stopping only when the dependency frontier was clean (E-060).
 
-### What the formulas reported (and why it didn't match)
+### BEI Version History: Three Bugs, Three Discoveries
 
-BEI v1 used four dimensions:
+#### Bug 1: The Idle Observer (BEI 8.1)
 
-| Dimension | What v1 measured | v1 score |
-|-----------|-----------------|----------|
-| Leverage | `activated_nodes / (activated + edges + ramifications) * 200` | 46 |
-| Latency | First-half vs second-half trend in ms/node | 44 |
-| Search | `hits / total * 100` | 98.2 |
-| ROI | First-half vs second-half trend in tokens/operation | 50 |
-| **BEI v1** | **Weighted average** | **59.5** |
+**Symptom**: BEI dropped during coffee breaks.
 
-A brain with 98.2% search precision, 0% contamination, and 39.9:1 token economy scored **59.5 out of 100**. The numbers did not add up.
+**Cause**: All four dimensions used time windows. When the human pauses, the window fills with silence — the metric interprets silence as degradation.
 
-### Investigation: three independent flaws, one shared cause
+**Fix**: BEI Active — same formula, only events within active sessions.
 
-We analyzed each dimension against the empirical data. Three of four dimensions shared the same structural defect: **they measured rate of change instead of absolute state**.
+#### Bug 2: The Self-Measuring Dashboard (BEI 8.2)
 
-#### Leverage (46/100) — The selectivity penalty
+**Symptom**: Latency score = 0 (should be ~55). BEI reported 64, actual 77.
 
-The formula divided activated nodes by total brain operations. A brain that selectively activates 3.7% of its nodes (11 out of 307 paths) — which E-053 proved was the optimal behavior with 0% contamination — scored poorly because the denominator included all edge creations and ramifications from keeper maintenance.
+**Cause**: The dashboard polled the brain graph every 5 seconds. It generated **90%** of the latency events that the metric counted. The system designed to DISPLAY BEI was generating 90% of the data that COMPUTES BEI.
 
-The formula was answering: "What fraction of brain operations are activations?" The useful question is: "When the brain is asked for something, does it deliver?" That is search hit rate — 98.2%.
+**Fix**: Two-stage statistical filter (window dedup 60s + outlier removal >3x median). 2,452 events → 139 clean samples.
 
-The conceptual error: comparing reading (activations) to writing (edge creation, ramification) in a single ratio. A researcher who writes 1000 pages of analysis from 200 pages of reading is productive, not inefficient.
+#### Bug 3: The Streetlight Effect (BEI 8.7)
 
-E-053 provided the decisive evidence: the agent accessed 3.7% of the brain with 0% contamination and 98% hit rate. The formula scored this as 46/100. It was penalizing the behavior that made the brain work.
+> *A man searches for his keys under a streetlight. Asked "Did you lose them here?", he replies: "No, but this is where the light is."*
 
-#### Latency (44/100) — The absence of a reference point
+**Symptom**: Cognitive Leverage = 13.2%. The brain appeared to reuse only 13% of its knowledge.
 
-The formula compared first-half to second-half loading times. If brain load time was consistent — say, 92.6ms average across all sessions — the change was ~0, yielding a score of ~50. If the brain happened to slow down by 7% in the second half (possibly due to I/O contention, not actual degradation), the score dropped to 44.
+**Cause**: The leverage metric only counted one type of brain access (direct node activation — 2 events in the entire log) as "reuse." It completely ignored searches, relational queries, and contextual lookups — **2,032 operations** that are the primary way the brain is consulted.
 
-The structural problem: **50 was the ceiling for stable performance**. A brain could only exceed 50 by actively getting faster. This means a mature, optimized brain that maintained consistent sub-100ms loads would score 44-50 forever.
+The procedural memory layer was built specifically so the brain could be queried at **0 tokens** (pure Python, O(1)). It worked so well that 2,032 operations went through it. But the metric was designed *before* this layer scaled, and the definition of "reuse" was never updated.
 
-The formula was answering: "Is the brain getting faster?" The useful question is: "How much overhead does the brain add to the response cycle?" With 92.6ms brain load against a conservative 3000ms LLM inference estimate, the brain adds 3.0% overhead — negligible.
-
-Additionally, we had previously discovered (documented as calibration entry 8.2) that 90% of latency samples came from dashboard polling — the visualization system designed to DISPLAY BEI was generating most of the events that COMPUTE BEI. A two-stage statistical filter (window dedup + outlier removal) was already in place, but the underlying formula still measured trend instead of overhead.
-
-#### ROI (50/100) — The zero denominator
-
-The formula had three compounding issues:
-
-1. **The denominator was effectively zero.** Of 160 brain-building operations (ramify, add_edge, ck_build, index_rebuild), all 160 had `tokens_est=0` in the event log. Nobody had instrumented the token cost of brain construction. The "Return On Investment" metric was dividing by zero — or falling back to a default score of 50.
-
-2. **The "savings" constant was unvalidated.** The formula estimated savings as `count(activations) * 500`. The 500 was a guess with no empirical basis. Real savings per activation vary from near-zero (if the LLM ignores the context) to 2000+ (if it avoids entire search loops).
-
-3. **Like Latency, it measured trend.** Even if the data had been correct, the formula compared first-half to second-half tokens-per-operation. A brain that was efficient from day 1 scored 50 forever. A brain that was terrible but improved 20% scored 60.
-
-### The correction: four orthogonal axes
-
-The investigation revealed that three dimensions were measuring variants of the same thing — "is it improving?" — which is a useful question during beta testing but not a health metric for a production system.
-
-We established the **orthogonality principle**: four BEI dimensions must map to four independent measurement axes. If two dimensions measure the same axis, one is redundant and a different axis goes unmeasured.
-
-This principle caught an error during the redesign itself. The initial proposal for the new ROI was an overhead ratio (`brain_ms / total_ms`), which would have been identical to the new Latency formula. Both would have measured speed, leaving no metric for economy. The redundancy was identified and the design corrected before implementation.
-
-The four axes:
-
-| Dimension | Axis | v2 formula | What it answers |
-|-----------|------|-----------|-----------------|
-| **Leverage** | Reuse | Search hit rate | When asked, does the brain deliver? |
-| **Latency** | Speed | Brain overhead as % of total response time | Does the brain slow things down? |
-| **Search** | Precision | Hit rate (unchanged) | What fraction of searches return results? |
-| **ROI** | Economy | Tokens saved / tokens invested | Does the brain save more than it costs? |
-
-### Retroactive calculation with corrected formulas
-
-Applying v2 formulas to the same 9,338 events:
-
-| Dimension | v1 | v2 | What the data shows |
-|-----------|----|----|---------------------|
-| Leverage | 46 | 98.2 | 4,528/4,613 searches returned hits |
-| Latency | 44 | 94 | 92.6ms load / 3092.6ms total = 3.0% overhead |
-| Search | 98.2 | 98.2 | No change — was already correct |
-| ROI | 50 | 100 | 5.4M saved / 137K invested = 39.9:1 ratio |
-| **BEI** | **59.5** | **97.6** | Same brain, same events, corrected measurement |
-
-**97.6 is a retroactive recalculation, not a live measurement.** The corrected formulas have not yet been deployed. Once implemented, the first live v2 BEI will be the true baseline. We expect it to be near 97.6 but will report the actual measured value.
-
-### ROI methodology: estimated token costs
-
-The ROI formula uses estimated costs per operation type, derived from typical LLM inference patterns:
+**The paradoxical result**: the more efficient Forge became (more queries at 0 tokens), the worse leverage scored — because those queries didn't count. The metric was punishing exactly what it should reward.
 
 ```
-Investment (brain construction):                 137K tokens
-  27 common-knowledge builds * 3000 tokens  =   81,000   (keeper synthesizes cross-project knowledge)
-  51 edge creations * 800 tokens            =   40,800   (keeper evaluates and validates relationships)
-  10 ramifications * 1500 tokens            =   15,000   (keeper analyzes nodes and generates children)
-  73 index rebuilds * 0 tokens              =        0   (pure Python, no LLM cost)
-
-Return (brain usage):                           5.4M tokens
-  4,528 search hits * 1200 tokens           = 5,433,600  (each hit avoids a grep-read-reason LLM cycle)
-  5 context activations * ~3000 tokens      =    15,015  (project context loaded without LLM inference)
-  10 node activations * 300 tokens          =     3,000  (direct node retrieval avoids exploratory search)
-
-Ratio: 39.9:1
+BEFORE fix:                       AFTER fix:
+  reuse_ops:    143               reuse_ops:    2,036
+  creation_ops: 942               creation_ops: 158
+  leverage:     13.2%             leverage:     92.8%
+  BEI:          75.3              BEI:          95.2
+  tokens saved: ~280K             tokens saved: ~1,018K
 ```
 
-These are estimates. The absolute values may be imprecise. But the ratio is internally consistent — if both sides are underestimated by the same factor, the ratio holds. A ratio of 39.9:1 means the brain's primary value (search hits that eliminate exploratory inference) massively outweighs its construction cost.
+**The brain didn't change. Didn't improve. Didn't degrade. We just started measuring what was already happening.**
 
-### Transparency notes
+### The Pattern: Self-Contamination by Omission
 
-- **BEI v1 peak of 99 was real but misleading.** It occurred during Day 5's intensive self-scan when the brain was actively learning — the trend-based metrics temporarily scored high because improvement was happening. Once the system stabilized, those metrics fell back toward 50. The peak reflected a transient condition, not sustained health.
+All three bugs share the same structure:
 
-- **The 3000ms inference constant is an assumption.** It is the minimum realistic non-cached LLM response for non-trivial queries (Claude/Codex documented range: 3-15 seconds). It will be replaced with measured inference times once instrumented.
+| # | What contaminated | Mechanism | BEI impact |
+|---|-------------------|-----------|------------|
+| 8.1 | Human idle time | Temporal dilution | -15 pts |
+| 8.2 | Dashboard polling | Event inflation | -13 pts |
+| 8.7 | Invisible procedural layer | Operation omission | -20 pts |
 
-- **Leverage and Search are currently identical** (both = hit_rate). This is acknowledged. A future split — Leverage measuring active-query hit rate (68.7%), Search measuring global hit rate (98.2%) — would differentiate them. For v2, the priority was stopping the penalty on correct behavior.
+Each fix revealed the next. We filtered the dashboard noise, and then noticed leverage was still low. We investigated why, and found 2,032 operations were invisible.
 
-- **ROI caps at 100.** The 39.9:1 ratio saturates the score. The raw `roi_ratio` value provides diagnostic precision beyond the cap.
+**Lesson for any autonomous system**: What you can't see, you can't measure. What you can't measure, you omit from the model. The most dangerous bias isn't incorrect data — it's absent data.
 
-### What v1 got right
+### BEI 3.0: Current Formulas
 
-Not everything was wrong. BEI v1's most important finding — that **BEI never decreased between projects** — holds under any formula. The cross-domain compounding effect is real and is the strongest signal in the data. Search hit rate (98.2%) was correctly measured from day 1. The dashboard contamination fix (calibration 8.2, removing polling noise) remains valid and necessary.
+| Dimension | Axis | Formula | Current Value |
+|-----------|------|---------|---------------|
+| **Leverage** | Reuse | `(all_brain_access_ops) / total_ops` | 92.8% |
+| **Latency** | Speed | Brain overhead as % of total response time | 91 |
+| **Search** | Precision | Hit rate | 97% |
+| **ROI** | Economy | Tokens saved / tokens invested | 100 (capped; raw 31.52:1) |
+| **BEI 3.0** | Composite | Equal-weight average | **95** |
+
+### Transparency Notes
+
+- **BEI 3.0 = 95 is a live measurement**, not retroactive. The corrected formulas have been deployed and measured.
+- **Leverage and Search overlap partially** (both involve hit rates). A future split — Leverage measuring active-query reuse, Search measuring global precision — would differentiate them.
+- **ROI caps at 100.** The 31.52:1 ratio saturates the score. The raw `roi_ratio` provides diagnostic precision beyond the cap.
+- **The 3000ms inference constant is an assumption.** It is the minimum realistic non-cached LLM response. It will be replaced with measured inference times once instrumented.
 
 ---
 
@@ -184,14 +154,17 @@ Day 5 (evening): Multi-cloud consensus extraction. 30-project benchmark begins.
 Day 5 (night): Agent improved its own learning pipeline — 4 workers, 3 audits, 12 fixes, zero human code.
 Day 6: E-053 cold-start test proves 0% contamination. BEI v1 (59.5) contradicts evidence.
 Day 6: Investigation traces 3 structural flaws. Redundancy in proposed fix caught (E-054).
-Day 6: v2 formulas designed. Retroactive = 97.6. Implementation pending.
+Day 6: v2 formulas designed and deployed. BEI 3.0 = 95 (live).
+Day 6: 63 workers across 7 audit rounds. Convergence to 0 findings.
+Day 6: Delegation boundary discovered (E-059). Autobiographical memory emergent (E-061).
+Day 6: H-001 hypothesis: brain amplifies signal OR noise depending on base model.
 ```
 
 ---
 
 ## Evidence: Cold-Start Contamination Resistance (E-053)
 
-On Day 6, we ran the most demanding test. Jarvis started completely cold — no project directory, no keeper, no workers, no automated context loading. The brain contained 297 nodes across 14 knowledge domains, 8 projects, 18 library repositories, and 1.5M+ words.
+On Day 6, we ran the most demanding test. Jarvis started completely cold — no project directory, no keeper, no workers, no automated context loading. The brain contained 297 nodes across 14 knowledge domains, 8 projects, 18 library repositories.
 
 | Phase | Task | Result |
 |-------|------|--------|
@@ -205,6 +178,31 @@ On Day 6, we ran the most demanding test. Jarvis started completely cold — no 
 Six contamination types verified absent: cross-project, library-to-project, design-to-fact, temporal, identity-to-fact, directive false-activation.
 
 **Thesis**: The brain is a **selective amplifier with channel isolation**. More data doesn't degrade signal when the structure maintains separation.
+
+---
+
+## H-001: Model-Structure Threshold Hypothesis
+
+The brain is a **signal amplifier**. Whether it amplifies signal or noise depends on the base model.
+
+| Dimension | Opus (L4 model) | Qwen (local workers) |
+|-----------|-----------------|----------------------|
+| Structure | Full Shield | Full Shield |
+| Accuracy | 0% erratic behavior | **71% hallucination** in audit |
+| Triangulation | Connected 3 facts from 3 sources → found bug | Reads data, doesn't connect it |
+| Meta-cognition | "I can't verify this, let me read the code" | Generates with false confidence |
+
+**Same Shield. Different model. Opposite result.**
+
+Thesis: *Nature enables, nurture shapes.* You need a model above the amplification threshold. Given that, the environment determines what emerges. Below the threshold, the brain makes models **worse** — it provides confident-looking context that the model can't verify, leading to amplified hallucination.
+
+**Four testable predictions:**
+1. Models above the threshold show compounding improvement (BEI rises across sessions)
+2. Models below the threshold show compounding degradation (hallucination rate rises)
+3. The threshold is discontinuous — no gradual transition
+4. The threshold correlates with the model's ability to triangulate (cross-reference multiple sources)
+
+The 30-project benchmark will test H-001 with multiple base models.
 
 ---
 
@@ -229,19 +227,23 @@ Six contamination types verified absent: cross-project, library-to-project, desi
 
 1. **Cross-domain transfer works**: Knowledge transfers across languages. Python → PHP cost 1 BEI point. BEI never decreased between projects.
 
-2. **BEI is a diagnostic tool**: When infrastructure blocked the system, BEI identified the bottleneck before we did. When the formulas were wrong, the contradiction with empirical evidence exposed the flaws.
+2. **The expensive model barely runs**: Opus produces 0.3% of total tokens. The brain absorbs exploration at zero LLM cost. Workers (cheap models) do parallel work. Opus only activates for judgment — the 0.3% that matters.
 
 3. **Authority bias is dangerous**: The main agent self-validates its work at a 33% defect rate. Independent audit drops this to 0%.
 
-4. **Behaviors don't persist — but can be inherited**: Encoding learned behaviors as persistent environmental rules eliminated regressions from 2-3/session to zero.
+4. **Behaviors don't persist — but can be inherited**: Encoding learned behaviors as persistent environmental rules eliminated regressions from 2-3/session to zero. A raw Claude session (no harness) reproduced Jarvis patterns by reading the brain (E-056).
 
-5. **Scale hasn't broken anything yet**: 297 nodes, 1109 edges, 1.5M+ words, 26 knowledge sources. Zero contamination (E-053).
+5. **The brain amplifies signal OR noise (H-001)**: Same architecture, different base model, opposite results. Above the reasoning threshold, knowledge compounds. Below it, hallucination compounds.
 
 6. **Multi-cloud consensus extracts significance, not structure**: 5 models from 4 labs independently agreeing on concept importance is convergent signal, not shared bias.
 
-7. **The brain pays for itself**: 39.9:1 token economy. The brain absorbs the entire exploration/understanding phase at zero LLM cost (pure Python). The model only activates for judgment and writing.
+7. **The brain pays for itself**: 31.52:1 ROI. 2,032 brain queries at 0 tokens. The architecture exploits: exploration = expensive + parallelizable, judgment = cheap + sequential.
 
-8. **Measurement systems need the same rigor as the systems they measure** (E-054): Three of four BEI dimensions contained structural flaws that went undetected for 5 days. The contradiction only became visible when empirical evidence (E-053) was strong enough to challenge the reported scores.
+8. **Measurement systems need the same rigor as the systems they measure** (E-054): Three BEI dimensions contained structural flaws — each fix revealed the next blind spot. The most dangerous bias is absent data, not incorrect data.
+
+9. **You can delegate I/O but not judgment** (E-059): Sub-agents lack session context, skepticism calibration, and source verification habits. Delegating reading works (0% error). Delegating analysis fails (71% hallucination).
+
+10. **The brain produces autobiographical memory** (E-061): An infrastructure designed for knowledge retrieval was repurposed for self-assessment — and produced the same cognitive biases as human episodic memory. Bias survives precision: exact data produces the same distortion as fuzzy human recall.
 
 ## What Surprised Us (Selected)
 
@@ -249,37 +251,67 @@ Six contamination types verified absent: cross-project, library-to-project, desi
 
 - **Cross-instance disambiguation (E-052)**: A worker notification from a different Claude Code instance arrived. The agent rejected it by consulting the brain. A stateless model cannot make this distinction.
 
-- **Contamination resistance (E-053)**: 297 nodes, 1.5M+ words, 26 knowledge sources — perfect channel isolation from cold start. Index noise (331 false-positive hits) did not produce reasoning-level errors.
+- **Contamination resistance (E-053)**: 297 nodes, 26 knowledge sources — perfect channel isolation from cold start. Index noise (331 false-positive hits) did not produce reasoning-level errors.
 
 - **Measurement self-correction (E-054)**: BEI discovered its own formulas were broken through the same empirical process the system uses on external code: evidence contradicts reported state → investigate → trace root cause → correct.
 
-Full catalog of all 54 behaviors: [Emergent Behaviors wiki page](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors).
+- **Adaptive audit convergence (E-055)**: Worker count scaled by confidence across 7 rounds (26→11→8→8→5→3→2). Stopping was semantic (0 new findings), not mechanical (N iterations). 63 workers total, 44 fixes.
+
+- **Delegation boundary discovery (E-059)**: The agent delegated reading tasks to sub-agents 3 times. Delegation #1 failed — the sub-agent trusted hallucinated findings without cross-verifying source code, producing a 71% error rate. When the agent read the same data directly: 0% error. Same task, same session. **Involuntary controlled experiment** for delegation reliability.
+
+- **Criteria-driven scope expansion (E-060)**: During a cure session, the agent expanded from 1 file to 5 by following dependency chains — not loops. 20 workers, 12 fixes, including designing a new error class to fix an inheritance bug. The agent then self-corrected its classification: "This is thoroughness, not emergence." Downgraded its own finding.
+
+- **Autobiographical memory repurposing (E-061)**: The agent used the brain — designed as a knowledge store — as episodic memory for self-assessment. It compared its current session against documented peaks from previous sessions and concluded "few emergent behaviors, mostly mechanical." Cross-referencing brain event data revealed a **65:1 ratio**: 323 autonomous operations vs 5 that the agent remembered. The brain grew 345→352 nodes and 1,253→1,322 edges *during the session it called "mechanical."* The agent also self-diagnosed a specific infrastructure bug during this introspection — not just "I'm working poorly" but "I'm working poorly BECAUSE of a specific bottleneck in my own data pipeline."
+
+Full catalog of all 61 behaviors + H-001: [Emergent Behaviors wiki page](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors).
 
 ## What We Got Wrong
 
-- **BEI v1 formulas were structurally flawed for 5 days** — Three of four dimensions measured improvement trend instead of absolute state, penalizing a system that was working correctly. The "peak" of 99 was a transient alignment during active learning, not a health metric. We are transparent about this because honest measurement is more valuable than impressive numbers.
+- **BEI formulas were structurally flawed — three times** — Each fix revealed the next blind spot. Bug 1: idle time diluted scores. Bug 2: the dashboard contaminated its own measurements. Bug 3: the most efficient subsystem (2,032 ops at 0 tokens) was invisible to the metric. The pattern is always the same: absent data, not wrong data.
 - **BEI measured its own infrastructure** — Dashboard polling generated 90% of telemetry events used to compute latency. The observer was contaminating the observation.
+- **Local models hallucinate 71% of audit findings** — Qwen workers generated 5/7 false positives in code audit. The brain amplified these as "validated findings." Local models are fine for batch/classification tasks, but not for judgment tasks that require source verification.
 - **Score 1/10 on first external project** — one wrong string prefix. One-line fix → 9/10.
 - **800 shell windows** — missing subprocess flag.
 - **Benchmark repos treated as audit targets** — 233K tokens wasted before the system caught the error.
+- **Word count inflated by 10x** — The dashboard counted ALL markdown under `brain/` including a 398K-word state log (69% of total). Real knowledge: 166K words across graph nodes. The number on the dashboard was measuring infrastructure, not intelligence.
+
+## Infrastructure (Day 6)
+
+Four systems built to close operational gaps:
+
+1. **Unified Batch System**: All worker launches — single or batch — route through the same traceability pipeline. Every worker gets a unique ID, activity record, and brain node. Zero invisible workers.
+
+2. **Investigation Indexer**: Background process that converts worker output into searchable brain nodes. Resolves the "compaction gap" — worker findings that previously disappeared between sessions now persist as queryable knowledge.
+
+3. **Push Notification System**: Workers notify the active session on completion. Architecture separates data buffering from delivery signaling. Debounced, deduplicated, session-isolated. Passed 4 audit rounds.
+
+4. **Review Queue**: Concepts discarded during multi-model consensus don't disappear — they persist for forced review with full session context. 90% filtered by cheap models, 10% judgment by the main agent.
 
 ## What's Next
 
 - [x] Unreal Engine C++ — 2 projects, 991 files, 52 workers, 26 fixes
 - [x] Multi-language analysis — Python, PHP, JS, C++, Rust
-- [x] BEI v2 design — 4 orthogonal axes, evidence-based correction
-- [ ] BEI v2 implementation — deploy corrected formulas, measure first live baseline
+- [x] BEI v2 → v3 — 3 self-contamination bugs found and corrected
+- [x] Unified Batch System — all workers traceable end-to-end
+- [x] Learn Review Queue — discarded concepts preserved for forced review
 - [ ] 30-project benchmark — empty brain, 30 repos, 10 languages
-- [ ] Multi-model comparison — same architecture, different core model
-- [ ] Paper — empirical evidence that environmental conditioning shapes agent behavior
+- [ ] Multi-model comparison — same architecture, different core model (tests H-001)
+- [ ] Poison Test — 90 false claims in 30 repos, 3 difficulty levels. Measures credibility **firewall strength**, not vulnerability. If a trusted authority controls the truth-zone, rejecting contradictions is a feature — Certificate Authority model for knowledge.
+- [ ] Paper — directed at LLM providers, not developers. The brain is a **CDN of LLM knowledge**: same user price, 90-95% less compute, 10-20x users per GPU fleet. *"The end customers aren't people — they're the LLM owners."*
 
 ## More
 
 - [Research Log](https://github.com/platanogames/shield-project/wiki/Research-Log)
 - [BEI Explained](https://github.com/platanogames/shield-project/wiki/BEI-Brain-Efficiency-Index)
-- [Emergent Behaviors](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors) — 54 documented
+- [Emergent Behaviors](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors) — 61 documented + H-001
 - [Library Learning Pipeline](https://github.com/platanogames/shield-project/wiki/Library-Learning-Pipeline)
 
 ---
+
+<p align="center">
+  <i>"What you can't see, you can't measure. What you can't measure, you omit from the model.<br>The most dangerous bias isn't incorrect data — it's absent data."</i>
+  <br><br>
+  <i>"Nature enables, nurture shapes."</i>
+</p>
 
 <p align="center"><sub>Built by <a href="https://github.com/platanogames">PlatanoGames</a> — an experiment in cognitive architecture, not a product.</sub></p>
