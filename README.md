@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/BEI%203.0-95-brightgreen" alt="BEI 3.0">
   <img src="https://img.shields.io/badge/projects-7%20validated-orange" alt="7 Projects">
   <img src="https://img.shields.io/badge/emergent%20behaviors-62%20%2B%202H%20%2B%204X-orange" alt="Emergent Behaviors">
-  <img src="https://img.shields.io/badge/brain-512%20nodes%20%7C%20664K%20words-purple" alt="Brain">
+  <img src="https://img.shields.io/badge/brain-512%20nodes%20%7C%20200K%20words-purple" alt="Brain">
   <img src="https://img.shields.io/badge/languages-Python%20%7C%20PHP%20%7C%20JS%20%7C%20C++-lightgrey" alt="Languages">
 </p>
 
@@ -45,7 +45,7 @@ This thesis predates and is independent of any concurrent work on LLM environmen
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| **Brain Size** | 512 nodes, 664K words | Graph snapshot (2026-03-14) |
+| **Brain Size** | 512 nodes, 200K words | Graph snapshot (2026-03-14) |
 | **Projects Validated** | 7 (Python, PHP, FastAPI, Qt, C++/UE5) | Integration tests |
 | **Search Hit Rate** | 97% (1,922 / 1,991 searches) | Brain event logs |
 | **Cognitive Leverage** | 92.8% — ~1,018K tokens saved at 0 cost | 2,032 queries via procedural memory (pure Python) |
