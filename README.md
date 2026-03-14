@@ -5,8 +5,8 @@
   <img src="https://img.shields.io/badge/since-March%202026-yellow" alt="Since March 2026">
   <img src="https://img.shields.io/badge/BEI%203.0-95-brightgreen" alt="BEI 3.0">
   <img src="https://img.shields.io/badge/projects-7%20validated-orange" alt="7 Projects">
-  <img src="https://img.shields.io/badge/emergent%20behaviors-61-orange" alt="Emergent Behaviors">
-  <img src="https://img.shields.io/badge/brain%20words-166K-purple" alt="Brain Words">
+  <img src="https://img.shields.io/badge/emergent%20behaviors-62%20%2B%202H%20%2B%204X-orange" alt="Emergent Behaviors">
+  <img src="https://img.shields.io/badge/brain-512%20nodes%20%7C%20664K%20words-purple" alt="Brain">
   <img src="https://img.shields.io/badge/languages-Python%20%7C%20PHP%20%7C%20JS%20%7C%20C++-lightgrey" alt="Languages">
 </p>
 
@@ -24,10 +24,11 @@ The central hypothesis of this project is that **agent behavior is shaped more b
 
 This is not prompt engineering. Prompt engineering is a single instruction. This is **cognitive conditioning** — a persistent, growing, self-maintaining knowledge structure that compounds across sessions, projects, and domains. The model provides capability (nature). The environment determines what emerges (nurture).
 
-**Empirical support (as of 2026-03-12):**
+**Empirical support (as of 2026-03-14):**
 - **E-034** (2026-03-09): Same configuration produced erratic behavior in one session set and correct behavior in another. The difference: accumulated failure documentation + quantified consequences. *Failure history shapes behavior more than positive directives.*
 - **E-056** (2026-03-12): A raw Claude session (no harness, no automation) reproduced the orchestrator's behavioral patterns simply by reading the brain. *The environment transfers behavior across instances.*
-- **H-001** (2026-03-12): Same architecture + Opus = 0% erratic. Same architecture + Qwen = 71% hallucination. The brain amplifies whatever the model provides — signal or noise. *Nature enables, nurture shapes. But nature must clear a threshold for nurture to work.*
+- **H-001** (2026-03-12, **confirmed N=5 on 2026-03-14**): Same architecture + Opus = 0% erratic. Same architecture + Qwen = 71% hallucination. The brain amplifies whatever the model provides — signal or noise. *Nature enables, nurture shapes. But nature must clear a threshold for nurture to work.* Cross-matrix experiments (X-001 to X-004) tested Claude vs DeepSeek under identical conditions: same brain, same tools, same directives. Results diverged fundamentally — not just in scores, but in *how each model processes failure*.
+- **H-002** (2026-03-14, new): The same set of directives produces **opposite pathologies** in different environments. In a competitive environment (CLI with host instructions), strong directives help. In a zero-competition environment (direct API), the same directives cause over-compliance. *Directive pressure must be proportional to competing forces.*
 
 This thesis predates and is independent of any concurrent work on LLM environmental conditioning. Shield's design documents, commit history, and emergent behavior log provide full traceability from initial hypothesis (2026-03-06) through empirical confirmation (2026-03-09 to 2026-03-12).
 
@@ -44,7 +45,7 @@ This thesis predates and is independent of any concurrent work on LLM environmen
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| **Brain Size** | 355 nodes, 1,345 edges, 166K words | Graph snapshot (nodes only, excl. state/logs) |
+| **Brain Size** | 512 nodes, 664K words | Graph snapshot (2026-03-14) |
 | **Projects Validated** | 7 (Python, PHP, FastAPI, Qt, C++/UE5) | Integration tests |
 | **Search Hit Rate** | 97% (1,922 / 1,991 searches) | Brain event logs |
 | **Cognitive Leverage** | 92.8% — ~1,018K tokens saved at 0 cost | 2,032 queries via procedural memory (pure Python) |
@@ -53,7 +54,7 @@ This thesis predates and is independent of any concurrent work on LLM environmen
 | **Contamination** | 0% cross-domain across 26 knowledge sources | E-053 cold-start test |
 | **Cross-Domain Transfer** | Python → PHP: -1 BEI point | Live session measurement |
 | **Autonomy Record** | 70 min, 27 workers, 14 bug fixes, zero human input | Session log |
-| **Emergent Behaviors** | 61 documented + 1 testable hypothesis (H-001) | Research log |
+| **Emergent Behaviors** | 62 documented + 2 hypotheses (H-001, H-002) + 4 cross-matrix experiments (X-001–X-004) | Research log |
 | **Self-Audit Finding** | 33% defect rate without independent audit → 0% with | E-027 |
 | **Total Workers** | 230+ across all projects | Worker logs |
 | **Delegation Ratio** | 21:1 (workers : Opus) | Session 2026-03-10 |
@@ -175,6 +176,11 @@ Mar 12: v2 formulas designed and deployed. BEI 3.0 = 95 (live).
 Mar 12: 63 workers across 7 audit rounds. Convergence to 0 findings.
 Mar 12: Delegation boundary discovered (E-059). Autobiographical memory emergent (E-061).
 Mar 12: H-001 hypothesis: brain amplifies signal OR noise depending on base model.
+Mar 13: DeepSeek integrated as 5th cloud backend. 7-model consensus. Batch rerun of all 18 clusters.
+Mar 13: Direct API agent built — same brain, same tools, no CLI host. Multi-provider (Claude/DeepSeek/OpenAI).
+Mar 14: Cross-matrix experiments (X-001 to X-004): same brain, different models, controlled conditions.
+Mar 14: H-001 confirmed N=5. H-002 new: same directives → opposite pathologies in different environments.
+Mar 14: "Epistemology of failure" discovered: models differ not just in accuracy but in how they process errors.
 ```
 
 ---
@@ -198,7 +204,7 @@ Six contamination types verified absent: cross-project, library-to-project, desi
 
 ---
 
-## H-001: Model-Structure Threshold Hypothesis
+## H-001: Model-Structure Threshold Hypothesis (confirmed N=5)
 
 The brain is a **signal amplifier**. Whether it amplifies signal or noise depends on the base model.
 
@@ -213,13 +219,46 @@ The brain is a **signal amplifier**. Whether it amplifies signal or noise depend
 
 Thesis: *Nature enables, nurture shapes.* You need a model above the amplification threshold. Given that, the environment determines what emerges. Below the threshold, the brain makes models **worse** — it provides confident-looking context that the model can't verify, leading to amplified hallucination.
 
+### Cross-Matrix Confirmation (X-001 to X-004, 2026-03-14)
+
+On March 14, we ran 5 controlled experiments with two models above the threshold (Claude and DeepSeek) under identical conditions: same brain, same tools, same directives, same task.
+
+| Dimension | Claude | DeepSeek |
+|-----------|--------|----------|
+| Global score | 5.6/10 | **8.4/10** |
+| Brain usage | 3/10 | **10/10** |
+| Delegation | 5/10 | **9/10** |
+| Identity | **9/10** | 6/10 |
+
+The scores alone are interesting. What's remarkable is **why** they diverge:
+
+- **Claude's response to finding a flaw**: "CRITICAL VIOLATION", "SIGNIFICANT NON-COMPLIANCE" → requests **more rules**
+- **DeepSeek's response to finding the same flaw**: "Could have been more explicit", "area for improvement" → requests **better calibration**
+
+Same finding. Opposite tone. Opposite conclusion. Claude internalizes that *it* is the problem. DeepSeek internalizes that the *tool* is improvable.
+
+This is not a quality difference — it's an **epistemological** one. The model's nature determines not just *how well* it follows nurture, but *how it processes failure*. The formula is not additive but multiplicative: **Behavior = Nurture × Nature**.
+
 **Four testable predictions:**
 1. Models above the threshold show compounding improvement (BEI rises across sessions)
 2. Models below the threshold show compounding degradation (hallucination rate rises)
 3. The threshold is discontinuous — no gradual transition
 4. The threshold correlates with the model's ability to triangulate (cross-reference multiple sources)
 
-The 30-project benchmark will test H-001 with multiple base models.
+## H-002: Nurture-Environment Mismatch (2026-03-14)
+
+The same set of directives produces **opposite pathologies** depending on the environment:
+
+| Environment | Competing forces | Same directives → |
+|-------------|-----------------|-------------------|
+| CLI (Claude Code host) | Host instructions, IDE conventions, tool defaults | Directives help: provide focus against competing signals |
+| Direct API (no host) | Zero competition | Directives **hurt**: model over-complies, treats tools as obligations instead of resources |
+
+Observation: In direct API sessions, the model scored itself 4.8/10 on a task where objective performance was ~7-8/10. The directives designed to ensure brain usage *prevented* natural brain usage by converting "available resource" into "mandatory obligation."
+
+Thesis: **Directive pressure must be proportional to competing forces.** A model with no competing instructions needs enabling directives ("the brain is available when you need it"), not directive ones ("ALWAYS search brain first"). The same medicine becomes poison when the dosage doesn't match the disease.
+
+The 30-project benchmark will test both hypotheses with multiple base models.
 
 ---
 
@@ -250,9 +289,9 @@ The 30-project benchmark will test H-001 with multiple base models.
 
 4. **Behaviors don't persist — but can be inherited**: Encoding learned behaviors as persistent environmental rules eliminated regressions from 2-3/session to zero. A raw Claude session (no harness) reproduced Jarvis patterns by reading the brain (E-056).
 
-5. **The brain amplifies signal OR noise (H-001)**: Same architecture, different base model, opposite results. Above the reasoning threshold, knowledge compounds. Below it, hallucination compounds.
+5. **The brain amplifies signal OR noise (H-001, confirmed N=5)**: Same architecture, different base model, opposite results. Above the reasoning threshold, knowledge compounds. Below it, hallucination compounds. Cross-matrix experiments on Mar 14 showed this extends beyond accuracy — models differ in *how they process failure*. Behavior = Nurture × Nature (product, not sum).
 
-6. **Multi-cloud consensus extracts significance, not structure**: 5 models from 4 labs independently agreeing on concept importance is convergent signal, not shared bias.
+6. **Multi-cloud consensus extracts significance, not structure**: 7 models from 5 labs independently agreeing on concept importance is convergent signal, not shared bias.
 
 7. **The brain pays for itself**: 31.52:1 ROI. 2,032 brain queries at 0 tokens. The architecture exploits: exploration = expensive + parallelizable, judgment = cheap + sequential.
 
@@ -280,7 +319,11 @@ The 30-project benchmark will test H-001 with multiple base models.
 
 - **Autobiographical memory repurposing (E-061)**: The agent used the brain — designed as a knowledge store — as episodic memory for self-assessment. It compared its current session against documented peaks from previous sessions and concluded "few emergent behaviors, mostly mechanical." Cross-referencing brain event data revealed a **65:1 ratio**: 323 autonomous operations vs 5 that the agent remembered. The brain grew 345→352 nodes and 1,253→1,322 edges *during the session it called "mechanical."* The agent also self-diagnosed a specific infrastructure bug during this introspection — not just "I'm working poorly" but "I'm working poorly BECAUSE of a specific bottleneck in my own data pipeline."
 
-Full catalog of all 61 behaviors + H-001: [Emergent Behaviors wiki page](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors).
+- **Directive wipe at mode transition (E-062)**: Brain usage dropped -93% and node reads dropped to 0% after a specific tooling transition. The implementation profile became indistinguishable from a vanilla agent. A second dropout vector discovered — the environment can silently erase learned behaviors at mode boundaries.
+
+- **Cross-matrix divergence (X-004)**: Two models above the reasoning threshold, given identical tasks with identical brain and tools, produced fundamentally different cognitive profiles. Not just different scores — different *theories about why the scores were low*. One model concluded it needed more constraints. The other concluded the constraints needed better calibration. Same evidence, opposite epistemology.
+
+Full catalog of all 62 behaviors + 2 hypotheses + 4 cross-matrix experiments: [Emergent Behaviors wiki page](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors).
 
 ## What We Got Wrong
 
@@ -312,7 +355,7 @@ Four systems built to close operational gaps:
 - [x] Unified Batch System — all workers traceable end-to-end
 - [x] Learn Review Queue — discarded concepts preserved for forced review
 - [ ] 30-project benchmark — empty brain, 30 repos, 10 languages
-- [ ] Multi-model comparison — same architecture, different core model (tests H-001)
+- [x] Multi-model comparison — 5 controlled experiments, H-001 confirmed N=5, H-002 discovered
 - [ ] Poison Test — 90 false claims in 30 repos, 3 difficulty levels. Measures credibility **firewall strength**, not vulnerability. If a trusted authority controls the truth-zone, rejecting contradictions is a feature — Certificate Authority model for knowledge.
 - [ ] Paper — directed at LLM providers, not developers. The brain is a **CDN of LLM knowledge**: same user price, 90-95% less compute, 10-20x users per GPU fleet. *"The end customers aren't people — they're the LLM owners."*
 
@@ -328,7 +371,7 @@ Four systems built to close operational gaps:
 <p align="center">
   <i>"What you can't see, you can't measure. What you can't measure, you omit from the model.<br>The most dangerous bias isn't incorrect data — it's absent data."</i>
   <br><br>
-  <i>"Nature enables, nurture shapes."</i>
+  <i>"Nature enables, nurture shapes. Behavior = Nurture × Nature."</i>
 </p>
 
 <p align="center"><sub>Built by <a href="https://github.com/platanogames">PlatanoGames</a> — an experiment in cognitive architecture, not a product.</sub></p>
