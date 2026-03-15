@@ -3,10 +3,10 @@
 <p align="center">
   <img src="https://img.shields.io/badge/status-active%20research-blue" alt="Status">
   <img src="https://img.shields.io/badge/since-March%202026-yellow" alt="Since March 2026">
-  <img src="https://img.shields.io/badge/BEI%203.0-95-brightgreen" alt="BEI 3.0">
+  <img src="https://img.shields.io/badge/brain-1184%20nodes-purple" alt="BEI 3.0">
   <img src="https://img.shields.io/badge/projects-7%20validated-orange" alt="7 Projects">
-  <img src="https://img.shields.io/badge/emergent%20behaviors-62%20%2B%202H%20%2B%204X-orange" alt="Emergent Behaviors">
-  <img src="https://img.shields.io/badge/brain-512%20nodes%20%7C%20200K%20words-purple" alt="Brain">
+  <img src="https://img.shields.io/badge/emergent%20behaviors-67%2B%20%2B%202H%20%2B%204X-orange" alt="Emergent Behaviors">
+  <img src="https://img.shields.io/badge/forge-14%20tools%20%7C%2030%20scaffolds-yellow" alt="Brain">
   <img src="https://img.shields.io/badge/languages-Python%20%7C%20PHP%20%7C%20JS%20%7C%20C++-lightgrey" alt="Languages">
 </p>
 
@@ -45,7 +45,7 @@ This thesis predates and is independent of any concurrent work on LLM environmen
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| **Brain Size** | 512 nodes, 200K words | Graph snapshot (2026-03-14) |
+| **Brain Size** | 1,184 nodes, 5,606 edges, 4,489 keywords | Graph snapshot (2026-03-15) |
 | **Projects Validated** | 7 (Python, PHP, FastAPI, Qt, C++/UE5) | Integration tests |
 | **Search Hit Rate** | 97% (1,922 / 1,991 searches) | Brain event logs |
 | **Cognitive Leverage** | 92.8% — ~1,018K tokens saved at 0 cost | 2,032 queries via procedural memory (pure Python) |
@@ -54,9 +54,13 @@ This thesis predates and is independent of any concurrent work on LLM environmen
 | **Contamination** | 0% cross-domain across 26 knowledge sources | E-053 cold-start test |
 | **Cross-Domain Transfer** | Python → PHP: -1 BEI point | Live session measurement |
 | **Autonomy Record** | 70 min, 27 workers, 14 bug fixes, zero human input | Session log |
-| **Emergent Behaviors** | 62 documented + 2 hypotheses (H-001, H-002) + 4 cross-matrix experiments (X-001–X-004) | Research log |
+| **Emergent Behaviors** | 67+ documented + 2 hypotheses (H-001, H-002) + 4 cross-matrix experiments (X-001–X-004) | Research log |
 | **Self-Audit Finding** | 33% defect rate without independent audit → 0% with | E-027 |
 | **Total Workers** | 230+ across all projects | Worker logs |
+| **Forge** | 14 registered tools + 30 indexed scaffolds | Tool registry |
+| **LLM Backends** | 7 models from 5 labs (Anthropic, OpenAI, DeepSeek, Google, Alibaba) | Model router |
+| **Investigation Cluster** | 138 curated nodes, 0-token lookup | Brain cluster |
+| **Traceability Test** | 10-day reconstruction from 22 queries, 0 factual errors | 2026-03-15 |
 | **Delegation Ratio** | 21:1 (workers : Opus) | Session 2026-03-10 |
 | **Background-to-Visible Work** | 65:1 | E-061, session 2026-03-12 |
 
@@ -151,6 +155,12 @@ Each fix revealed the next. We filtered the dashboard noise, and then noticed le
 | **ROI** | Economy | Tokens saved / tokens invested | 100 (capped; raw 31.52:1) |
 | **BEI 3.0** | Composite | Equal-weight average | **95** |
 
+### BEI Beyond 3.0: Why There Is No Single Score Anymore
+
+As of 2026-03-13, BEI evolved from a composite score (4 dimensions, 0-100) to a **raw activation counter** (events per session, incrementing indefinitely). The reason: BEI Active was consistently at 97-100 — a saturated metric provides no signal. The raw counter is less elegant but more honest: if the brain was consulted 300 times in a session, that is the metric. No normalization, no cap, no self-contamination.
+
+The BEI 3.0 score of 95 remains valid as the last calibrated measurement. All subsequent sessions use the raw counter.
+
 ### Transparency Notes
 
 - **BEI 3.0 = 95 is a live measurement**, not retroactive. The corrected formulas have been deployed and measured.
@@ -181,6 +191,12 @@ Mar 13: Direct API agent built — same brain, same tools, no CLI host. Multi-pr
 Mar 14: Cross-matrix experiments (X-001 to X-004): same brain, different models, controlled conditions.
 Mar 14: H-001 confirmed N=5. H-002 new: same directives → opposite pathologies in different environments.
 Mar 14: "Epistemology of failure" discovered: models differ not just in accuracy but in how they process errors.
+Mar 15: CURE MODE: auto-repaired 260 broken links, deleted 7 garbage nodes. Brain: 1,184 nodes, HEALTHY.
+Mar 15: Spatial Traceability Test: 10 days of development reconstructed from 22 brain queries alone. 0 errors.
+Mar 15: E-067: Positive Nurture Contamination — agent self-detected a gap (33 refs, 0 node) unprompted.
+Mar 15: Forge classification: 14 tools registered + 30 scaffolds indexed (DEVELOP/SCAFFOLD/DISCARD tiers).
+Mar 15: Incremental scan pipeline: git delta analysis avoids full re-scans. Auto-consolidation at 3 incrementals.
+Mar 15: Investigation Cluster: 138 curated Problem->Solution->Resolution nodes. 0-token TF-IDF lookup.
 ```
 
 ---
@@ -262,6 +278,32 @@ The 30-project benchmark will test both hypotheses with multiple base models.
 
 ---
 
+## Spatial Traceability Test (2026-03-15)
+
+At 1,184 nodes, can the brain reconstruct project history from queries alone?
+
+**Method**: 22 brain searches targeting temporal markers and milestones. Zero git commands, zero filesystem access. Only the indexed graph.
+
+**Result**: Complete 10-day development timeline reconstructed with **0 factual errors** and 1,589 evidence matches across all queries. Every milestone, every fix, every decision traced to its source with dates and evidence.
+
+**Gap detected during test**: DeepSeek appeared in 33 brain references (experiments, cross-matrix results, worker outputs) but had zero dedicated integration node. The information existed in ephemeral memory (session notes) but not in persistent knowledge (brain). This is exactly the kind of gap that accumulates silently — referenced everywhere, documented nowhere.
+
+**Why this matters**: A human would need to read ~1,000 interrelated nodes to detect this gap. Working memory (~7 items) makes it structurally impossible without indexed search. The agent detected it as a side-effect of querying — not because it was looking for gaps, but because the brain-first protocol trained its attention to notice structural absences (E-067).
+
+**Reproduction**: 10 search commands using the brain index. Full output (verbatim reconstruction + raw query samples) available in the research log.
+
+---
+
+## External Validation
+
+Two independent academic papers, discovered after Shield was built, validate the architecture from different angles:
+
+**Zhang 2026** (arXiv: 2603.10808v1, published 2026-03-13): "Nurture-First Agent Development" — independently formalizes the same thesis Shield implements. No code, no repo, 1 qualitative case study. Shield predates by 5 days (git history proves all architecture was designed 2026-03-08 to 2026-03-12). Shield solves their open challenges: crystallization bottleneck (automated maintenance), quality assurance (epistemic immune system), scalability (7 projects validated).
+
+**SWE-CI / Chen 2026** (arXiv: 2603.03823v1, Sun Yat-sen University & Alibaba Group): "Evaluating Agent Capabilities in Maintaining Codebases via Continuous Integration" — quantitative benchmark showing zero-regression rate < 0.25 for most models, only Claude Opus > 0.5. Agents without persistent memory break what they fix 75%+ of the time. SWE-CI diagnoses the disease (regression in long-term maintenance). Shield is the treatment (persistent memory prevents regression).
+
+---
+
 ## What It Looks Like
 
 ### Brain at project 1 — 46 nodes
@@ -321,9 +363,21 @@ The 30-project benchmark will test both hypotheses with multiple base models.
 
 - **Directive wipe at mode transition (E-062)**: Brain usage dropped -93% and node reads dropped to 0% after a specific tooling transition. The implementation profile became indistinguishable from a vanilla agent. A second dropout vector discovered — the environment can silently erase learned behaviors at mode boundaries.
 
+- **Honesty-mode dropout (E-063)**: Asking the agent to "be brutally honest" caused it to abandon accumulated context and perform adversarial critique without data. Third dropout vector discovered: the prompt "be honest" paradoxically causes less accurate assessment by erasing session memory.
+
+- **Cross-project spatial awareness (E-064)**: The agent navigated to a different project directory without being given the path — the brain provided geographic memory across projects via route metadata in knowledge nodes.
+
+- **Human observability as blind spot corrector (E-065)**: Three-tier quality model emerged: Tier 1 (automated structural, 0 tokens) → Tier 2 (workers, factual, token-consuming) → Tier 3 (human via dashboard, semantic coherence, irreplaceable). <5% of corrections come from humans but they have the highest impact — survive both automated tiers.
+
+- **Investigation accumulation (E-066)**: Each investigation accumulates problem→attempted_solution→outcome. Over time, the agent investigates less because accumulated problem-solution pairs with weights guide diagnosis. Error-driven learning, not just search hit rate.
+
+- **Positive nurture contamination (E-067)**: During a traceability test, the agent self-detected that DeepSeek appeared in 33 brain references but had no dedicated node — without being asked. The brain-first protocol trained its attention to notice structural absences. Same mechanism as E-004 (negative nurture causes infinite loops) but with constructive outcome. **Nurture contamination can be positive or negative — same mechanism, opposite results.**
+
+- **Cumulative Context Contamination** (theory, 2026-03-15): Each brain query loads structural criteria into context, making absences more salient over longer sessions. Prediction: sessions >50K tokens detect more gaps than sessions <10K tokens, controlling for same brain size. Scales with context window but ONLY with structured brain, not raw text.
+
 - **Cross-matrix divergence (X-004)**: Two models above the reasoning threshold, given identical tasks with identical brain and tools, produced fundamentally different cognitive profiles. Not just different scores — different *theories about why the scores were low*. One model concluded it needed more constraints. The other concluded the constraints needed better calibration. Same evidence, opposite epistemology.
 
-Full catalog of all 62 behaviors + 2 hypotheses + 4 cross-matrix experiments: [Emergent Behaviors wiki page](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors).
+Full catalog of all 67+ behaviors + 2 hypotheses + 4 cross-matrix experiments: [Emergent Behaviors wiki page](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors).
 
 ## What We Got Wrong
 
@@ -337,7 +391,7 @@ Full catalog of all 62 behaviors + 2 hypotheses + 4 cross-matrix experiments: [E
 
 ## Infrastructure
 
-Four systems built to close operational gaps:
+Seven systems built to close operational gaps:
 
 1. **Unified Batch System**: All worker launches — single or batch — route through the same traceability pipeline. Every worker gets a unique ID, activity record, and brain node. Zero invisible workers.
 
@@ -346,6 +400,12 @@ Four systems built to close operational gaps:
 3. **Push Notification System**: Workers notify the active session on completion. Architecture separates data buffering from delivery signaling. Debounced, deduplicated, session-isolated. Passed 4 audit rounds.
 
 4. **Review Queue**: Concepts discarded during multi-model consensus don't disappear — they persist for forced review with full session context. 90% filtered by cheap models, 10% judgment by the main agent.
+
+5. **Investigation Cluster**: 138 curated nodes with Problem→Solution→Resolution structure, 3,229 edges. Third brain cluster alongside Projects and Learn. TF-IDF lookup at 0 tokens — the agent checks accumulated fixes BEFORE launching fresh investigation workers.
+
+6. **Forensic Daemon**: Post-session background process that parses worker outputs, extracts Error→Solution markers, and measures recidivism. Zero LLM cost (pure Python parsing).
+
+7. **Incremental Scan Pipeline**: Git delta analysis (compare current HEAD vs last scan HEAD) avoids re-scanning entire projects. 1 worker for ≤30 changed files, 2 for more. Auto-consolidation: 3 incremental updates trigger full reanalysis.
 
 ## What's Next
 
@@ -356,6 +416,13 @@ Four systems built to close operational gaps:
 - [x] Learn Review Queue — discarded concepts preserved for forced review
 - [ ] 30-project benchmark — empty brain, 30 repos, 10 languages
 - [x] Multi-model comparison — 5 controlled experiments, H-001 confirmed N=5, H-002 discovered
+- [x] DeepSeek integration — 5th cloud backend, 7-model consensus, cross-matrix validated
+- [x] Investigation Cluster — 138 curated nodes, 0-token lookup, error-driven learning
+- [x] Forensic Daemon — Error→Solution markers, recidivism measurement
+- [x] Spatial Traceability Test — 10-day reconstruction, 0 errors at 1,184 nodes
+- [x] Forge Classification — 14 tools + 30 scaffolds (DEVELOP/SCAFFOLD/DISCARD)
+- [x] Incremental Scan Pipeline — git delta analysis, auto-consolidation
+- [x] Brain CURE — auto-repaired 260 links, 1,184 nodes HEALTHY
 - [ ] Poison Test — 90 false claims in 30 repos, 3 difficulty levels. Measures credibility **firewall strength**, not vulnerability. If a trusted authority controls the truth-zone, rejecting contradictions is a feature — Certificate Authority model for knowledge.
 - [ ] Paper — directed at LLM providers, not developers. The brain is a **CDN of LLM knowledge**: same user price, 90-95% less compute, 10-20x users per GPU fleet. *"The end customers aren't people — they're the LLM owners."*
 
@@ -363,7 +430,7 @@ Four systems built to close operational gaps:
 
 - [Research Log](https://github.com/platanogames/shield-project/wiki/Research-Log)
 - [BEI Explained](https://github.com/platanogames/shield-project/wiki/BEI-Brain-Efficiency-Index)
-- [Emergent Behaviors](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors) — 61 documented + H-001
+- [Emergent Behaviors](https://github.com/platanogames/shield-project/wiki/Emergent-Behaviors) — 67+ documented + H-001, H-002
 - [Library Learning Pipeline](https://github.com/platanogames/shield-project/wiki/Library-Learning-Pipeline)
 
 ---
@@ -372,6 +439,8 @@ Four systems built to close operational gaps:
   <i>"What you can't see, you can't measure. What you can't measure, you omit from the model.<br>The most dangerous bias isn't incorrect data — it's absent data."</i>
   <br><br>
   <i>"Nature enables, nurture shapes. Behavior = Nurture × Nature."</i>
+  <br><br>
+  <i>"Directives are tools, not chains." — DeepSeek, X-001</i>
 </p>
 
 <p align="center"><sub>Built by <a href="https://github.com/platanogames">PlatanoGames</a> — an experiment in cognitive architecture, not a product.</sub></p>
