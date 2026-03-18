@@ -2,7 +2,8 @@
   <img src="assets/brain-explorer-2411-nodes.png" alt="Shield Brain — 2,427 autonomous knowledge nodes rendered on GPU" width="100%">
 </p>
 
-<h1 align="center">Shield — Autonomous Software Analysis System</h1>
+<h1 align="center">Shield — Autonomous Cognitive Architecture for AI Agents</h1>
+<p align="center"><em>Persistent memory, cumulative learning, and self-maintenance for LLM agents — without retraining the model.</em></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/brain-2%2C427%20nodes%20%7C%2021%2C460%20edges%20%7C%20638K%20words-7f00ff" alt="Brain">
