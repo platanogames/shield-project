@@ -5,7 +5,7 @@
 <h1 align="center">Shield — Autonomous Software Analysis System</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/brain-2%2C427%20nodes%20%7C%2021%2C460%20edges-7f00ff" alt="Brain">
+  <img src="https://img.shields.io/badge/brain-2%2C427%20nodes%20%7C%2021%2C460%20edges%20%7C%20638K%20words-7f00ff" alt="Brain">
   <img src="https://img.shields.io/badge/projects%20validated-14-blue" alt="Projects">
   <img src="https://img.shields.io/badge/emergent%20behaviors-62%2B-orange" alt="Emergent">
   <img src="https://img.shields.io/badge/library%20clusters-26%20(8%20languages)-06b6d4" alt="Library">
@@ -54,7 +54,9 @@ This thesis predates and is independent of any concurrent work on LLM environmen
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| **Brain** | **2,427 nodes**, 21,460 edges, 7,252 keywords | Graph snapshot (2026-03-18) |
+| **Brain** | **2,427 nodes**, 21,460 edges, **638,425 words**, 7,252 keywords | Graph snapshot (2026-03-18) |
+| **Knowledge surface** | **74.0M** tokens (136.7x amplification) | Daemon console metrics |
+| **Library coverage** | **50.1%** of target clusters indexed | Learner pipeline logs |
 | **Search hit rate** | **98%** (18,757 / 19,069 hits) | Brain event logs (42,746 events) |
 | **Brain operations** | **18,778 searches** at **0 tokens each** | Local TF-IDF — no API calls |
 | **Cognitive leverage** | **96%** (~100K+ tokens saved via reuse) | Session metrics |
