@@ -11,6 +11,7 @@
   <img src="https://img.shields.io/badge/emergent%20behaviors-62%2B-orange" alt="Emergent">
   <img src="https://img.shields.io/badge/library%20clusters-26%20(8%20languages)-06b6d4" alt="Library">
   <img src="https://img.shields.io/badge/workers%20launched-500%2B-22c55e" alt="Workers">
+  <img src="https://img.shields.io/badge/knowledge%20surface-2.25B%20tokens%20(2%2C253x)-ff6b35" alt="Surface">
   <img src="https://img.shields.io/badge/python-62%2C814%20LOC-green" alt="Python">
   <img src="https://img.shields.io/badge/status-active%20research-blue" alt="Status">
 </p>
@@ -56,7 +57,7 @@ This thesis predates and is independent of any concurrent work on LLM environmen
 | Metric | Value | Source |
 |--------|-------|--------|
 | **Brain** | **2,427 nodes**, 21,460 edges, **638,425 words**, 7,252 keywords | Graph snapshot (2026-03-18) |
-| **Knowledge surface** | **74.0M** tokens (136.7x amplification) | Daemon console metrics |
+| **Knowledge surface** | **2.25B tokens** reachable (186,914 files, 8.6GB, 18 languages) — **2,253x** amplification | Knowledge surface scanner |
 | **Library coverage** | **50.1%** of target clusters indexed | Learner pipeline logs |
 | **Search hit rate** | **98%** (18,757 / 19,069 hits) | Brain event logs (42,746 events) |
 | **Brain operations** | **18,778 searches** at **0 tokens each** | Local TF-IDF — no API calls |
