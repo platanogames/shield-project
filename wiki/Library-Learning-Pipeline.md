@@ -48,7 +48,7 @@ The process is sequential:
 4. **Node writing** — surviving concepts are written as brain nodes with full
    graph edges, hub index node, and provenance metadata.
 
-5. **Optional enrichment** — a keeper or DeepSeek pass deepens summaries and
+5. **Optional enrichment** — an enrichment pass deepens summaries and
    resolves cross-cluster links.
 
 ---
@@ -61,8 +61,8 @@ The core mechanism that separates this pipeline from single-model extraction is
 ![Consensus](../assets/learner-7-model-consensus.png)
 
 *The 7-model consensus pool. Each concept must be independently proposed by at
-least 2 models to survive. The four training lineages (OpenAI, Google, DeepSeek,
-Alibaba) have independent biases that cancel each other.*
+least 2 models to survive. Four independent training lineages ensure
+uncorrelated biases that cancel each other.*
 
 ### The Condorcet Argument
 
@@ -88,21 +88,12 @@ independent. Their errors are uncorrelated, so consensus cancels them out.
 
 ### The Model Pool
 
-The 7 models span four independent training lineages:
-
-| Tier | Model | Organization | Specialization |
-|------|-------|-------------|---------------|
-| Cloud | Codex CLI | OpenAI | Code, reasoning |
-| Cloud | Gemini 2.5 Flash | Google | Large context, multilingual |
-| Cloud | GitHub Copilot | OpenAI/GitHub | Code, documentation |
-| Cloud | DeepSeek Chat V3 | DeepSeek | Code, cost-efficient |
-| Local | qwen3:8b | Alibaba | Multilingual, academic |
-| Local | qwen2.5-coder:14b | Alibaba | Code-focused |
-| Local | deepseek-coder-v2:16b | DeepSeek | Code-specialized |
-
-Cloud models use zero-marginal-cost CLI subscriptions (Codex, Gemini, Copilot)
-or the DeepSeek API (~$0.001/message, approximately 10x cheaper than OpenAI).
-Local models run via Ollama with structured JSON output schema enforcement.
+The 7 models span four independent training lineages from different organizations
+(4 organizations). The pool includes both cloud models
+(accessed via CLI subscriptions at zero marginal cost) and local models (running
+on-device for zero-cost consensus diversity). Each model brings different
+training data, reinforcement procedures, and failure modes — ensuring genuine
+independence in the voting process.
 
 ### How Concepts Are Validated
 
@@ -152,10 +143,10 @@ change to quality, tracked by auditor score on a 10-point scale.
 
 | Version | Date | Key Change | Auditor Score |
 |---------|------|-----------|---------------|
-| v0.1 | 2026-03-10 | Single Ollama model (qwen3:8b), no consensus | 6.5/10 |
+| v0.1 | 2026-03-10 | Single local model, no consensus | 6.5/10 |
 | v0.2 | 2026-03-10 | 5-model consensus (3 cloud + 2 local) | 8.0/10 |
 | v0.3 | 2026-03-10 | Semantic dedup + tag cap + defensive hardening | 8.5/10 (predicted) |
-| v0.4 | 2026-03-13 | DeepSeek added as 7th model; all 26 clusters rerun | active |
+| v0.4 | 2026-03-13 | 7th model added; all 26 clusters rerun | active |
 
 ### v0.1 — Single Model Baseline (6.5/10)
 
@@ -178,7 +169,7 @@ Summaries in v0.2 averaged 4–6 sentences with clear WHAT/WHY/HOW structure.
 ### v0.3 — Autonomous Self-Improvement
 
 After Run 1, Shield identified three documented defects in the pipeline. Jarvis
-autonomously analyzed the defects, implemented fixes, launched 4 Codex audit
+autonomously analyzed the defects, implemented fixes, launched audit
 workers across 3 audit rounds, and verified 11/11 inline tests — zero human
 intervention.
 
@@ -192,13 +183,11 @@ Jarvis Fixes Pipeline → Worker Audit → Next Run Scores Higher
 This is meta-learning: the pipeline that ingests external knowledge is itself
 subject to the same improvement cycle Shield applies to external projects.
 
-### v0.4 — DeepSeek Integration
+### v0.4 — 7th Model Integration
 
-DeepSeek Chat V3 was added as the 5th cloud model and 7th overall in March 2026.
-With its addition, the consensus pool spans 4 genuinely independent training
-lineages: OpenAI (Codex, Copilot), Google (Gemini), DeepSeek (API + local
-deepseek-coder), and Alibaba (qwen3, qwen2.5-coder). All 26 clusters were rerun
-under v0.4 to benefit from the expanded pool.
+A 5th cloud model was added, bringing the total to 7. With this addition, the
+consensus pool spans 4 genuinely independent training lineages. All 26 clusters
+were rerun under v0.4 to benefit from the expanded pool.
 
 ---
 
@@ -393,7 +382,7 @@ Running three instances of the same model and taking the majority vote is
 superficially similar to consensus but fundamentally different. Three instances
 share training data, RLHF tuning, and architectural biases. Their errors are
 correlated, so a majority vote does not improve accuracy — it only amplifies
-the dominant bias. Three models from OpenAI, Google, and DeepSeek have
+the dominant bias. Models from different organizations have
 genuinely independent biases. This is the Condorcet requirement: independence
 is not optional.
 
@@ -403,10 +392,10 @@ distinctive 50–100 concepts. A high cap produces index bloat and reduces
 search precision because generic terms appear in too many nodes. The cap is
 a quality mechanism, not a storage constraint.
 
-**Why DeepSeek as the 5th cloud model?**
-DeepSeek V3 costs approximately 10x less than OpenAI at comparable quality for
+**Why add a 5th cloud model?**
+The selected model costs approximately 10x less than alternatives at comparable quality for
 code understanding tasks. Adding it to the cloud pool increases the training
 diversity of the consensus pool (a fourth independent lineage) while reducing
-average per-run cost. In cross-model evaluation experiments, DeepSeek showed
+average per-run cost. In cross-model evaluation experiments, it showed
 higher directive compliance (8.4/10) than the Claude API baseline (5.6/10),
 making it a reliable consensus participant.

@@ -84,7 +84,7 @@ PluginPGX enters — the first Unreal Engine C++ plugin. Then FrameworksPGX: 28 
 
 The Library Learner pipeline activates for the first time. Abstract concepts begin appearing as nodes: `spatial-partitioning`, `command-pattern`, `finite-state-machine`. The brain is no longer just recording project architectures — it is learning transferable patterns.
 
-The worker count grows to 30+ orchestrated in parallel. Codex and DeepSeek handle audit and code analysis. Each worker card shows role, provider, duration, and output lines.
+The worker count grows to 30+ orchestrated in parallel. Cloud workers handle audit and code analysis. Each worker card shows role, provider, duration, and output lines.
 
 ![Jarvis startup — multi-provider session](../assets/jarvis-startup.png)
 
@@ -104,7 +104,7 @@ The worker count grows to 30+ orchestrated in parallel. Codex and DeepSeek handl
 
 The system's first self-diagnostic crisis. Workers were producing findings, but how do you know a finding is real and not a hallucination? The forensic investigation architecture is designed: every bug fixed by a worker becomes a brain node with problem, solution, file path, and severity. Error-driven learning becomes a first-class pipeline.
 
-Local Qwen workers are tested for audit quality. Results: **71% false positive rate** (5 of 7 findings hallucinated). Local models are reclassified to translation and batch classification only. Codex and DeepSeek handle all audits from this point forward.
+Local models are tested for audit quality. Results: high false positive rate. Local models are reclassified to translation and batch classification only. Cloud workers handle all audits from this point forward.
 
 The Investigation Cluster is designed: a dedicated brain region for worker-driven deep analysis results, cross-indexed by GUID, separate from project and library knowledge.
 
@@ -124,7 +124,7 @@ This is not a failure — it is a measurement. The force-graph served well from 
 
 Library cluster filtering becomes the main navigation tool. Each of the 26 library clusters can be isolated. The learner pipeline has produced enough nodes that library knowledge now dominates the graph.
 
-The Library Learner reaches v0.4: DeepSeek API integrated as a fifth cloud backend. Seven models now vote on every concept. Only consensus-validated knowledge enters the brain.
+The Library Learner reaches v0.4: A new cloud backend integrated. Multiple models now vote on every concept. Only consensus-validated knowledge enters the brain.
 
 ![Learner — 7-model consensus pipeline](../assets/learner-7-model-consensus.png)
 
@@ -158,7 +158,7 @@ The result: **821 → ~1,026 nodes in one day**. The graph develops a new struct
 
 The `investigation_lookup.py` tool is built: TF-IDF semantic lookup over investigation nodes, zero tokens per query. Test result: "cooking recipes" → 0 hits. "session monitor shutdown race condition" → 5 exact hits with file:line. Knowledge is now addressable.
 
-**Epistemic tests E-001 to E-004c run:** Testing whether the system admits "I don't know" when the brain has no evidence. Key finding: the same model (Claude Sonnet) passes the test in CLI (stops in 1-3 calls) and fails in raw API (loops 8-22+ calls). Epistemic honesty is a nurture property, not a model property. H-002 confirmed with code evidence.
+**Epistemic tests E-001 to E-004c run:** Testing whether the system admits "I don't know" when the brain has no evidence. Key finding: the same model passes the test in CLI (stops in 1-3 calls) and fails in raw API (loops 8-22+ calls). Epistemic honesty is a nurture property, not a model property. H-002 confirmed with code evidence.
 
 **Day 7 numbers:**
 
@@ -186,7 +186,7 @@ The orphan bridge rule is discovered empirically: connecting orphans to each oth
 
 ![Keeper — autonomous maintenance phases](../assets/keeper-autonomous.png)
 
-The Jarvis API REPL is built: streaming output, rich markdown rendering, multi-provider routing (Anthropic/DeepSeek/OpenAI), toolbar with live status. The system can now operate through a terminal REPL as an alternative to Claude Code CLI.
+The Jarvis API REPL is built: streaming output, rich markdown rendering, multi-provider routing, toolbar with live status. The system can now operate through a terminal REPL as an alternative to Claude Code CLI.
 
 **Commits per day at peak: ~45.**
 
@@ -306,17 +306,9 @@ Each library was processed by the 7-model consensus pipeline. A concept requires
 
 ## Worker Activity
 
-500+ workers launched across 13 days. Three tiers: subscription CLIs (Codex, Gemini, Copilot — zero marginal cost), API-based (DeepSeek, OpenAI — pay-per-use), and local (Qwen — zero cost, classification only).
+500+ workers launched across 13 days. Three tiers: subscription CLIs (zero marginal cost), API-based (pay-per-use), and local (zero cost, classification only). The system auto-routes to the best available provider.
 
 ![Worker timeline — launches per day](../assets/fig-worker-timeline.png)
-
-Worker routing priority (derived from quality measurements):
-1. Codex (OpenAI CLI, 400K context)
-2. Gemini (Google CLI, 1M context)
-3. Copilot (GitHub CLI)
-4. DeepSeek API
-5. OpenAI API
-6. Ollama (local, classification only)
 
 ---
 
@@ -369,9 +361,9 @@ The cost structure inverted from what most AI systems produce:
 | Tier | % of compute | Role |
 |------|-------------|------|
 | Python local tools | ~0% | Brain queries, index lookups, tool execution |
-| Subscription CLIs (Codex, Gemini, Copilot) | ~0% marginal | Audit, code review |
+| Subscription CLIs | ~0% marginal | Audit, code review |
 | Cache hits | ~90% savings | Repeated context |
-| Expensive model (Opus/Sonnet judgment) | 0.3% | Decision, consolidation |
+| Expensive model (judgment) | 0.3% | Decision, consolidation |
 
 The architecture is designed so that exploration — the expensive, parallelizable part — is handled by zero-marginal-cost tools. Judgment — the cheap, sequential part — is handled by the expensive model. Token costs scale with decisions made, not with data processed.
 
@@ -382,7 +374,7 @@ The architecture is designed so that exploration — the expensive, parallelizab
 | Day | Discovery | Evidence |
 |-----|-----------|----------|
 | 1 | Autonomous scanning generates knowledge faster than manual analysis | 22 nodes in 20 minutes, zero human input |
-| 2 | Local LLMs hallucinate at 71% rate for code audit | 5/7 false positives from Qwen workers |
+| 2 | Local LLMs hallucinate at high rates for code audit | Majority of findings were false positives |
 | 4 | BEI self-contamination: observer effect in metrics | Dashboard generated 90% of BEI events |
 | 5 | Worker context starvation: 1.4% relevant context reaching workers | Brain sync raised to ~40% coverage |
 | 6 | Force-graph visualization hard wall at ~700 nodes | Interaction latency >3s, labels unreadable |

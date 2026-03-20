@@ -27,7 +27,7 @@ An **emergent behavior** in this catalog means: a behavioral outcome that was no
 
 **Timeline**: 2026-03-08 (Day 1) → 2026-03-15 (Day 8)
 
-**Models observed**: Claude Opus 4.6 (primary orchestrator), Claude Sonnet 4, DeepSeek-Chat, Codex (cloud workers), Gemini CLI, Copilot, local Qwen models
+**Models observed**: 7 models from 5 labs spanning 4 independent training lineages (cloud and local)
 
 **Projects covered**: 7 production codebases across Python, Go, C++/Unreal Engine, WordPress/PHP
 

@@ -51,10 +51,10 @@ The brain grew from 32 nodes (Day 1) to 2,427 nodes (Day 11) without manual cura
 **Evidence:**
 - **E-034**: Same configuration → erratic behavior in one session set, correct behavior in another. The difference was accumulated failure documentation. Failure history shapes behavior more than positive directives.
 - **E-056**: A raw LLM session with no harness reproduced the orchestrator's behavioral patterns simply by reading the brain. The environment transfers behavior across instances.
-- **H-001** (N=5): Capable model + brain = enhanced performance. Weak model + brain = 71% hallucination rate. The brain amplifies whatever the model provides — signal or noise.
-- **H-002** (confirmed with source code): Same directives cause opposite pathologies in different environments. Same model stops in 1-3 calls in one environment, loops for 22+ calls in another. Difference: hardcoded stop directives in the host CLI.
+- **H-001** (N=5): Capable model + brain = enhanced performance. Weak model + brain = hallucination amplification. The brain amplifies whatever the model provides — signal or noise.
+- **H-002** (confirmed empirically): Same directives cause opposite pathologies in different environments. Same model behaves differently depending on the execution harness. Behavioral compliance is environmental, not intrinsic.
 
-**The cost architecture:** 18,778 brain searches at exactly 0 API tokens (local TF-IDF index). The expensive coordinator model does less than 1% of total work. Python infrastructure handles ~40%, subscription-tier workers handle ~50%.
+**The cost architecture:** Thousands of brain searches at exactly 0 API tokens (local indexed search). The expensive coordinator model does less than 1% of total work.
 
 **Why 29% of the brain is error-driven:** The system captures its own failures as searchable, cross-referenced knowledge nodes. Each node contains: problem, solution, file, line, severity, and confidence. The system learns from what it gets wrong, not just what it gets right.
 

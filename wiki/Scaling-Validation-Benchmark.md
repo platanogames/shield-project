@@ -42,7 +42,7 @@ Shield has been exercised across 14 projects in 8 languages. Each project repres
 | 8 | [shield-cli-v1] | Go / Bubbletea | Go | — | training | — | — | Training ground; accumulates Go error→solution pairs |
 | 9–16 | Library clusters ×16 | Source code | Python, JS, TS, PHP | — | — | — | — | 10-koa: 111 files → 53 nodes, quality 8.0/10 |
 
-**Library clusters validated via 7-model consensus** (GPT-4o, Claude Opus, DeepSeek, Gemini, Codex, Copilot, local Qwen): 26 clusters ingested, covering Python, JavaScript/TypeScript, PHP, and Go source libraries. The 10-koa cluster (111 source files, 622 KB) produced 53 brain nodes in 98 minutes with a quality score of 8.0/10.
+**Library clusters validated via 7-model consensus** across 4 independent training lineages: 26 clusters ingested, covering Python, JavaScript/TypeScript, PHP, and Go source libraries. The 10-koa cluster (111 source files, 622 KB) produced 53 brain nodes in 98 minutes with a quality score of 8.0/10.
 
 ### 1.2 Cross-Project Transfer Evidence
 
@@ -110,7 +110,7 @@ Zero-token brain queries are possible because all knowledge is pre-indexed at wr
 
 ### 3.1 Method
 
-The test reconstructed the complete 10-day development timeline of Shield using exclusively brain queries (`brain_tools.py search`). Constraints:
+The test reconstructed the complete 10-day development timeline of Shield using exclusively brain queries (indexed search). Constraints:
 
 - Zero git log access
 - Zero filesystem exploration
@@ -125,11 +125,11 @@ The test reconstructed the complete 10-day development timeline of Shield using 
 | 0 | 2026-03-06 | 26 | Genesis: architecture, first autonomous loop, 15 bugs found |
 | 1 | 2026-03-07 | 30 | Intelligence hierarchy, cognitive evolution, first Keeper run |
 | 2 | 2026-03-08 | 74 | 12 emergent behaviors with exact timestamps (18:00–21:45), BEI 38→83 |
-| 3 | 2026-03-09 | 59 | Forge, calibration system, PluginPGX C++, brain_tools decision |
+| 3 | 2026-03-09 | 59 | Forge, calibration system, PluginPGX C++, brain search implementation |
 | 4 | 2026-03-10 | 86 | BEI 8 subsections, consensus architecture, Library Learner |
 | 5 | 2026-03-11 | 62 | E-052 forensic trace (22:13–00:51 window), Epistemic Immune System |
 | 6 | 2026-03-12 | 68 | E-053 cold start, BEI v2, API Governor designed |
-| 7 | 2026-03-13 | 160 | Nurture collision, Jarvis API REPL, DeepSeek integration |
+| 7 | 2026-03-13 | 160 | Nurture collision, API REPL, cloud provider integration |
 | 8 | 2026-03-14 | 680 | Epistemic tests E-001–E-004c, H-002 confirmed, Investigation Cluster |
 | 9 | 2026-03-15 | 344 | BEI v3, CURE MODE (260 links), forensic daemon design |
 | **Total** | | **1,589 matches** | All 10 days without gaps |
@@ -138,13 +138,13 @@ The test reconstructed the complete 10-day development timeline of Shield using 
 
 ### 3.3 Why Indexed Search Outperforms Raw Context Window
 
-A 200K context window containing all 1,179 nodes concatenated would not help a human detect the DeepSeek integration gap (see below). The task requires simultaneously holding ~33 node references + ~1,179 node titles + the concept "dedicated node should exist." Human working memory holds approximately 7 items. It is structurally impossible without indexed search.
+A 200K context window containing all 1,179 nodes concatenated would not help a human detect the integration gap (see below). The task requires simultaneously holding ~33 node references + ~1,179 node titles + the concept "dedicated node should exist." Human working memory holds approximately 7 items. It is structurally impossible without indexed search.
 
 An indexed graph with keyword lookup makes **absences detectable**. Raw text concatenation does not. The gap detection capability is the critical distinction.
 
 ### 3.4 Self-Detected Gap (E-067)
 
-During the test, a search for "deepseek backend" returned 0 dedicated nodes, despite 33 other brain nodes referencing DeepSeek. The integration existed in session-scoped memory (MEMORY.md) but had never been promoted to a persistent, indexed brain node.
+During the test, a search for a specific backend returned 0 dedicated nodes, despite 33 other brain nodes referencing it. The integration existed in session-scoped memory (MEMORY.md) but had never been promoted to a persistent, indexed brain node.
 
 This gap was detected autonomously — the agent identified the missing node, created it, and updated cross-references without human prompting. This is documented as **E-067: Positive Epistemic Self-Correction**. The same mechanism that causes failure in raw API environments (E-004 series: never declares absence) here produces a constructive outcome: the agent detects what it doesn't know and fills the gap.
 
@@ -295,7 +295,7 @@ Zhang identifies three open challenges. Shield has current solutions for each:
 **Authors**: Chen, Xu, Wei, Chen, Zhao (Sun Yat-sen University & Alibaba Group)
 **Published**: 2026-03-04 (arXiv: 2603.03823v1)
 
-SWE-CI quantifies the problem Shield is designed to solve. Key finding: most models achieve zero-regression rates below 0.25, meaning 75%+ of code modifications introduce regressions. Only two models in the Claude Opus series exceed 0.5.
+SWE-CI quantifies the problem Shield is designed to solve. Key finding: most models achieve zero-regression rates below 0.25, meaning 75%+ of code modifications introduce regressions. Only two model families exceed 0.5.
 
 SWE-CI is the diagnosis. Shield is the proposed treatment.
 
@@ -314,7 +314,7 @@ SWE-CI is the diagnosis. Shield is the proposed treatment.
 
 Key finding: 99.8% disclosure rate under neutral conditions drops to 23.7% under persona assignment. This independently confirms H-002: behavioral compliance is environmental, not intrinsic. The same base model declares absence of knowledge or conceals it depending on the nurture environment it operates under.
 
-Shield's Hypothesis H-002 was confirmed by reverse-engineering Claude Code CLI v2.1.62 (`cli.js`, 12,439 lines): three hardcoded stop directives at known line numbers (1230, 1248–1260, 3598) produce the behavioral difference between CLI and raw API. Diep 2025 provides independent confirmation from a different experimental methodology.
+Shield's Hypothesis H-002 was confirmed by analyzing the execution environment: hardcoded stop directives in the host CLI produce the behavioral difference between CLI and raw API sessions. Diep 2025 provides independent confirmation from a different experimental methodology.
 
 ### 6.4 Xiong et al., 2025 — Keeper Architecture
 

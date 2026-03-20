@@ -27,7 +27,7 @@ took exactly one week.
 4. [Calibration Round 8.2: The Observer Effect](#calibration-round-82-the-observer-effect)
 5. [Calibration Rounds 8.3–8.6: Evidence and Scale](#calibration-rounds-83-86-evidence-and-scale)
 6. [Calibration Round 8.7: BEI v2](#calibration-round-87-bei-v2-2026-03-12)
-7. [BEI v3: The Virus Enables Measurement](#bei-v3-the-virus-enables-measurement-2026-03-15)
+7. [BEI v3: Behavioral Routing Enables Measurement](#bei-v3-behavioral-routing-enables-measurement-2026-03-15)
 8. [BEI Deprecation: The Score Fallacy](#bei-deprecation-the-score-fallacy)
 9. [The Replacement: Six Efficiency Trends](#the-replacement-six-efficiency-trends-2026-03-16)
 10. [The Calibration Attribution Framework](#the-calibration-attribution-framework)
@@ -417,7 +417,7 @@ instrumented tools query the brain.
 
 **Root cause**: A legacy branch used `efficiency_audit` snapshot events that
 pre-dated the current query tooling. Those snapshots stored `activated_nodes`,
-`new_edges`, `ramifications` — counters from before `brain_tools.py` existed.
+`new_edges`, `ramifications` — counters from before `brain search tools` existed.
 
 **Before and after fix**:
 
@@ -437,7 +437,7 @@ it observes. Each fix reveals the next layer.
 
 ---
 
-## BEI v3: The Virus Enables Measurement (2026-03-15)
+## BEI v3: Behavioral Routing Enables Measurement (2026-03-15)
 
 ![BEI Dashboard](../assets/bei-3.0-dashboard.png)
 
@@ -465,7 +465,7 @@ The metric was penalizing the brain for doing exactly what it was designed to do
 
 ### Behavioral Routing: Before and After
 
-The introduction of a behavioral modification system (virus-parasite injection) that
+The introduction of a behavioral modification system (behavioral routing injection) that
 routes all agent navigation through instrumented tools produced a dramatic change in
 measurement coverage:
 
@@ -476,7 +476,7 @@ measurement coverage:
 | Mar 14 | API REPL (controlled session) | 7.2/h | Directive-driven |
 | **Mar 15 17:42+** | **With behavioral routing** | **~36/h** | **Organic, continuous** |
 
-The 18× increase in brain routing rate means every brain query now generates a
+The 18× increase in brain query rate means every brain query now generates a
 timestamped event with query, hits, duration, and estimated tokens. Before routing,
 the agent navigated through native filesystem tools (grep, glob, read) — unmeasured.
 After routing, all navigation routes through instrumented brain tools — measured.
@@ -488,8 +488,8 @@ measurement of that behavior for the first time.**
 
 For a specific documentation question:
 
-- With brain routing: 1,550 tokens (4 brain queries + 3 targeted file reads) → full answer
-- Without brain routing: ~10,400 tokens (ls + glob + grep + read 3 full files) → same answer
+- With behavioral routing: 1,550 tokens (4 brain queries + 3 targeted file reads) → full answer
+- Without behavioral routing: ~10,400 tokens (ls + glob + grep + read 3 full files) → same answer
 - **Per-query savings: 85%**
 
 Full session estimate: ~15,200 tokens via brain vs ~60,000+ tokens for equivalent
