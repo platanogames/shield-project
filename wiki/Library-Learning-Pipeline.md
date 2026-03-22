@@ -13,9 +13,10 @@ epistemological weights: experience always outranks theory.
 
 ![Library clusters](../assets/fig-library-clusters.png)
 
-*26 library clusters processed as of 2026-03-18, spanning 9 programming languages
-and 10,523 source files. Each bar represents the number of brain nodes produced
-per cluster after multi-model consensus filtering.*
+*28 library clusters processed as of 2026-03-22, spanning 10 programming languages.
+Each bar represents the number of brain nodes produced per cluster after multi-model
+consensus filtering. 3,458 library nodes total. UE5 (115K files) is the largest
+target currently being absorbed.*
 
 ---
 
@@ -227,13 +228,17 @@ file counts and node counts are from the final run per cluster.
 **Totals: 10,523 source files — 3,068 workers — ~10,166 validated concepts —
 1,286 brain nodes across 9 languages.**
 
-Languages covered: Python, JavaScript, TypeScript, PHP, C, C++, Rust, Go, Java.
+Languages covered: Python, JavaScript, TypeScript, PHP, C, C++, Rust, Go, Java, Kotlin.
 
-The contrast between raw validated concepts (~10,166) and final brain nodes
-(1,286) illustrates the effect of the quality gate and cap enforcement. On
-average, approximately 8 validated concepts are consolidated or filtered into 1
-brain node. The brain contains the most distinctive and useful knowledge from
-each cluster, not the most voluminous.
+Two new clusters added in V2:
+- **26-ktor** (Kotlin) — web framework, first Kotlin cluster
+- **ue-5.5** (C++) — Unreal Engine 5, 115K files, largest target attempted
+
+The contrast between raw validated concepts and final brain nodes illustrates
+the effect of the quality gate and cap enforcement. On average, approximately
+8 validated concepts are consolidated or filtered into 1 brain node. The brain
+contains the most distinctive and useful knowledge from each cluster, not the
+most voluminous.
 
 ---
 

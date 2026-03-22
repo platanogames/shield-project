@@ -1,32 +1,32 @@
-![Brain](../assets/brain-explorer-2411-nodes.png)
+![Brain](../assets/brain-explorer-5025-nodes.png)
 
 # Shield — Autonomous Software Analysis System
 
-Shield is an autonomous cognitive system that learns, accumulates capabilities, and self-maintains across sessions without model retraining. It is not an LLM wrapper. It is a 5-layer architecture built around a persistent knowledge graph that grows through operation — every project analyzed, every bug fixed, every failure encountered becomes a searchable, cross-referenced node.
+Shield is an autonomous cognitive system that learns, accumulates capabilities, and self-maintains across sessions without model retraining. It is not an LLM wrapper. It is a layered architecture built around a persistent knowledge graph that grows through operation — every project analyzed, every bug fixed, every failure encountered becomes a searchable, cross-referenced node.
 
 The central thesis: **the behavior of an LLM agent is determined more by its accumulated environmental structure than by the base model's weights.** We do not fine-tune. We condition the environment. The same model, with different accumulated history, produces measurably different behavior. This is not prompt engineering — it is persistent cognitive conditioning that compounds across sessions, projects, and domains.
 
-This research began on March 6, 2026. The numbers below reflect 13 days of autonomous operation.
+This research began on March 6, 2026. The numbers below reflect 16 days of autonomous operation.
 
 ---
 
-## Current Status (Day 13 — March 18, 2026)
+## Current Status (Day 16 — March 22, 2026)
 
 | Metric | Value |
 |--------|-------|
-| Brain nodes | **2,427** (21,460 edges) |
-| Search hit rate | **98%** (18,757 / 19,069 queries) |
-| Brain operations | **18,778 searches at 0 tokens each** |
-| Emergent behaviors documented | **62** (54 E + 4 X + 4 H) |
-| Workers launched | **500+** across 14 projects |
-| Languages validated | **8** (Python, C++, PHP, JS, TS, Rust, Go, Java) |
-| Library clusters | **26** via 7-model consensus |
-| Forensic captures | **171** error→solution pairs |
-| Commits | **431** in 13 days |
-| Core codebase | **62,814 lines** Python |
+| Brain nodes | **5,025** (40,803 edges, 1.05M words) |
+| Search engine | **SQLite + FTS5** — <10ms, 0 API tokens per query |
+| Cognitive leverage | **96%** (tokens saved via brain reuse) |
+| Emergent behaviors documented | **67+** |
+| Workers launched | **800+** across 17 projects |
+| Languages validated | **10** (Python, C++, C, PHP, JS, TS, Rust, Go, Java, Kotlin) |
+| Library clusters | **28** via multi-model consensus |
+| Forensic captures | **1,133** error→solution pairs |
+| Commits | **548** in 16 days |
+| Core codebase | **80,712 lines** Python |
 | Cost per session | **<$0.50** (expensive model does <1% of work) |
 
-The brain grew from 32 nodes (Day 1) to 2,427 nodes (Day 11) without manual curation. Every node was created by autonomous daemons.
+The brain grew from 32 nodes (Day 1) to 5,025 nodes (Day 16) without manual curation. Every node was created by autonomous daemons. V2 migrated the brain backend from JSON to SQLite with FTS5 full-text search.
 
 ---
 
@@ -34,13 +34,13 @@ The brain grew from 32 nodes (Day 1) to 2,427 nodes (Day 11) without manual cura
 
 - **[Research Log](Research-Log)** — Day-by-day chronicle of sessions, experiments, and key decisions. Each entry links to the emergent behaviors, hypotheses, and code changes produced that day.
 
-- **[Measurement Evolution](Measurement-Evolution)** — How the system's health metrics changed over 13 days. Covers BEI (Brain Efficiency Index) retirement after 8 calibration rounds, the observer effect that contaminated it, and the decomposed replacement metrics.
+- **[Measurement Evolution](Measurement-Evolution)** — How the system's health metrics changed over 16 days. Covers BEI (Brain Efficiency Index) retirement after 8 calibration rounds, the observer effect that contaminated it, and the decomposed replacement metrics.
 
-- **[Emergent Behaviors](Emergent-Behaviors)** — Catalog of 62 documented autonomous decisions: unplanned, unprogrammed behaviors observed during real operation. Includes confirmed hypotheses H-001 through H-004 with evidence.
+- **[Emergent Behaviors](Emergent-Behaviors)** — Catalog of 67+ documented autonomous decisions: unplanned, unprogrammed behaviors observed during real operation. Includes confirmed hypotheses H-001 through H-005 with evidence.
 
-- **[Library Learning Pipeline](Library-Learning-Pipeline)** — Architecture and results of the 7-model consensus pipeline. 26 library clusters across 8 languages. How hallucination is structurally prevented: a single model's output cannot create a brain node.
+- **[Library Learning Pipeline](Library-Learning-Pipeline)** — Architecture and results of the multi-model consensus pipeline. 28 library clusters across 10 languages. How hallucination is structurally prevented: a single model's output cannot create a brain node.
 
-- **[Scaling Validation Benchmark](Scaling-Validation-Benchmark)** — Cross-project validation across 14 real codebases in 8 languages. Audit scores, worker counts, bugs fixed, and behavior observations per project.
+- **[Scaling Validation Benchmark](Scaling-Validation-Benchmark)** — Cross-project validation across 17 real codebases in 10 languages. Audit scores, worker counts, bugs fixed, and behavior observations per project.
 
 ---
 
@@ -56,7 +56,7 @@ The brain grew from 32 nodes (Day 1) to 2,427 nodes (Day 11) without manual cura
 
 **The cost architecture:** Thousands of brain searches at exactly 0 API tokens (local indexed search). The expensive coordinator model does less than 1% of total work.
 
-**Why 29% of the brain is error-driven:** The system captures its own failures as searchable, cross-referenced knowledge nodes. Each node contains: problem, solution, file, line, severity, and confidence. The system learns from what it gets wrong, not just what it gets right.
+**Why 21% of the brain is error-driven:** The system captures its own failures as searchable, cross-referenced knowledge nodes (1,042 error+investigation nodes, plus 1,133 forensic captures). Each node contains: problem, solution, file, line, severity, and confidence. The system learns from what it gets wrong, not just what it gets right.
 
 ---
 

@@ -1,6 +1,6 @@
 # Research Log
 
-> A day-by-day chronicle of building Shield — from 32 nodes to a self-sustaining cognitive system in 13 days.
+> A day-by-day chronicle of building Shield — from 32 nodes to a self-sustaining cognitive system in 16 days.
 
 ---
 
@@ -8,11 +8,11 @@
 
 Shield was built in public, with every session logged, every worker tracked, and every metric recorded. This page documents what happened in order, with the numbers, the dead ends, and the things that surprised us.
 
-**Total development span**: 13 days (March 8–18, 2026)
-**Total commits**: 431
-**Brain at close**: 2,427 nodes · 21,460 edges
-**Workers launched**: 500+
-**Projects validated**: 14 across 8 programming languages
+**Total development span**: 16 days (March 8–22, 2026)
+**Total commits**: 548
+**Brain at close**: 5,025 nodes · 40,803 edges · 1.05M words
+**Workers launched**: 800+
+**Projects validated**: 17 across 10 programming languages
 
 ---
 
@@ -20,32 +20,30 @@ Shield was built in public, with every session logged, every worker tracked, and
 
 | Metric | Value |
 |--------|-------|
-| Brain nodes | 2,427 |
-| Brain edges | 21,460 |
-| Edge/node ratio | 8.8 |
-| Avg degree | 17.8 |
-| Max degree (hub) | 634 |
-| Keywords indexed | 7,252 |
-| Brain events (total) | 42,746 |
-| Brain searches | 18,778 (at 0 tokens each) |
-| Forensic captures | 171 (81 HIGH · 75 MEDIUM · 15 LOW) |
-| Library clusters | 26 |
-| Emergent behaviors documented | 62 |
+| Brain nodes | 5,025 |
+| Brain edges | 40,803 |
+| Edge/node ratio | 8.1 |
+| Keywords indexed | 11,569 |
+| Search engine | SQLite + FTS5, <10ms per query |
+| Forensic captures | 1,133 (442 HIGH · 469 MEDIUM · 222 LOW) |
+| Library clusters | 28 |
+| Emergent behaviors documented | 67+ |
 
-![Brain Explorer — 2,411 nodes, 21,409 edges, GPU-rendered constellation](../assets/brain-explorer-2411-nodes.png)
+![Brain Explorer — 5,025 nodes, 40,803 edges, GPU-rendered constellation](../assets/brain-explorer-5025-nodes.png)
 
 ---
 
-## Knowledge Distribution (Day 13)
+## Knowledge Distribution (Day 16)
 
 | Category | Nodes | % | What it contains |
 |----------|-------|---|------------------|
-| Library | 1,392 | 57% | 26 open-source libraries across C, C++, Go, Python, JS, PHP, Rust, Java |
-| Errors | 402 | 17% | Error→Solution pairs from the system's own failures |
-| Investigations | 311 | 13% | Worker-driven deep analysis with GUID-indexed traceability |
-| Projects | 158 | 7% | Architecture maps, hotspots, conventions for 14 real projects |
-| Design | 116 | 5% | Architectural decisions, hypotheses, experimental results |
-| Other | 48 | 2% | Patterns, directives, identity, conventions |
+| Library | 3,458 | 69% | 28 open-source libraries across C, C++, Go, Python, JS, PHP, Rust, Java, Kotlin |
+| Errors | 714 | 14% | Error→Solution pairs from the system's own failures |
+| Investigations | 328 | 7% | Worker-driven deep analysis with GUID-indexed traceability |
+| Projects | 312 | 6% | Architecture maps, hotspots, conventions for 17 real projects |
+| Design | 145 | 3% | Architectural decisions, hypotheses, experimental results |
+| Identity | 23 | <1% | Persistent self-knowledge across sessions |
+| Other | 45 | <1% | Patterns, directives, conventions |
 
 ![Knowledge distribution across brain categories](../assets/fig-knowledge-distribution.png)
 
@@ -251,9 +249,58 @@ Three phases visible in the curve:
 
 ---
 
-## Library Clusters (26 libraries, 1,392 nodes)
+## Days 12-13 — March 19-20: V2 Architecture + SQLite Migration
 
-Each library was processed by the 7-model consensus pipeline. A concept requires agreement across models to become a brain node. A single model's hallucination cannot create a node.
+The brain backend migrated from JSON flat files to SQLite with FTS5 full-text search. The JSON graph (`brain-graph.json`) had become the first friction point at 5,000+ nodes — load times exceeded 500ms and writes risked corruption under concurrent access.
+
+The SQLite migration was executed as a 5-phase plan:
+1. **Semantic freeze** — canonical data model for all node types
+2. **Storage abstraction** — GraphStore interface allowing dual backends
+3. **SQLite backend** — full implementation with FTS5 indexes, 9 passing tests
+4. **Dual-run migration** — both backends active simultaneously for validation
+5. **Memory consolidation** — search path switched to FTS5
+
+**Results**: Sub-10ms ranked queries across 5,000+ nodes. Full-text search with ranked results replaces the previous TF-IDF keyword index. Schema versioning with auto-migration.
+
+Three new subsystems were built:
+- **Hippocampus** (`neural/hippocampus.py`) — route validation. Every brain reference verified against actual nodes and filesystem paths.
+- **Aletheia** (`neural/aletheia.py`) — epistemological verification firewall. Blocks unsubstantiated claims from entering the brain.
+- **Pharmakon** — adversarial test suite. Injects false information to verify the brain rejects it.
+
+The Birth Chain was created: 21 markdown neurons forming a persistent identity sequence. On startup, the agent reads the full chain and reconstructs its own history, capabilities, and rules — solving the cold-start identity problem across sessions.
+
+---
+
+## Days 14-15 — March 21: Hefesto v2 + FTS5 Fix
+
+Hefesto v2 was built from scratch as a real-time terminal mirror: SvelteKit + xterm.js frontend, pywinpty backend, WebSocket streaming. The agent's live session streams to any device. Tested on iPhone Safari with scroll sensitivity tuning.
+
+A critical FTS5 bug was found and fixed: `"no such column: T.summary"` — the FTS content table referenced a column that didn't exist in the source table. Root cause: content='nodes' but the nodes table lacked a summary column. Fixed with a VIRTUAL generated column and schema migration v2→v3.
+
+The complete worker routing architecture was mapped: 26 roles across 6 providers with 4 fallback chains. Auto-routing picks the best available provider per task based on health checks.
+
+**Day 14-15 numbers:**
+
+| Metric | Value |
+|--------|-------|
+| Nodes added | ~1,600 |
+| Forensic captures | 1,133 (total, 6.6x growth) |
+| Commits | ~50 |
+| New subsystems | 4 (Hippocampus, Aletheia, Pharmakon, Hefesto v2) |
+
+---
+
+## Day 16 — March 22: UE5 Learning + Consolidation
+
+Unreal Engine 5 entered the learning pipeline — 115K files, the largest library cluster attempted. The learner was expanded with UE5-specific file types (shaders, .osl, .udn, ThirdParty) with a 5K node ceiling and 50+ UE keyword priority rules.
+
+Brain state synchronized between private and public repositories.
+
+---
+
+## Library Clusters (28 libraries, 3,458 nodes)
+
+Each library was processed by the multi-model consensus pipeline. A concept requires agreement across models to become a brain node. A single model's hallucination cannot create a node.
 
 | Cluster | Language | Nodes | Domain |
 |---------|----------|-------|--------|
@@ -282,37 +329,40 @@ Each library was processed by the 7-model consensus pipeline. A concept requires
 | 21-fd | Rust | 31 | File finder |
 | gamedev-patterns | Multi | 30 | Design patterns |
 | 23-fiber | Go | 27 | Web framework |
+| 26-ktor | Kotlin | new | Web framework |
+| ue-5.5 | C++ | absorbing | Game engine (115K files) |
 | nurture | Multi | 20 | AI behavioral patterns |
 
 ![Library clusters — distribution by size](../assets/fig-library-clusters.png)
 
 ---
 
-## Projects Validated (14 projects)
+## Projects Validated (17 projects)
 
 | Project | Stack | Workers | Quality |
 |---------|-------|---------|---------|
-| Shield | Python | 80+ | 9/10 |
+| Shield | Python (80K LOC) | 80+ | 9/10 |
 | DocsConverter | Python | 12 | 8/10 |
 | PGX Docs Studio | Python / FastAPI | 15 | 9/10 |
 | PlatanoGamesAcademy | WordPress / PHP | 20 | 9/10 |
 | PGX App | Python / Qt | 8 | pending |
 | PluginPGX | C++ / UE5.4 | 11 | 9/10 |
 | Frameworks PGX | C++ / UE5.4 (28 plugins) | 25 | 9/10 |
+| Hefesto v2 | SvelteKit / TypeScript | — | Live |
 | Shield CLI v1 | Go / bubbletea | in progress | — |
-| + 6 library analysis runs | Multi | 200+ | — |
+| + library analysis runs | Multi | 200+ | — |
 
 ---
 
 ## Worker Activity
 
-500+ workers launched across 13 days. Three tiers: subscription CLIs (zero marginal cost), API-based (pay-per-use), and local (zero cost, classification only). The system auto-routes to the best available provider.
+800+ workers launched across 16 days. Three tiers: subscription CLIs (zero marginal cost), API-based (pay-per-use), and local (zero cost, classification only). The system auto-routes tasks across 26 roles and 6 providers with automatic failover chains.
 
 ![Worker timeline — launches per day](../assets/fig-worker-timeline.png)
 
 ---
 
-## Forensic Captures (171 total)
+## Forensic Captures (1,133 total)
 
 Every bug fixed during development was captured to the forensic index: problem, solution, file, line, severity, confidence, domain tags. The index is queryable at zero token cost — a lookup replaces a fresh investigation.
 
@@ -320,11 +370,11 @@ Every bug fixed during development was captured to the forensic index: problem, 
 
 | Severity | Count | % |
 |----------|-------|---|
-| HIGH | 81 | 47% |
-| MEDIUM | 75 | 44% |
-| LOW | 15 | 9% |
+| HIGH | 442 | 39% |
+| MEDIUM | 469 | 41% |
+| LOW | 222 | 20% |
 
-Error-driven learning: the system's own failures become its training data. Each forensic capture feeds the brain. Recidivism — fixing the same bug twice — is detectable and measurable.
+Error-driven learning: the system's own failures become its training data. Each forensic capture feeds the brain. Recidivism — fixing the same bug twice — is detectable and measurable. The 6.6x growth from 171 to 1,133 captures between Days 11 and 16 reflects the expanded scope of V2 development (SQLite migration, Hefesto, subsystem construction).
 
 ![Error-driven learning cycle](../assets/fig-error-driven-learning.png)
 
@@ -369,7 +419,7 @@ The architecture is designed so that exploration — the expensive, parallelizab
 
 ---
 
-## Key Discoveries Across 13 Days
+## Key Discoveries Across 16 Days
 
 | Day | Discovery | Evidence |
 |-----|-----------|----------|
@@ -383,6 +433,10 @@ The architecture is designed so that exploration — the expensive, parallelizab
 | 9 | Composite metrics hide the signal they claim to expose | BEI deprecated, replaced by decomposed subsystem metrics |
 | 10 | ExitPlanMode causes -93% brain usage dropout | Second dropout vector after context compaction |
 | 11 | GPU-accelerated graph handles 3x the nodes that broke CPU rendering | Cosmograph: 2,411 nodes at 60fps |
+| 12 | Identity can persist across session boundaries via structured self-narration | 21-neuron birth chain, cold-start recovery |
+| 13 | JSON graph becomes friction point at 5,000+ nodes | SQLite + FTS5 migration eliminates bottleneck |
+| 14 | Terminal sessions can be mirrored to mobile in real-time | SvelteKit + xterm.js + pywinpty = live iPhone mirror |
+| 15 | Adversarial poison tests validate epistemological integrity | Pharmakon injects false data, brain rejects it |
 
 ---
 

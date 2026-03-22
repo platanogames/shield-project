@@ -1,7 +1,7 @@
 # Scaling Validation and Benchmark
 
 **Status**: Active — evidence collected, 30-project benchmark in progress
-**Last updated**: 2026-03-18
+**Last updated**: 2026-03-22
 
 This page documents the empirical validation methodology, scaling results, and benchmark design for Shield's persistent knowledge architecture. All claims cite primary evidence sources. Section 8 (Honest Limitations) describes what has and has not yet been formally tested.
 
@@ -22,17 +22,17 @@ This page documents the empirical validation methodology, scaling results, and b
 
 ## 1. Validated Projects — Results Table
 
-Shield has been exercised across 14 projects in 8 languages. Each project represents a complete onboarding cycle: directory scan → worker analysis → brain node creation → Keeper audit → cross-project transfer test. The "Quality" score is the consensus output from post-session multi-worker audit (scale 1–10).
+Shield has been exercised across 17 projects in 10 languages. Each project represents a complete onboarding cycle: directory scan → worker analysis → brain node creation → Keeper audit → cross-project transfer test. The "Quality" score is the consensus output from post-session multi-worker audit (scale 1–10).
 
 ![Knowledge growth across 13 days of operation](../assets/fig-brain-growth.png)
 
-*Brain nodes grew from 32 (Day 1) to 2,427 (Day 13) across 14 projects and 26 library clusters, with no regression event. Each inflection corresponds to a project onboarding or library cluster ingestion event.*
+*Brain nodes grew from 32 (Day 1) to 5,025 (Day 16) across 17 projects and 28 library clusters, with no regression event. Each inflection corresponds to a project onboarding or library cluster ingestion event.*
 
 ### 1.1 Project Validation Results
 
 | # | Project | Stack | Language | BEI Peak | Quality | Bugs Fixed | Workers | Notes |
 |---|---------|-------|----------|----------|---------|------------|---------|-------|
-| 1 | Shield | Python / FastAPI | Python | **99** | 9/10 | 8 | 30+ | Self-analysis; primary development platform |
+| 1 | Shield | Python (80K LOC) | Python | **99** | 9/10 | 8 | 30+ | Self-analysis; primary development platform |
 | 2 | DocsConverter | Python / CLI | Python | 51 | 8/10 | 2 | 12 | 35 automated tests added |
 | 3 | PGX Docs Studio | Python / FastAPI | Python | 72 | 9/10 | 0 | 8 | Clean; no regressions found |
 | 4 | PlatanoGamesAcademy | WordPress / PHP | PHP | 82 | 9/10 | 21 | 18 | 8 deploy blockers + 6 gamification bugs; 21 GB cache purged |
@@ -42,7 +42,7 @@ Shield has been exercised across 14 projects in 8 languages. Each project repres
 | 8 | [shield-cli-v1] | Go / Bubbletea | Go | — | training | — | — | Training ground; accumulates Go error→solution pairs |
 | 9–16 | Library clusters ×16 | Source code | Python, JS, TS, PHP | — | — | — | — | 10-koa: 111 files → 53 nodes, quality 8.0/10 |
 
-**Library clusters validated via 7-model consensus** across 4 independent training lineages: 26 clusters ingested, covering Python, JavaScript/TypeScript, PHP, and Go source libraries. The 10-koa cluster (111 source files, 622 KB) produced 53 brain nodes in 98 minutes with a quality score of 8.0/10.
+**Library clusters validated via multi-model consensus** across 4 independent training lineages: 28 clusters ingested (3,458 nodes), covering Python, JavaScript/TypeScript, PHP, Go, Java, Kotlin, C, C++, and Rust. UE5 (115K files) is the largest cluster currently being absorbed.
 
 ### 1.2 Cross-Project Transfer Evidence
 
@@ -252,8 +252,8 @@ The activation code (heapq priority queue) and context ramification logic are pr
 
 | # | Component | Friction Point | Standard Solution |
 |---|-----------|---------------|-------------------|
-| 1 | Git graph storage | ~50K nodes (~1,100 projects) | SQLite |
-| 2 | brain_graph.json | ~200K edges | SQLite |
+| 1 | Git graph storage | ~50K nodes (~1,100 projects) | SQLite (**migrated in V2**) |
+| 2 | brain_graph.json | ~200K edges | SQLite (**migrated in V2**) |
 | 3 | Keeper contradiction scan | ~500 projects | Incremental scan |
 | 4 | Context density cap | Always present (architectural) | Adaptive budget |
 | 5 | NTFS file count | ~100K files | ext4 on Linux |
@@ -388,9 +388,9 @@ The unconscious absorption category is a novel finding class: it would demonstra
 
 ### 8.3 Known Technical Limitations
 
-1. **Retrieval is keyword-exact**: "Widget" does not match "UI Component." Semantic similarity retrieval is not implemented.
+1. **Retrieval is keyword-based**: V2 uses SQLite FTS5 with ranked results, supporting partial matches and BM25 scoring. However, "Widget" still does not match "UI Component" — semantic similarity retrieval is not implemented.
 2. **No multi-hop reasoning**: The system cannot automatically chain A → B → C through the graph. Cross-references require explicit keyword overlap.
-3. **Scale tested at 7 projects**: The 30-project benchmark is the first formal scale test. Degradation onset is predicted at project 12–15 (cross-domain keyword collision) but not yet observed.
+3. **Scale tested at 17 projects, 5,025 nodes**: The SQLite migration eliminated the JSON bottleneck predicted at ~5K nodes. The 30-project benchmark remains the first formal scale test. Degradation onset prediction has been updated: keyword collision is now mitigated by FTS5 ranked results.
 4. **BEI retired**: The Brain Efficiency Index was retired after discovering structural measurement flaws — it punished selective activation (an intentional feature) and misrepresented token savings (redistribution across worker tiers, not absolute reduction). Replaced by 6 trend-based metrics. Killing a metric with documented evidence of why is scientifically preferable to reporting a metric that appears to work.
 5. **Single-developer validation**: No external users. All integration tests were performed by the system's creator.
 6. **No standard benchmark results**: SWE-Bench and SWE-CI have not been run against Shield yet.

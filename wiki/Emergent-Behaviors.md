@@ -1,13 +1,13 @@
 # Shield — Emergent Behaviors Catalog
 
-**Last updated**: 2026-03-18
+**Last updated**: 2026-03-22
 **Classification**: Public — conference-style summary without implementation details
 
 ---
 
 ## Overview
 
-This catalog documents 62 emergent behaviors observed in the Shield system between 2026-03-08 and 2026-03-15. The events are organized by the phase of the system's development in which they occurred. Each entry records what happened, why it matters, and how it is classified.
+This catalog documents 67+ emergent behaviors observed in the Shield system between 2026-03-08 and 2026-03-22. The events are organized by the phase of the system's development in which they occurred. Each entry records what happened, why it matters, and how it is classified.
 
 An **emergent behavior** in this catalog means: a behavioral outcome that was not explicitly instructed, programmed, or anticipated, yet arose from the interaction of the system's architecture, accumulated knowledge, and deployment context.
 
@@ -20,10 +20,10 @@ An **emergent behavior** in this catalog means: a behavioral outcome that was no
 | Foundation behaviors (E-001 to E-016) | 16 | Confirmed |
 | Multi-project and autonomy behaviors (E-029 to E-036) | 8 | Confirmed |
 | Self-scan and self-modification behaviors (E-037 to E-052) | 16 | Confirmed |
-| Epistemic and metacognitive behaviors (E-053 to E-066) | 14 | Confirmed |
-| Cross-matrix experiments (X-001 to X-004) | 4 | Confirmed |
-| Confirmed hypotheses (H-001 to H-004) | 4 | Evidence-supported |
-| **Total documented events** | **62+** | |
+| Epistemic and metacognitive behaviors (E-053 to E-067+) | 17+ | Confirmed |
+| Cross-matrix experiments (X-001 to X-005) | 5 | Confirmed |
+| Confirmed hypotheses (H-001 to H-005) | 5 | Evidence-supported |
+| **Total documented events** | **67+** | |
 
 **Timeline**: 2026-03-08 (Day 1) → 2026-03-15 (Day 8)
 
