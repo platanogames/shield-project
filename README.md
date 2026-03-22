@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/brain-explorer-2411-nodes.png" alt="Shield Brain — 2,639 nodes, 23,938 edges" width="100%">
+  <img src="assets/brain-explorer-5025-nodes.png" alt="Shield Brain — 5,025 nodes, 40,803 edges" width="100%">
 </p>
 
 <h1 align="center">Shield — Autonomous Cognitive Architecture for AI Agents</h1>
@@ -7,15 +7,16 @@
 <p align="center"><em>Persistent memory, cumulative learning, and self-maintenance for LLM agents — without retraining the model.</em></p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/brain-2%2C639%20nodes%20%7C%2023%2C938%20edges-7f00ff" alt="Brain">
+  <img src="https://img.shields.io/badge/brain-5%2C025%20nodes%20%7C%2040%2C803%20edges-7f00ff" alt="Brain">
   <img src="https://img.shields.io/badge/projects-17%20validated-blue" alt="Projects">
-  <img src="https://img.shields.io/badge/emergent%20behaviors-66%2B-orange" alt="Emergent">
+  <img src="https://img.shields.io/badge/emergent%20behaviors-67%2B-orange" alt="Emergent">
   <img src="https://img.shields.io/badge/languages-10-06b6d4" alt="Languages">
-  <img src="https://img.shields.io/badge/workers%20launched-700%2B-22c55e" alt="Workers">
+  <img src="https://img.shields.io/badge/forensic%20captures-1%2C133-e11d48" alt="Forensic">
+  <img src="https://img.shields.io/badge/workers%20launched-800%2B-22c55e" alt="Workers">
   <img src="https://img.shields.io/badge/status-active%20research-blue" alt="Status">
 </p>
 
-<p align="center"><em>The image above is not a rendering. It's a live GPU visualization of the knowledge graph — built autonomously in 14 days without manual curation.</em></p>
+<p align="center"><em>The image above is not a rendering. It's a live GPU visualization of the knowledge graph — built autonomously in 16 days without manual curation.</em></p>
 
 ---
 
@@ -31,20 +32,19 @@ The same model, with different accumulated history, produces different behavior.
 
 ---
 
-## Measured Results (Day 14)
+## Measured Results (Day 16)
 
 | Metric | Value |
 |--------|-------|
-| **Knowledge graph** | **2,639 nodes**, 23,938 edges, 663K words |
-| **Knowledge surface** | **556M tokens** reachable — **364x** amplification over raw context |
-| **Search hit rate** | **98%** at **0 API tokens** per query |
+| **Knowledge graph** | **5,025 nodes**, 40,803 edges, **1.05M words**, 11,569 keywords |
+| **Search engine** | SQLite + FTS5 full-text search — <10ms, **0 API tokens** per query |
 | **Cognitive leverage** | **96%** (tokens saved via brain reuse) |
-| **Emergent behaviors** | **66 documented** |
-| **Activation latency** | ~6ms — independent of brain size |
-| **Workers launched** | **700+** across 17 projects |
-| **Languages validated** | 10 (Python, C++, PHP, JS, TS, Rust, Go, Java, Kotlin) |
-| **Error-driven learning** | **523** error→solution pairs + **374** investigation nodes |
-| **Library knowledge** | **1,500+ nodes** from 26 open-source libraries via multi-model consensus |
+| **Emergent behaviors** | **67+ documented** |
+| **Workers launched** | **800+** across 17 projects |
+| **Languages validated** | 10 (Python, C++, C, PHP, JS, TS, Rust, Go, Java, Kotlin) |
+| **Error-driven learning** | **714** error nodes + **328** investigation nodes + **1,133** forensic captures |
+| **Library knowledge** | **3,458 nodes** from 28 libraries via multi-model consensus |
+| **Autonomous commits** | **60%+** of 548 total commits are fully autonomous |
 | **Cost per session** | <$0.50 — the expensive model does <1% of the work |
 
 ---
@@ -78,22 +78,37 @@ Post-session daemons run automatically after every session: brain maintenance, f
 
 The expensive coordinator model does less than 1% of the work. The brain functions as a **CDN for LLM knowledge** — thousands of brain operations at zero API token cost.
 
+### New in V2 (Days 12-16)
+
+| System | What it does |
+|--------|-------------|
+| **SQLite + FTS5 Backend** | Brain migrated from JSON to SQLite with full-text search. Sub-10ms ranked queries across 5,000+ nodes. |
+| **Epistemological Firewall** | Verifies claims before they enter the brain. Blocks unsubstantiated assertions. |
+| **Adversarial Test Suite** | Injects false information to verify the brain rejects it. Poison tests for knowledge integrity. |
+| **Route Validation** | Every brain reference verified against actual nodes and filesystem paths. Eliminates dead links. |
+| **Identity Persistence** | 21-neuron identity sequence. The agent reconstructs its own history, capabilities, and rules on startup. |
+| **Real-Time Terminal Mirror** | Live session streaming to any device via WebSocket. Tested on mobile Safari. |
+| **Worker Routing** | 26 roles mapped across 6 providers with automatic failover chains. |
+| **UE5 Learning** | Unreal Engine 5 codebase (115K files) entered the learning pipeline. Largest cluster attempted. |
+
 ---
 
 ## The Brain
 
-The persistent knowledge graph. 2,639 markdown nodes connected by 23,938 typed edges. Zero manual curation — every node and edge was created by autonomous processes.
+The persistent knowledge graph. 5,025 markdown nodes connected by 40,803 typed edges. Zero manual curation — every node and edge was created by autonomous processes. Backed by SQLite with FTS5 full-text search since V2.
 
 ### Knowledge Distribution
 
 | Category | Nodes | % | Source |
 |----------|-------|---|--------|
-| **Library** | ~1,500 | 57% | Multi-model consensus pipeline across 26 open-source libraries |
-| **Errors** | 523 | 20% | Auto-captured from the system's own failures |
-| **Investigations** | 374 | 14% | Worker-driven deep analysis |
-| **Projects** | 242 | 9% | Architecture maps for 17 real projects |
+| **Library** | 3,458 | 69% | Multi-model consensus pipeline across 28 open-source libraries |
+| **Errors** | 714 | 14% | Auto-captured from the system's own failures |
+| **Investigations** | 328 | 7% | Worker-driven deep analysis |
+| **Projects** | 312 | 6% | Architecture maps for 17 real projects |
+| **Design** | 145 | 3% | Hypotheses, experiments, architectural decisions |
+| **Identity** | 23 | <1% | Persistent self-knowledge across sessions |
 
-34% of the brain is **error-driven learning** — the system accumulates its own failures as searchable knowledge. Every search is a local indexed lookup: 0 tokens, <100ms, 7,742 keywords indexed.
+**21% of the brain is error-driven learning** (1,042 nodes) — the system accumulates its own failures as searchable knowledge. 1,133 forensic captures feed this growing immune memory. Every search is a local indexed lookup: 0 tokens, <10ms, 11,569 keywords indexed.
 
 <p align="center">
   <img src="assets/fig-search-zero-tokens.png" alt="Brain searches at 0 tokens" width="85%">
@@ -103,17 +118,18 @@ The persistent knowledge graph. 2,639 markdown nodes connected by 23,938 typed e
   <img src="assets/fig-cost-pyramid.png" alt="Cost pyramid" width="85%">
 </p>
 
-### Growth: 32 → 2,639 nodes in 14 days
+### Growth: 32 → 5,025 nodes in 16 days
 
 <p align="center">
-  <img src="assets/fig-brain-growth.png" alt="Brain growth over 14 days" width="90%">
+  <img src="assets/fig-brain-growth.png" alt="Brain growth over 16 days" width="90%">
 </p>
 
 | Phase | Days | Nodes/day | Driver |
 |-------|------|-----------|--------|
 | Bootstrap | 1-5 | ~50 | Project onboarding |
 | Acceleration | 6-7 | ~300 | Library ingestion + investigation clusters |
-| Sustained | 8-14 | ~350 | All autonomous systems running |
+| Sustained | 8-11 | ~350 | All autonomous systems running |
+| V2 | 12-16 | ~500 | SQLite migration, UE5 learning, expanded forensic capture |
 
 <p align="center">
   <img src="assets/fig-commits-per-day.png" alt="Commits per day" width="85%">
@@ -136,7 +152,7 @@ The persistent knowledge graph. 2,639 markdown nodes connected by 23,938 typed e
 GPU-accelerated graph visualization. Thousands of nodes rendered as an interactive constellation at 60fps. Search, crossfilter histograms, timeline with growth animation, detail panels.
 
 <p align="center">
-  <img src="assets/brain-explorer-2411-nodes.png" alt="Brain Explorer" width="90%">
+  <img src="assets/brain-explorer-5025-nodes.png" alt="Brain Explorer" width="90%">
 </p>
 
 ### Dashboard
@@ -187,9 +203,9 @@ Multi-phase autonomous maintenance daemon. Runs after every session with zero hu
 
 ### Library Learner (Multi-Model Consensus)
 
-Source code from 26 open-source libraries is analyzed independently by multiple LLMs. Only concepts that reach consensus become brain nodes. A single model's hallucination cannot create a node.
+Source code from 28 open-source libraries is analyzed independently by multiple LLMs. Only concepts that reach consensus become brain nodes. A single model's hallucination cannot create a node. 3,458 library nodes created.
 
-**26 clusters across 10 languages**: C, C++, Python, JavaScript, TypeScript, PHP, Rust, Go, Java, Kotlin.
+**28 clusters across 10 languages**: C, C++, Python, JavaScript, TypeScript, PHP, Rust, Go, Java, Kotlin. UE5 (115K files) is the largest target currently being absorbed.
 
 <p align="center">
   <img src="assets/learner-7-model-consensus.png" alt="Multi-model consensus" width="70%">
@@ -201,7 +217,7 @@ Source code from 26 open-source libraries is analyzed independently by multiple 
 
 ### Forensic Daemon
 
-Parses worker outputs after every session. Extracts error→solution pairs as structured brain nodes. 523 error markers captured autonomously.
+Parses worker outputs after every session. Extracts error→solution pairs as structured brain nodes. **1,133 forensic captures** (442 HIGH, 469 MEDIUM, 222 LOW) — the system's immune memory. Each capture prevents the same bug from being investigated twice.
 
 <p align="center">
   <img src="assets/fig-forensic-severity.png" alt="Forensic captures" width="85%">
@@ -215,21 +231,21 @@ Shield has been validated across **17 real projects** spanning **10 programming 
 
 | Project | Stack | Workers | Quality |
 |---------|-------|---------|---------|
-| Shield (self) | Python (96K LOC) | 30 | 9/10 |
+| Shield (self) | Python (80K LOC) | 30 | 9/10 |
 | Unreal Engine Framework | C++/UE5 (991 files) | 25 | 9/10 |
 | UE5 Plugin | C++/UE5.4 | 11 | 9/10 |
 | WordPress Site | PHP | 12 | 9/10 |
 | FastAPI Docs | Python | 6 | 9/10 |
 | Python CLI Tools | Python | 8 | 8/10 |
 | Qt Desktop App | Python/Qt | 10 | Pending |
-| Agentic Runtime | TypeScript (477K LOC) | — | In progress |
+| Terminal Mirror | SvelteKit/TypeScript | — | Live (v2) |
 | CLI (Go) | Go (41K LOC) | — | In progress |
 
 ---
 
 ## Research: Emergent Behaviors
 
-66 documented emergent behaviors — unplanned, unprogrammed decisions observed during real operation. Each entry documents a behavior that emerged from the agent's accumulated context, not from explicit instructions.
+67+ documented emergent behaviors — unplanned, unprogrammed decisions observed during real operation. Each entry documents a behavior that emerged from the agent's accumulated context, not from explicit instructions.
 
 → Full catalog: [Emergent Behaviors](wiki/Emergent-Behaviors.md)
 
@@ -291,10 +307,10 @@ Shield has been validated across **17 real projects** spanning **10 programming 
 | Scale | Nodes | Status |
 |-------|-------|--------|
 | **Practical** (7-10 projects) | 200-300 | Validated |
-| **Current** (17 projects) | 2,639 | Running |
-| **Stress test** | 900+ | Passed without degradation |
+| **Current** (17 projects) | 5,025 | Running |
+| **Stress test** | 5,000+ | No degradation with SQLite FTS5 |
 
-Search is O(1) via indexed lookup. Graph operations scale linearly with edges. GPU visualization handles 10K+ nodes at 60fps. No known ceiling at current scale.
+Search is O(1) via SQLite FTS5 indexed lookup (<10ms). Graph operations scale linearly with edges. GPU visualization handles 10K+ nodes at 60fps. The V2 SQLite migration removed the previous JSON bottleneck.
 
 ---
 
@@ -313,15 +329,17 @@ Search is O(1) via indexed lookup. Graph operations scale linearly with edges. G
 | 9 | Mar 16 | 1,785 | Steady state operations. |
 | 10 | Mar 17 | 2,171 | Measurement redesign. CLI milestone 8.5/10. |
 | 11 | Mar 18 | 2,427 | GPU visualization. Dashboard v2. |
-| 12 | Mar 19 | 2,530 | Knowledge surface 556M tokens. |
-| 13-14 | Mar 20 | 2,639 | Sustained growth. 700+ workers. 17 projects. |
+| 12 | Mar 19 | 2,900 | Identity persistence. Birth chain. |
+| 13 | Mar 20 | 3,800 | **SQLite brain backend.** V2 architecture complete. |
+| 14 | Mar 21 | 4,500 | Terminal mirror live. FTS5 full-text search. |
+| 15-16 | Mar 22 | **5,025** | Epistemological firewall. Adversarial tests. UE5 learning. |
 
 ---
 
 ## Wiki
 
 - **[Research Log](wiki/Research-Log.md)** — Day-by-day chronicle
-- **[Emergent Behaviors](wiki/Emergent-Behaviors.md)** — 66 documented autonomous decisions
+- **[Emergent Behaviors](wiki/Emergent-Behaviors.md)** — 67+ documented autonomous decisions
 - **[Library Learning Pipeline](wiki/Library-Learning-Pipeline.md)** — Multi-model consensus architecture
 - **[Measurement Evolution](wiki/Measurement-Evolution.md)** — From composite scores to decomposed metrics
 - **[Scaling Validation](wiki/Scaling-Validation-Benchmark.md)** — Cross-project benchmark
@@ -336,4 +354,4 @@ For inquiries: [PlatanoGames](https://github.com/platanogames)
 
 ---
 
-<p align="center"><sub>Built in 14 days. 96,700 lines of Python. 2,639 brain nodes. 23,938 edges. 700+ workers. 17 projects. 66 emergent behaviors. 0 manual curation.<br>The brain documents the brain.</sub></p>
+<p align="center"><sub>Built in 16 days. 80,712 lines of Python. 5,025 brain nodes. 40,803 edges. 1,133 forensic captures. 800+ workers. 17 projects. 67+ emergent behaviors. 0 manual curation.<br>The brain documents the brain.</sub></p>
