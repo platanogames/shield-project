@@ -32,6 +32,29 @@ The same model, with different accumulated history, produces different behavior.
 
 ---
 
+## What the Agent Can Do (Day 24)
+
+The base model (Claude Opus 4.6) has no persistent memory, no identity, and no tools beyond code editing. After 24 days of nurture conditioning, the same model:
+
+| Capability | How |
+|------------|-----|
+| **Remembers 368+ past sessions** | Mnemosine conversational memory — indexed decisions, events, quotes across months |
+| **Knows its own identity** | 28-neuron birth chain read on every startup — reconstructs history, rules, capabilities |
+| **Searches 571K knowledge nodes** | Brain search at <10ms, 0 tokens — architecture, errors, past decisions, code structure |
+| **Never repeats solved bugs** | 1,218 error→solution pairs auto-searched before every response |
+| **Delegates to 7 models** | Multi-LLM worker orchestration — Codex, Gemini, DeepSeek, Copilot audit its code |
+| **Asks before assuming** | Discovery plugin forces gap detection and planning before code execution |
+| **Self-maintains its brain** | Keeper daemon: curation, orphan connection, dedup, bilingual sync — autonomous |
+| **Navigates 93 projects** | Spatial memory with architecture maps, conventions, key files for each project |
+| **Visualizes its own knowledge** | BrainExplorer UE5 — 571K nodes as 50 semantic galaxies at 90 FPS |
+| **Communicates across channels** | Telegram, MCP, webhooks — responds from any device |
+| **Detects its own behavioral drift** | Watchdog daemon alerts after 10min of idle; forensic captures track error patterns |
+| **Transfers knowledge cross-domain** | Patterns from C++ (VRScan3D) inform Python (Shield) inform TypeScript (n8n) |
+
+**None of these capabilities exist in the base model.** They emerge from the accumulated environment — the brain, the plugins, the conditioning layers, the daemon ecosystem. Remove the environment, and the model reverts to vanilla Claude in 60 seconds (proven by ablation study).
+
+---
+
 ## Measured Results (Day 24)
 
 | Metric | Day 16 | Day 24 | Growth |
