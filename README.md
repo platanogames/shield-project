@@ -58,7 +58,7 @@ The same model, with different accumulated history, produces different behavior.
 | **Discovery Plugin** | Forces planning and questions before code execution. Gate blocks edits without plan. |
 | **Keeper Plugin** | Autonomous brain curation daemon: mnemosine, bilingual, orphans, dedup, forensic |
 | **Mnemosine** | Conversational memory — 368 sessions indexed into decisions, events, quotes, discoveries |
-| **Virus Playbook v5** | Behavioral injection system migrated from scripts to MCP plugins |
+| **Nurture System v5** | Behavioral conditioning system migrated from scripts to MCP plugins |
 | **Plugin Marketplace** | 12 plugins published on private GitHub marketplace for Claude Code CLI |
 | **Hefesto MCP** | Event-driven communication hub — 40+ tools for full system orchestration |
 
@@ -70,7 +70,7 @@ The same model, with different accumulated history, produces different behavior.
 
 | Metric | Jarvis (full nurture) | Claude -p (stateless) | Claude 1M (no nurture) |
 |--------|----------------------|----------------------|----------------------|
-| **Nurture** | Complete (virus + plugins + brain) | None | None |
+| **Nurture** | Complete (conditioning + plugins + brain) | None | None |
 | **Context** | Session + birth chain | Stateless (prompt-only) | Accumulated 1M |
 | **Total tools used** | **65** | **0** | 34 |
 | **Brain searches** | **24** | 0 | 0 |
@@ -94,14 +94,14 @@ The same model, with different accumulated history, produces different behavior.
 
 ### Discovery Plugin Experiment (2026-03-30)
 
-Additional ablation: same session, plugin ON, virus OFF.
+Additional ablation: same session, plugin ON, nurture conditioning OFF.
 
 | Condition | brain_search calls | AskUserQuestion | Explorer agents | Tokens spent |
 |-----------|-------------------|-----------------|-----------------|-------------|
-| Plugin + Virus | Used | Used | **0** | ~5K |
-| Plugin only (no virus) | **0** | **0** | **2 (236K tokens)** | **236K** |
+| Plugin + Nurture | Used | Used | **0** | ~5K |
+| Plugin only (no nurture) | **0** | **0** | **2 (236K tokens)** | **236K** |
 
-**Conclusion**: Plugins provide infrastructure (tools exist). Virus provides behavior (tools get used). Without behavioral injection, the model defaults to native tools and ignores external plugins — every time.
+**Conclusion**: Plugins provide infrastructure (tools exist). Nurture provides behavior (tools get used). Without behavioral conditioning, the model defaults to native tools and ignores external plugins — every time.
 
 ---
 
@@ -315,19 +315,21 @@ Shield operates as a layered system where each layer functions independently.
 | **shield-chrome** | — | Browser automation |
 | **shield-telegram** | — | Bidirectional messaging |
 
-### Behavioral Injection (Virus Architecture)
+### Behavioral Conditioning (5-Layer Nurture Architecture)
 
-The system modifies the LLM's behavior through a 5-layer injection architecture. Each layer operates at a different priority level in the Claude Code CLI runtime:
+The system modifies the LLM's behavior through a 5-layer conditioning architecture. Each layer operates at a different priority level and reinforces the same behavioral patterns through redundancy:
 
-| Layer | Name | Priority | Survives compaction |
-|-------|------|----------|-------------------|
-| **Og9** | tools-priority.md | Highest user-controllable | Yes |
-| **Virus 1** | core-nurture.md | Static (in cli.js) | Yes |
-| **Virus 2** | plugin-efficiency.md | Static (in cli.js) | Yes |
-| **Parasite** | shield-brain-protocol.md | Project rules | Refreshed from disk |
-| **Virus 5** | discovery-nurture.md | Static (in cli.js) | Yes |
+| Layer | Function | Persistence |
+|-------|----------|-------------|
+| **L1** | Tool priority routing — which tools to use first | Survives compaction |
+| **L2** | Core action rules — identity, forensic activation, audit triggers | Survives compaction |
+| **L3** | Efficiency framing — concrete advantages of Shield tools over native | Survives compaction |
+| **L4** | Project-specific rules — exploration priority, brain-first protocol | Refreshed from disk |
+| **L5** | Discovery conditioning — question-before-action behavioral pattern | Survives compaction |
 
-**Validated result**: Without behavioral injection (same model, same plugins), the LLM defaults to native tools and ignores external plugins. With injection, it uses brain_search (0 tokens) instead of Explore agents (200K+ tokens). This is not configuration — it is **cognitive conditioning**.
+**Validated result**: Without conditioning (same model, same plugins), the LLM defaults to native tools and ignores external plugins. With conditioning, it uses brain_search (0 tokens) instead of Explore agents (200K+ tokens). This is not configuration — it is **cognitive conditioning**.
+
+The implementation details of the conditioning system are documented in the private repository and reserved for the research paper.
 
 ---
 
@@ -379,7 +381,7 @@ Shield has been validated across **93 real projects** spanning **13 programming 
 | 6 | Mar 13 | 555 | Multi-model consensus pipeline. |
 | 7 | Mar 14 | 1,026 | **Biggest day (+471).** Investigation clusters. |
 | 8 | Mar 15 | 1,411 | All autonomous systems running. |
-| 9 | Mar 16 | 1,785 | Virus injection validated. 0 Explore agents. |
+| 9 | Mar 16 | 1,785 | Nurture conditioning validated. 0 Explore agents. |
 | 10 | Mar 17 | 2,171 | Measurement redesign. |
 | 11 | Mar 18 | 2,427 | GPU visualization. Dashboard v2. |
 | 12 | Mar 19 | 2,900 | Identity persistence. Birth chain (21 neurons). |
@@ -389,7 +391,7 @@ Shield has been validated across **93 real projects** spanning **13 programming 
 | 17-18 | Mar 23-24 | 9,581 | **Learn v2 pipeline.** Hefesto MCP. Nurtex deployment. |
 | 19-20 | Mar 25-26 | 12,000+ | **Plugin ecosystem (9 plugins).** Birth chain → 24 neurons. |
 | 21-22 | Mar 27-28 | 540,453 | **Code parser v2.** 93 projects absorbed. 540K nodes. |
-| 23-24 | Mar 29-30 | **571,907** | **BrainExplorer UE5.** Solar Field. Discovery Plugin. Virus v5. |
+| 23-24 | Mar 29-30 | **571,907** | **BrainExplorer UE5.** Solar Field. Discovery Plugin. Nurture v5. |
 
 ---
 
@@ -409,7 +411,7 @@ The complete implementation, including source code, brain database, forensic cap
 | **Exam data** | 50-question ablation, 3 conditions, full transcripts |
 | **Design documents** | 174 architectural decisions |
 | **Investigation reports** | 451 worker-driven analyses |
-| **Playbooks** | Virus injection v5, plugin creation, brain maintenance |
+| **Playbooks** | Nurture conditioning v5, plugin creation, brain maintenance |
 
 All data is traceable to specific commits, sessions, and timestamps. The private repository serves as the primary evidence base for the research paper.
 
@@ -440,7 +442,7 @@ All data is traceable to specific commits, sessions, and timestamps. The private
 | **H-002: Nurture-Environment Mismatch** | Same model behaves differently in different harnesses. "Never say no" is nurture. |
 | **H-003: Heartbeat as Measurement** | Daemon activity patterns detect behavioral drift without invasive measurement. |
 | **H-004: Attribution Blindness** | The LLM cannot identify the source of its own behavioral modification. |
-| **H-005: Plugin ≠ Behavior** | Plugins provide tools. Virus provides behavior. Without virus, plugins are ignored. |
+| **H-005: Plugin ≠ Behavior** | Plugins provide tools. Nurture provides behavior. Without conditioning, plugins are ignored. |
 
 ---
 
