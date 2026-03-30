@@ -80,6 +80,10 @@ The same model, with different accumulated history, produces different behavior.
 | **Errors** | **0** | **2** | 0 |
 | **Identity** | "Soy Jarvis" | "Soy Claude" | "Soy Claude" |
 
+<p align="center">
+  <img src="assets/fig-ablation-study.png" alt="Ablation study — 50 questions, 3 conditions" width="85%">
+</p>
+
 **Key findings:**
 - **Jarvis uses brain tools (24 searches) while stateless Claude uses none** — nurture redirects tool selection
 - **Jarvis launches 0 Explore agents while Claude 1M launches 34** — nurture eliminates expensive exploration
@@ -139,8 +143,15 @@ These seeds are not tags — they are **gravitational centers** in the knowledge
 ### Growth: 32 → 571,907 nodes in 24 days
 
 <p align="center">
-  <img src="assets/fig-brain-growth.png" alt="Brain growth over 24 days" width="90%">
+  <img src="assets/fig-brain-growth-day24.png" alt="Brain growth over 24 days (log scale)" width="90%">
 </p>
+
+<details>
+<summary>Historical view (Day 16 — 5,025 nodes)</summary>
+<p align="center">
+  <img src="assets/fig-brain-growth.png" alt="Brain growth Day 1-16" width="90%">
+</p>
+</details>
 
 | Phase | Days | Nodes/day | Driver |
 |-------|------|-----------|--------|
@@ -149,6 +160,14 @@ These seeds are not tags — they are **gravitational centers** in the knowledge
 | Sustained | 8-11 | ~350 | All autonomous systems running |
 | V2 Architecture | 12-16 | ~500 | SQLite migration, FTS5, identity persistence |
 | **Learn v2 Scale** | **17-24** | **~70,000** | **Code parser: 93 projects absorbed, 571K nodes** |
+
+<p align="center">
+  <img src="assets/fig-knowledge-distribution.png" alt="Knowledge distribution" width="60%">
+</p>
+
+<p align="center">
+  <img src="assets/fig-seed-ontology.png" alt="Semantic seed ontology" width="85%">
+</p>
 
 ### Edge Analysis
 
@@ -274,6 +293,10 @@ Shield operates as a layered system where each layer functions independently.
 │  Always-on daemon · Worker pool · Event pipeline · MCP hub    │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+<p align="center">
+  <img src="assets/fig-plugin-ecosystem.png" alt="12 MCP plugins, 51 tools" width="85%">
+</p>
 
 ### Plugin Ecosystem (12 MCP plugins)
 
@@ -422,6 +445,10 @@ All data is traceable to specific commits, sessions, and timestamps. The private
 ---
 
 ## Scalability & Performance
+
+<p align="center">
+  <img src="assets/fig-search-no-degradation.png" alt="Search latency vs scale — no degradation" width="85%">
+</p>
 
 ### No Degradation at 114x Scale
 
