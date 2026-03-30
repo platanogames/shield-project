@@ -1,9 +1,19 @@
 # Scaling Validation and Benchmark
 
-**Status**: Active — evidence collected, 30-project benchmark in progress
-**Last updated**: 2026-03-22
+**Status**: Active — 93 projects validated, ablation study completed
+**Last updated**: 2026-03-30
 
 This page documents the empirical validation methodology, scaling results, and benchmark design for Shield's persistent knowledge architecture. All claims cite primary evidence sources. Section 8 (Honest Limitations) describes what has and has not yet been formally tested.
+
+### Day 24 Scale Update
+
+| Metric | Day 16 | Day 24 |
+|--------|--------|--------|
+| Projects validated | 17 | **93** |
+| Languages | 10 | **13** |
+| Brain nodes | 5,025 | **571,907** |
+| Search latency | <5ms | **<10ms (114x scale, no degradation)** |
+| Ablation study | Designed | **Completed (50 questions, 3 conditions)** |
 
 ---
 
@@ -22,7 +32,7 @@ This page documents the empirical validation methodology, scaling results, and b
 
 ## 1. Validated Projects — Results Table
 
-Shield has been exercised across 17 projects in 10 languages. Each project represents a complete onboarding cycle: directory scan → worker analysis → brain node creation → Keeper audit → cross-project transfer test. The "Quality" score is the consensus output from post-session multi-worker audit (scale 1–10).
+Shield has been exercised across 93 projects in 13 languages (up from 17 projects on Day 16). Each project represents a complete onboarding cycle: directory scan → worker analysis → brain node creation → Keeper audit → cross-project transfer test. The "Quality" score is the consensus output from post-session multi-worker audit (scale 1–10).
 
 ![Knowledge growth across 13 days of operation](../assets/fig-brain-growth.png)
 

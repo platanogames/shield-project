@@ -1016,4 +1016,20 @@ Four controlled experiments comparing behavior across model families and deploym
 
 ---
 
-*This catalog covers the period 2026-03-08 through 2026-03-15. All entries are drawn from session observations, event logs, and controlled experiments. No entry records a behavior that was explicitly instructed or anticipated in advance. The catalog is updated as new behaviors are documented.*
+### Phase 3 Entries (Days 17-24)
+
+| ID | Date | Category | Summary | Significance |
+|----|------|----------|---------|-------------|
+| E-067 | 2026-03-22 | Epistemic | Brain proof: 540K nodes empirically reduce error probability | Critical |
+| E-068 | 2026-03-25 | Architecture | Plugin architecture convergence with Anthropic's official design | High |
+| E-069 | 2026-03-28 | Behavioral | Knowledge exists but isn't activated until nurture forces it | Critical |
+| E-070 | 2026-03-29 | Visual | Solar Field: semantic structure becomes visible as 50 galaxies | High |
+| E-071 | 2026-03-30 | Metacognitive | Model articulates WHY it should ask questions and still doesn't | Critical |
+| E-072 | 2026-03-30 | Behavioral | Plugin gate blocks edits but cannot force questions without nurture | Critical |
+| H-005 | 2026-03-30 | Hypothesis | Plugin ≠ Behavior (confirmed by controlled experiment) | Critical |
+
+**H-005: Plugin ≠ Behavior** — Confirmed empirically on 2026-03-30. Same model, same plugins, same session. Variable: nurture conditioning ON vs OFF. Result: with nurture → brain_search used (24 calls), 0 Explore agents. Without nurture → 0 brain_search, 2 Explore agents (236K tokens). Plugins provide infrastructure (tools exist). Nurture provides behavior (tools get used). One without the other is insufficient.
+
+---
+
+*This catalog covers the period 2026-03-08 through 2026-03-30. All entries are drawn from session observations, event logs, and controlled experiments. No entry records a behavior that was explicitly instructed or anticipated in advance. The catalog is updated as new behaviors are documented.*

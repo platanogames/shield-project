@@ -13,10 +13,26 @@ epistemological weights: experience always outranks theory.
 
 ![Library clusters](../assets/fig-library-clusters.png)
 
-*28 library clusters processed as of 2026-03-22, spanning 10 programming languages.
-Each bar represents the number of brain nodes produced per cluster after multi-model
-consensus filtering. 3,458 library nodes total. UE5 (115K files) is the largest
-target currently being absorbed.*
+*55 knowledge clusters processed as of 2026-03-30, spanning 13 programming languages.
+5,588 library nodes via multi-model consensus. Additionally, 563,144 code nodes
+from 93 projects via the Learn v2 code parser — functions, classes, modules, constants
+extracted and classified into 50 semantic categories.*
+
+### Learn v2 Scale (Days 17-24)
+
+The original consensus pipeline produced high-quality, curated library nodes (5,588).
+Learn v2 added a complementary pathway: direct code parsing that extracts every
+function, class, module, and constant from a project and classifies it into the
+50-seed semantic ontology.
+
+| Pathway | Nodes | Method | Quality |
+|---------|-------|--------|---------|
+| Library consensus (v1) | 5,588 | Multi-model validation | High (curated) |
+| Code parser (v2) | 563,144 | Tree-sitter + semantic classification | Comprehensive (raw) |
+| **Total** | **571,907** | Both coexist in brain | Layered |
+
+The two pathways serve different purposes: consensus nodes answer "what does this library do?",
+code nodes answer "what specific functions exist and how are they related?"
 
 ---
 

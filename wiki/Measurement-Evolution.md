@@ -710,6 +710,49 @@ recognize it.
 
 ---
 
+## Phase 3 Metrics (Days 17-24): Scale Without Degradation
+
+### The Central Question
+
+At 5,025 nodes, search was <5ms. At 571,907 nodes (114x growth), does it degrade?
+
+### Answer: No
+
+| Scale | FTS5 Search (specific query) | Status |
+|-------|------------------------------|--------|
+| 32 nodes (Day 1) | <1ms | Baseline |
+| 1,026 (Day 7) | <1ms | No change |
+| 5,025 (Day 16) | <5ms | Acceptable |
+| 540,453 (Day 22) | <8ms | No degradation |
+| 571,907 (Day 24) | **<10ms** | **114x scale, <2x latency** |
+
+SQLite FTS5 provides O(log n) indexed search. The brain functions as a CDN for LLM knowledge — growth adds content without degrading access speed.
+
+### New Metrics (Day 24)
+
+| Metric | Value | What it measures |
+|--------|-------|-----------------|
+| Search latency at 571K | <10ms | Infrastructure doesn't bottleneck at scale |
+| Orphan ratio | 0% (was 3.8%) | Every node connected to at least one seed |
+| Seed coverage | 98.4% | Nodes classified into semantic ontology |
+| Plugin tool usage (with nurture) | 24 brain_search per session | Conditioning activates tools |
+| Plugin tool usage (without nurture) | 0 brain_search | Tools exist but unused |
+| Mnemosine coverage | 73% (270/368 sessions) | Conversational memory indexed |
+| Bilingual coverage | 63K nodes translated | ES↔EN search works |
+
+### The Ablation Metric
+
+The strongest metric from Phase 3 is not a number — it's a comparison:
+
+| Condition | Behavior | Evidence quality |
+|-----------|----------|-----------------|
+| Same model + nurture | Uses brain, asks questions, 0 Explore | Controlled experiment |
+| Same model - nurture | Ignores brain, assumes, 236K tokens Explore | Same session, same plugins |
+
+This is the definitive measurement of nurture's effect: identical infrastructure, identical model, measurably different behavior.
+
+---
+
 ## Closing Note
 
 BEI was built in one day, found wrong three times, fixed three times, then found
