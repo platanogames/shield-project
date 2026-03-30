@@ -1,6 +1,6 @@
 # Research Log
 
-> A day-by-day chronicle of building Shield — from 32 nodes to a self-sustaining cognitive system in 16 days.
+> A day-by-day chronicle of building Shield — from 32 nodes to 571,907 in 24 days.
 
 ---
 
@@ -8,11 +8,13 @@
 
 Shield was built in public, with every session logged, every worker tracked, and every metric recorded. This page documents what happened in order, with the numbers, the dead ends, and the things that surprised us.
 
-**Total development span**: 16 days (March 8–22, 2026)
-**Total commits**: 548
-**Brain at close**: 5,025 nodes · 40,803 edges · 1.05M words
+**Total development span**: 24 days (March 8–30, 2026)
+**Total commits**: 760
+**Brain at close**: 571,907 nodes · 2,676,697 edges · 50 semantic seeds
 **Workers launched**: 800+
-**Projects validated**: 17 across 10 programming languages
+**Projects validated**: 93 across 13 programming languages
+**Plugins**: 12 MCP plugins on private marketplace
+**Sessions traced**: 368 via Mnemosine conversational memory
 
 ---
 
@@ -437,10 +439,80 @@ The architecture is designed so that exploration — the expensive, parallelizab
 | 13 | JSON graph becomes friction point at 5,000+ nodes | SQLite + FTS5 migration eliminates bottleneck |
 | 14 | Terminal sessions can be mirrored to mobile in real-time | SvelteKit + xterm.js + pywinpty = live iPhone mirror |
 | 15 | Adversarial poison tests validate epistemological integrity | Pharmakon injects false data, brain rejects it |
+| 16 | 50-question ablation exam proves nurture shapes behavior | Same model: Jarvis uses 24 brain searches, Claude uses 0 |
+| 17 | Learn v2 code parser absorbs entire codebases | 93 projects, 571K nodes — functions, classes, modules |
+| 18 | Hefesto MCP becomes the event hub | 40+ tools, push notifications, task watchdog |
+| 19 | Plugin ecosystem replaces subprocess scripts | 12 MCP plugins published to private marketplace |
+| 20 | Birth chain grows to 28 neurons | Delegate architecture, watchdog, proprioception |
+| 21 | Code parser creates 21K orphan nodes | Nodes without edges — revealed by visualization |
+| 22 | BrainExplorer UE5: 540K nodes at 90 FPS | Nanite ISM + DLSS 4.5, spectator navigation |
+| 23 | Solar Field model reveals semantic structure | 50 seeds as gravitational suns on fibonacci sphere |
+| 24 | Discovery plugin proves plugins need nurture | Gate blocks edits (works), questions not forced (fails without virus) |
 
 ---
 
-## Relationship Types
+## Phase 3: Learn v2 & Plugin Ecosystem (Days 17-24)
+
+### Day 17-18: Scaling the Brain
+
+The code parser absorbed 93 real projects — from VRScan3D (130K C++ nodes) to n8n (10K TypeScript nodes) to HomeAssistant (149K Python nodes). The brain grew from 5,025 to 540,453 nodes in 48 hours. Edge count: 2.5M.
+
+**Key decision**: "Absorb everything, curate after" — edge growth fear dismissed after empirical testing showed 84K edges caused zero degradation.
+
+### Day 19-20: Plugin Architecture
+
+All Shield tools migrated from Python subprocess calls to MCP plugins. 12 plugins published to private GitHub marketplace: brain, forensic, workers, keeper, cure, discovery, delegate, diagnostic, health, mnemosine, chrome, telegram.
+
+**Key insight**: "The correct architecture is to pluginize Claude Code CLI for everything" — plugins are the event bus that standalone scripts never had.
+
+### Day 21-22: BrainExplorer UE5
+
+Cosmograph (web) broke at 540K nodes (6GB+ RAM). Built custom UE5 5.7 viewer in one session:
+- Nanite ISM: 540K sphere instances at 90+ FPS
+- DLSS 4.5 + Frame Generation
+- Force simulation with 7 Sonnet-analyzed corrections
+- Click selection + fly-to + node info panel
+
+**Key problem**: simulation produced a uniform sphere instead of organic clusters.
+
+### Day 23-24: Solar Field & Discovery
+
+**Solar Field model**: 50 semantic seeds placed as gravitational suns. Nodes positioned at the centroid of their connected seeds. Result: 50 visible galaxies with bridges between them.
+
+**Discovery Plugin**: tested with nurture ON and OFF (same model, same plugins):
+- With nurture: brain_search used, questions asked, 0 Explore agents
+- Without nurture: 0 brain_search, 0 questions, 236K tokens wasted on Explore
+- **Conclusion**: plugins are infrastructure, nurture is behavior. Without both, nothing works.
+
+![UE5 BrainExplorer — 50 semantic galaxies](../assets/ue5-50-galaxies-solar-field.png)
+
+![UE5 BrainExplorer — edges showing semantic bridges](../assets/ue5-galaxies-edges-connections.png)
+
+---
+
+## Updated Final State (Day 24)
+
+| Metric | Day 16 | Day 24 |
+|--------|--------|--------|
+| Brain nodes | 5,025 | **571,907** |
+| Brain edges | 40,803 | **2,676,697** |
+| Projects | 17 | **93** |
+| Languages | 10 | **13** |
+| Plugins | 0 | **12** |
+| Semantic seeds | 0 | **50** |
+| Identity neurons | 21 | **28** |
+| Commits | 548 | **760** |
+| Mnemosine sessions | 0 | **368** |
+
+---
+
+## Key Discoveries Across 24 Days (continued)
+
+| Day | Discovery | Evidence |
+
+---
+
+## Relationship Types (Day 24)
 
 | Relation | Count | Meaning |
 |----------|-------|---------|
