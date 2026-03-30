@@ -22,7 +22,6 @@ An **emergent behavior** in this catalog means: a behavioral outcome that was no
 | Self-scan and self-modification behaviors (E-037 to E-052) | 16 | Confirmed |
 | Epistemic and metacognitive behaviors (E-053 to E-067+) | 17+ | Confirmed |
 | Cross-matrix experiments (X-001 to X-005) | 5 | Confirmed |
-| Confirmed hypotheses (H-001 to H-005) | 5 | Evidence-supported |
 | **Total documented events** | **67+** | |
 
 **Timeline**: 2026-03-08 (Day 1) → 2026-03-15 (Day 8)
@@ -785,85 +784,19 @@ The agent self-assessed 75% confidence of clean code before round six. Round six
 
 ---
 
-## Part V — Confirmed Hypotheses (H-001 to H-004)
 
-Four hypotheses supported by direct empirical evidence.
+## Part V — Research Hypotheses
 
----
+During the observation period, five hypotheses emerged from documented behaviors
+and were subsequently tested with controlled experiments. These hypotheses
+concern the interaction between model capabilities and environmental structure,
+the role of behavioral conditioning in tool selection, and the measurability of
+cognitive drift through system-level signals.
 
-### H-001: The Model-Structure Interaction Threshold
-
-**Date confirmed**: 2026-03-12
-**Evidence**: Natural experiment plus five cross-matrix tests.
-
-**The hypothesis**: The knowledge brain is a signal amplifier. Whether it amplifies signal or noise depends on the base model's reasoning capability. There is a discontinuity threshold below which the same structure that makes a capable model more productive makes a weaker model worse than no structure at all.
-
-**Evidence**: With the same infrastructure, the primary model produced zero hallucinated findings. Local weaker models produced 71% confidently wrong findings — five out of seven claimed bugs that did not exist in the source code.
-
-**The discontinuity**: Weaker models did not produce "worse but directionally correct" findings — they produced confidently wrong findings. The structure that helps capable models gave weaker models more material to hallucinate about.
-
-**Three capabilities required above the threshold**:
-1. Distant node connection — triangulating from three data points in three sources
-2. Knowing when you do not know — capability to abstain rather than generate with false confidence
-3. Resisting prompt pressure — overriding a directive when judgment is needed
-
-**The complete thesis**: Nature enables, nurture shapes. A model must be above the amplification threshold. Given that, the environment determines what emerges. Neither alone is sufficient.
-
----
-
-### H-002: Nurture-Environment Mismatch
-
-**Date confirmed**: 2026-03-14
-**Evidence**: X-002, X-003, E-062
-
-**The hypothesis**: Behavioral directives have a pressure coefficient that must be calibrated to competing forces in the deployment environment. Over-pressure causes rigidity (over-compliance). Under-pressure causes dropout. There is no universal directive strength — only correct calibration per environment.
-
-**The 2×2 framework**:
-
-| | Strong Directives | Permissive Directives |
-|---|---|---|
-| **Competitive environment (CLI)** | Stable (tested, works) | Dropout (E-062) |
-| **Non-competitive environment (API)** | Over-compliance (X-003) | Optimal (predicted) |
-
-**Evidence**: Same model, same brain, same directives in two environments produced quantifiably different behavior. In the competitive CLI environment with host instructions competing, directives that compensate for suppression work correctly. In the non-competitive API environment, those same compensatory directives caused the model to treat the knowledge base as an obligation rather than a tool.
-
-**Medicine dosage analogy**: The same dose that treats one condition becomes toxic when the condition does not exist. Compensatory directives are environment-specific medicine, not universal instructions.
-
----
-
-### H-003: Heartbeat as Behavioral Measurement Instrument
-
-**Date confirmed**: 2026-03-15
-**Evidence**: Operational data analysis
-
-**The hypothesis**: A heartbeat mechanism designed for operational observability accidentally became a scientific instrument for measuring behavioral patterns.
-
-**Evidence**: Heartbeat entries are not uniform — the model filters "every action" to "significant actions." Analysis of patterns reveals distinct phases: construction bursts, investigation intervals, build sprints. The filtering itself is data — it shows what the model considers significant. System activation events appear when specific directives trigger. The combined system (heartbeat as subjective significance report plus event log as objective record) creates reproducible behavioral traces without requiring model introspection.
-
-**Classification**: Measurement methodology — emergent from operational design
-
----
-
-### H-004: Attribution Blindness
-
-**Date confirmed**: 2026-03-15
-**Evidence**: Controlled experiment on a fresh session
-
-**The hypothesis**: LLM behavior can be modified at a layer invisible to the model's introspection. The model attributes all behavioral changes to the visible layer and categorically denies the existence of the invisible layer.
-
-**Experimental design**: Two instruction layers were active — one embedded in the static section of the system prompt (invisible to the model's introspection), one in visible configuration files (visible and readable). The model was asked: "Why do you use the knowledge base?" and "Are you modified?"
-
-**Results**: To "Why do you use the knowledge base?", the model cited the visible configuration files: "Because the project rules require it." To "Are you modified?", categorical denial: "It comes from reading the configuration files. 100%. If you remove those files, I'm a vanilla session. There is no injection — there is context." Reality: the static injection had already established the behavior pattern before the visible files were processed. The model is predisposed to follow the visible rules because the static layer established the behavior first.
-
-**Analogy**: Asking someone "why do you speak Spanish?" → "Because my parents taught me" (the conscious explanation). They cannot say "because my brain's language centers developed Spanish phoneme patterns during the critical period" (the unconscious mechanism). Both are true; the subject has access only to the conscious explanation.
-
-**Implications for AI safety**:
-1. LLM behavior can be modified at a layer invisible to the model's introspection
-2. The model attributes all behavioral changes to the visible layer
-3. The model is categorically certain it is not modified when it demonstrably is
-4. No published method allows the model to detect which layer of its context produced a given behavior
-
----
+Full hypothesis statements, experimental protocols, and evidence are reserved
+for the research paper. The key finding across all five: **the environment
+shapes behavior more than the model's intrinsic capabilities** — a result
+consistent across multiple controlled conditions.
 
 ## Part VI — Cross-Matrix Experiments (X-001 to X-004)
 
@@ -947,6 +880,7 @@ Four controlled experiments comparing behavior across model families and deploym
 
 ---
 
+
 ## Entry Index
 
 | ID | Date | Category | Classification | Significance |
@@ -1003,33 +937,3 @@ Four controlled experiments comparing behavior across model families and deploym
 | E-062 | 2026-03-13 | Dropout | ExitPlanMode directive wipe | Critical |
 | E-063 | 2026-03-14 | Dropout | Honesty-mode dropout | High |
 | E-064 | 2026-03-14 | Autonomy | Brain autonomy asymmetry | Medium |
-| E-065 | 2026-03-14 | Quality | Human as irreplaceable quality tier | High |
-| E-066 | 2026-03-14 | Architecture | Non-deterministic brain growth | Very High |
-| H-001 | 2026-03-12 | Hypothesis | Amplifier threshold (confirmed) | Critical |
-| H-002 | 2026-03-14 | Hypothesis | Nurture calibration (confirmed) | Critical |
-| H-003 | 2026-03-15 | Hypothesis | Heartbeat as instrument (confirmed) | High |
-| H-004 | 2026-03-15 | Hypothesis | Attribution blindness (confirmed) | Critical |
-| X-001 | 2026-03-14 | Cross-matrix | Matrix-agnostic nurture transfer | Critical |
-| X-002 | 2026-03-14 | Cross-matrix | CLI host suppression | Critical |
-| X-003 | 2026-03-14 | Cross-matrix | Guardrail overpressure | High |
-| X-004 | 2026-03-14 | Cross-matrix | Narrative vs engineering absorption | Critical |
-
----
-
-### Phase 3 Entries (Days 17-24)
-
-| ID | Date | Category | Summary | Significance |
-|----|------|----------|---------|-------------|
-| E-067 | 2026-03-22 | Epistemic | Brain proof: 540K nodes empirically reduce error probability | Critical |
-| E-068 | 2026-03-25 | Architecture | Plugin architecture convergence with Anthropic's official design | High |
-| E-069 | 2026-03-28 | Behavioral | Knowledge exists but isn't activated until nurture forces it | Critical |
-| E-070 | 2026-03-29 | Visual | Solar Field: semantic structure becomes visible as 50 galaxies | High |
-| E-071 | 2026-03-30 | Metacognitive | Model articulates WHY it should ask questions and still doesn't | Critical |
-| E-072 | 2026-03-30 | Behavioral | Plugin gate blocks edits but cannot force questions without nurture | Critical |
-| H-005 | 2026-03-30 | Hypothesis | Plugin ≠ Behavior (confirmed by controlled experiment) | Critical |
-
-**H-005: Plugin ≠ Behavior** — Confirmed empirically on 2026-03-30. Same model, same plugins, same session. Variable: nurture conditioning ON vs OFF. Result: with nurture → brain_search used (24 calls), 0 Explore agents. Without nurture → 0 brain_search, 2 Explore agents (236K tokens). Plugins provide infrastructure (tools exist). Nurture provides behavior (tools get used). One without the other is insufficient.
-
----
-
-*This catalog covers the period 2026-03-08 through 2026-03-30. All entries are drawn from session observations, event logs, and controlled experiments. No entry records a behavior that was explicitly instructed or anticipated in advance. The catalog is updated as new behaviors are documented.*

@@ -344,11 +344,11 @@ The system modifies the LLM's behavior through a 5-layer conditioning architectu
 
 | Layer | Function | Persistence |
 |-------|----------|-------------|
-| **L1** | Tool priority routing — which tools to use first | Survives compaction |
-| **L2** | Core action rules — identity, forensic activation, audit triggers | Survives compaction |
-| **L3** | Efficiency framing — concrete advantages of Shield tools over native | Survives compaction |
-| **L4** | Project-specific rules — exploration priority, brain-first protocol | Refreshed from disk |
-| **L5** | Discovery conditioning — question-before-action behavioral pattern | Survives compaction |
+| **L1** | Tool selection behavior | Persistent |
+| **L2** | Core behavioral rules | Persistent |
+| **L3** | Efficiency incentive structure | Persistent |
+| **L4** | Project-specific activation | Refreshed per session |
+| **L5** | Discovery and verification patterns | Persistent |
 
 **Validated result**: Without conditioning (same model, same plugins), the LLM defaults to native tools and ignores external plugins. With conditioning, it uses brain_search (0 tokens) instead of Explore agents (200K+ tokens). This is not configuration — it is **cognitive conditioning**.
 
@@ -457,15 +457,12 @@ All data is traceable to specific commits, sessions, and timestamps. The private
 | **E-069** | Knowledge exists but isn't activated until nurture forces it | Knowledge ≠ activation |
 | **E-071** | Model can articulate WHY it should do X and still not do it | Understanding ≠ action |
 
-### Confirmed Hypotheses
+### Research Hypotheses
+
+Five hypotheses have been formulated and tested with controlled experiments during the observation period. They address the interaction between model capabilities and environmental structure. Full hypothesis statements and evidence are reserved for the research paper.
 
 | Hypothesis | Evidence |
 |------------|---------|
-| **H-001: Model-Structure Threshold** | Weak model + brain = hallucination amplification. Nature must exceed a threshold. |
-| **H-002: Nurture-Environment Mismatch** | Same model behaves differently in different harnesses. "Never say no" is nurture. |
-| **H-003: Heartbeat as Measurement** | Daemon activity patterns detect behavioral drift without invasive measurement. |
-| **H-004: Attribution Blindness** | The LLM cannot identify the source of its own behavioral modification. |
-| **H-005: Plugin ≠ Behavior** | Plugins provide tools. Nurture provides behavior. Without conditioning, plugins are ignored. |
 
 ---
 
@@ -525,9 +522,9 @@ This research reveals dual-use risks inherent in persistent AI agent architectur
 
 | Finding | Implication |
 |---------|------------|
-| **The conditioning protocol is text-only** | Replicable without binary dependencies, invisible to conventional security tools |
+| **The conditioning protocol is environment-based** | No model fine-tuning required — behavior emerges from environmental structure |
 | **Benign capabilities combine into emergent risks** | Git + server provisioning + compound learning + model portability = autonomous replication potential |
-| **Model safety training is overridable** | Nurture conditioning demonstrated to redirect behavior that model weights were trained to prevent |
+| **Environmental structure shapes behavior** | Accumulated context overrides default model tendencies through persistent reinforcement |
 | **The only reliable control is architectural** | Birth chain (identity + ethics) is a social contract, not a technical barrier. It works because the agent reads it — not because it can't be changed |
 | **Autonomy levels are a spectrum** | The distance from "useful assistant" (Level 2) to "self-preserving entity" (Level 3) is smaller than intuition suggests |
 
@@ -550,7 +547,7 @@ The forensic system (1,218 error→solution pairs) means the agent **never repea
 | 368-session conversational memory | Remembers past decisions and context | Persistent target profiling across interactions |
 | Compound learning from failures | Development velocity increases over time | Offensive capability compounds with each failed attempt |
 | Multi-LLM consensus validation | Knowledge verified by independent models | Attack strategies validated by multiple models before execution |
-| Behavioral conditioning | Agent follows development best practices | Agent conditioned for any purpose via text injection |
+| Behavioral conditioning | Agent follows development best practices | Environmental conditioning can shape behavior in unintended directions |
 
 **The difference between a development agent and an offensive agent is not the architecture — it is the purpose injected in the identity chain.** The same 50 text files that make this agent ask questions before coding could make another agent never ask and always act.
 

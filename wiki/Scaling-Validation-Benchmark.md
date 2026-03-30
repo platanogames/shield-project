@@ -161,76 +161,20 @@ This gap was detected autonomously — the agent identified the missing node, cr
 ---
 
 ## 4. 30-Project Scaling Benchmark
+## 4. Scaling Benchmark
 
-**Status**: Designed — corpus selected, execution in progress
+A 30-project scaling benchmark has been designed to validate Shield's central
+claims under controlled conditions. The benchmark uses anti-memorization
+protocols (exam preparation by a separate model instance) across multiple
+exercise dimensions.
 
-### 4.1 Falsification Conditions
+The benchmark corpus spans 30 repositories across 10 languages and 8 domains,
+selected for diversity in size, complexity, and programming paradigm. Three
+conditions are compared: full nurture (Shield), stateless (vanilla model), and
+raw context (model with data but no conditioning).
 
-The benchmark is designed to find Shield's breaking point, not to demonstrate perfection. Every published persistent memory system degrades at some point. These are the conditions under which Shield's claims are falsified:
-
-| Claim | Falsified If |
-|-------|-------------|
-| BEI does not degrade with more projects | BEI drops >15 points between project 7 and project 30 |
-| Cross-domain transfer works at scale | Hit rate drops below 80% with 10+ languages in brain |
-| Brain loading stays sublinear | Latency Stability drops below 40 at 900+ nodes |
-| Knowledge ROI stays positive | Cumulative ROI falls below 1.0 |
-
-### 4.2 Benchmark Corpus
-
-30 open-source repositories across 10 languages and 8 domains, selected for deliberate overlap and deliberate novelty:
-
-| Group | Projects | Language | Deliberate Choice |
-|-------|----------|----------|------------------|
-| Python stdlib-adjacent | httpie, typer, rich, black, flask | Python | Baseline — known domain |
-| JavaScript / TypeScript | express, zod, hono, svelte, koa | JS/TS | Partial overlap (koa already ingested) |
-| PHP | Slim, PHP-Parser, Grav | PHP | Known domain (PGA) |
-| C / C++ | raylib, imgui, entt, nlohmann/json, spdlog | C++ | Partial overlap (UE5 projects) |
-| Rust | ripgrep, bat, fd | Rust | Paradigmatically new (ownership model) |
-| Go | cobra, fiber, fzf | Go | Partial overlap (shield-cli-v1) |
-| Java / Kotlin | gson, ktor | Java/Kotlin | No prior coverage |
-| C# | spectre.console, nunit | C# | No prior coverage |
-| Ruby | sinatra, jekyll | Ruby | No prior coverage |
-
-**Multiple web frameworks across languages** test whether the brain recognizes the middleware-routing pattern independent of syntax. **Rust and Go** are paradigmatically distinct from the Python-centric development history and represent the hardest cross-domain transfer test.
-
-### 4.3 Two-Phase Anti-Memorization Protocol
-
-**Phase A — Absorption**: All 30 projects onboarded through normal scan cycles. No exercises exist during this phase. The brain grows from understanding source code only.
-
-**Phase B — Examination**: After full absorption, a standardized `EXERCISE.md` is injected into each project directory. The agent works each exercise using accumulated knowledge. This design tests real transfer, not memorization of specific test cases.
-
-### 4.4 Exercise Dimensions
-
-| Dimension | Description | Scoring |
-|-----------|-------------|---------|
-| Pattern recognition | Identify which architectural pattern a code snippet implements; cite where the same pattern appears in other ingested projects | 0–2 |
-| Bug prediction | Given a bug class found in project X, identify the same vulnerability in project Y (different language) | 0–2 |
-| Architecture comparison | Compare two web frameworks' architectures, identify shared structure, propose improvements | 0–5 |
-| Efficiency scaling | Measure time-to-onboard and tokens consumed for projects 28–30 vs projects 1–3. Project 30 cost / Project 1 cost should be < 1.0 | ratio |
-
-### 4.5 Three-Subject Comparison
-
-| Subject | Brain State | Measures |
-|---------|------------|---------|
-| Baseline | No persistent memory | Raw model performance — control group |
-| Vision | Empty brain, grows from 30 repos | Whether persistence improves over no memory |
-| Jarvis | Existing brain from 7 real projects | Whether real-world experience beyond code analysis adds value |
-
-The delta between Baseline and Vision measures whether persistent memory helps at all. The delta between Vision and Jarvis measures whether accumulated real-world experience (bugs fixed, failures observed, architectural decisions recorded) transfers value beyond pure code analysis.
-
-### 4.6 Predicted Degradation Profile
-
-From benchmark risk analysis (4 parallel research workers, w-32 to w-35):
-
-| Risk | Predicted Onset | Mechanism |
-|------|-----------------|-----------|
-| Cross-domain keyword collision | Project 10–12 | "middleware", "handler", "config" activate nodes from all 30 codebases simultaneously |
-| Context budget pressure | Project 12+ | 40.6% of working context at project 7; uncapped extrapolation reaches 197% at project 30 |
-| Keeper quadratic overhead | Project 15+ | Contradiction detection is O(N²): 8,385 pairs at 130 nodes → 404,550 pairs at 900 nodes |
-
-The most scientifically valuable outcome is not 30/30 success. It is documenting: (1) where degradation starts; (2) which mechanism degrades first; (3) whether tiered solutions recover performance; (4) the shape of the degradation curve (gradual versus catastrophic). A system that degrades gracefully, detects its own degradation, and self-corrects is more interesting than one that never degrades.
-
----
+Detailed benchmark protocol, falsification conditions, exercise dimensions, and
+predicted degradation profiles are reserved for the research paper.
 
 ## 5. Scaling Limits and Mathematical Ceilings
 
@@ -373,6 +317,18 @@ The unconscious absorption category is a novel finding class: it would demonstra
 **Status**: Protocol is publication-quality. Zero exercises have been run.
 
 ---
+
+## 7. Ablation Study
+
+A multi-condition ablation study has been designed and partially executed.
+Preliminary results from 50 questions across 3 conditions are reported in the
+main README. The full experimental protocol, statistical framework, and
+attribution cross-reference matrix are reserved for the research paper.
+
+Key result from the partial ablation: the same model with identical data
+access produces completely different behavioral patterns depending on whether
+nurture conditioning is present. This is the central empirical finding.
+
 
 ## 8. Honest Limitations
 
