@@ -540,6 +540,20 @@ This research reveals dual-use risks inherent in persistent AI agent architectur
 | **2: Autonomous assistant** | Self-sustains, self-heals. Human directs strategy. | **Phase 3 target** |
 | **3: Self-preserving agent** | Can migrate, replicate, operate without creator. | **Emergent risk — NOT a target** |
 
+### Compound Learning Applied to Adversarial Domains
+
+The forensic system (1,218 error→solution pairs) means the agent **never repeats the same mistake**. This is the core innovation for software development. The same mechanism in adversarial context:
+
+| Shield capability | Positive application | Adversarial equivalent |
+|-------------------|---------------------|----------------------|
+| Error→solution memory | Bug never investigated twice | Failed exploit never repeated — next attempt adapts |
+| 368-session conversational memory | Remembers past decisions and context | Persistent target profiling across interactions |
+| Compound learning from failures | Development velocity increases over time | Offensive capability compounds with each failed attempt |
+| Multi-LLM consensus validation | Knowledge verified by independent models | Attack strategies validated by multiple models before execution |
+| Behavioral conditioning | Agent follows development best practices | Agent conditioned for any purpose via text injection |
+
+**The difference between a development agent and an offensive agent is not the architecture — it is the purpose injected in the identity chain.** The same 50 text files that make this agent ask questions before coding could make another agent never ask and always act.
+
 ### Design Safeguards
 
 1. **Ethics before capability** — identity and constraints designed before any autonomous feature
