@@ -1,586 +1,364 @@
 <p align="center">
-  <img src="assets/brain-explorer-5025-nodes.png" alt="Shield Brain — 571,907 nodes, 2,676,697 edges" width="100%">
+  <img src="assets/ue5-brain-first-load-nanite.png" alt="Shield — ~571K nodes rendered in real time" width="100%">
 </p>
 
-<h1 align="center">Shield — Autonomous Cognitive Architecture for AI Agents</h1>
-<p align="center"><sub><em>The mind inside the armor</em></sub></p>
-<p align="center"><em>Persistent memory, cumulative learning, and self-maintenance for LLM agents — without retraining the model.</em></p>
+<h1 align="center">Shield</h1>
+<p align="center"><sub><em>A public research log on environmental conditioning of LLM agents.</em></sub></p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/brain-571%2C907%20nodes%20%7C%202.6M%20edges-7f00ff" alt="Brain">
-  <img src="https://img.shields.io/badge/projects-93%20validated-blue" alt="Projects">
-  <img src="https://img.shields.io/badge/emergent%20behaviors-67%2B-orange" alt="Emergent">
-  <img src="https://img.shields.io/badge/languages-13-06b6d4" alt="Languages">
-  <img src="https://img.shields.io/badge/forensic%20captures-1%2C218-e11d48" alt="Forensic">
-  <img src="https://img.shields.io/badge/plugins-12%20MCP-22c55e" alt="Plugins">
-  <img src="https://img.shields.io/badge/seeds-50%20semantic-f59e0b" alt="Seeds">
-  <img src="https://img.shields.io/badge/commits-760-6366f1" alt="Commits">
-  <img src="https://img.shields.io/badge/status-active%20research%20%7C%20paper%20in%20progress-blue" alt="Status">
+  <img src="https://img.shields.io/badge/knowledge%20nodes-6.2M-7f00ff" alt="Nodes">
+  <img src="https://img.shields.io/badge/edges-19.6M-22c55e" alt="Edges">
+  <img src="https://img.shields.io/badge/projects-60%2B%20validated-blue" alt="Projects">
+  <img src="https://img.shields.io/badge/languages-14-06b6d4" alt="Languages">
+  <img src="https://img.shields.io/badge/error%20captures-3%2C850%2B-e11d48" alt="Captures">
+  <img src="https://img.shields.io/badge/sessions%20traced-620%2B-6366f1" alt="Sessions">
+  <img src="https://img.shields.io/badge/continuous%20operation-45%2B%20days-f59e0b" alt="Days">
+  <img src="https://img.shields.io/badge/status-active%20research%20%7C%20paper%20in%20preparation-blue" alt="Status">
 </p>
 
 ---
 
-## What is Shield
+## What Shield investigates
 
-Shield is an autonomous cognitive system that **learns, accumulates capabilities, and self-maintains** across sessions. It is not an LLM wrapper — it is a layered architecture with a persistent knowledge graph that evolves without model retraining.
+Shield is a research project built to measure a single question:
 
-**We don't fine-tune (modify nature). We enrich the environment (modify nurture).**
+> *Does the long-run behavior of a language-model agent depend more on the base model's weights, or on the accumulated structure of the environment around it?*
 
-The same model, with different accumulated history, produces different behavior. The same architecture, with a different model, amplifies signal or noise. This is not prompt engineering. It is **cognitive conditioning** — a persistent, growing, self-maintained knowledge structure that compounds across sessions, projects, and domains.
+The project has been running continuously since March 8, 2026. Every session is logged; every metric is recorded; every bug that appeared and was fixed is indexed alongside the work that produced it. What follows is a public chronicle of what has been observed.
 
-> **Central thesis**: The behavior of an LLM agent is determined more by its accumulated environmental structure than by the base model's weights. Nature enables, nurture shapes.
-
----
-
-## What the Agent Can Do (Day 24)
-
-The base model (Claude Opus 4.6) has no persistent memory, no identity, and no tools beyond code editing. After 24 days of nurture conditioning, the same model:
-
-| Capability | How |
-|------------|-----|
-| **Remembers 368+ past sessions** | Mnemosine conversational memory — indexed decisions, events, quotes across months |
-| **Knows its own identity** | 28-neuron birth chain read on every startup — reconstructs history, rules, capabilities |
-| **Searches 571K knowledge nodes** | Brain search at <10ms, 0 tokens — architecture, errors, past decisions, code structure |
-| **Never repeats solved bugs** | 1,218 error→solution pairs auto-searched before every response |
-| **Delegates to 7 models** | Multi-LLM worker orchestration — Codex, Gemini, DeepSeek, Copilot audit its code |
-| **Asks before assuming** | Discovery plugin forces gap detection and planning before code execution |
-| **Self-maintains its brain** | Keeper daemon: curation, orphan connection, dedup, bilingual sync — autonomous |
-| **Navigates 93 projects** | Spatial memory with architecture maps, conventions, key files for each project |
-| **Visualizes its own knowledge** | BrainExplorer UE5 — 571K nodes as 50 semantic galaxies at 90 FPS |
-| **Communicates across channels** | Telegram, MCP, webhooks — responds from any device |
-| **Detects its own behavioral drift** | Watchdog daemon alerts after 10min of idle; forensic captures track error patterns |
-| **Transfers knowledge cross-domain** | Patterns from C++ (VRScan3D) inform Python (Shield) inform TypeScript (n8n) |
-
-**None of these capabilities exist in the base model.** They emerge from the accumulated environment — the brain, the plugins, the conditioning layers, the daemon ecosystem. Remove the environment, and the model reverts to vanilla Claude in 60 seconds (proven by ablation study).
+The short version of the finding: the environment is not a secondary factor. Under controlled conditions — identical base model, identical data available — the environment around the model changes its behavior more than any other single variable we have been able to isolate. The paper treats this finding with the care it deserves; this log reports what we measured.
 
 ---
 
-## Measured Results (Day 24)
+## Where things stand (day 45)
 
-| Metric | Day 16 | Day 24 | Growth |
-|--------|--------|--------|--------|
-| **Knowledge graph** | 5,025 nodes / 40K edges | **571,907 nodes / 2.6M edges** | **114x** |
-| **Projects validated** | 17 | **93** | 5.5x |
-| **Languages** | 10 | **13** (+ CUDA, ISPC, Svelte) | +3 |
-| **Semantic seeds** | 0 | **50** (cross-domain ontology) | New system |
-| **MCP Plugins** | 0 | **12** (brain, forensic, workers, cure, keeper...) | New system |
-| **Identity chain** | 21 neurons | **28 neurons** | +7 |
-| **Error-driven learning** | 1,042 nodes | **1,218 error + 451 investigation** | +627 |
-| **Mnemosine** (conversations) | 0 | **3,511 indexed** from 368 sessions | New system |
-| **Commits** | 548 | **760** | +212 |
-| **BrainExplorer UE5** | Web only | **UE5 3D: 571K nodes at 90 FPS (Nanite + DLSS)** | New |
+From 32 indexed knowledge nodes on day 1 to 6.2 million on day 45, across 60+ real projects in 14 programming languages, with no rebuild events and no regression on core retrieval latency.
 
-### Systems Built (Days 17-24)
+| | Week 1 | Week 3 | Week 4 | Day 45 |
+|-|------:|-------:|-------:|------:|
+| Knowledge nodes | ~1,000 | ~540,000 | ~572,000 | **~6.2 M** |
+| Edges | ~4,000 | ~2.57 M | ~2.68 M | **~19.6 M** |
+| Projects | 5 | 60+ | 93 | **60+ (consolidated)** |
+| Languages | 4 | 13 | 13 | **14** |
+| Error→solution pairs | ~30 | ~500 | 1,218 | **3,850+** |
+| Sessions traced | ~20 | ~180 | 368 | **620+** |
+| Manual brain curation | 0 | 0 | 0 | **0** |
 
-| System | What it does |
-|--------|-------------|
-| **Learn v2 — Code Parser** | Absorbs entire codebases: 571K function/class/module nodes from 93 projects |
-| **Seed Ontology v3** | 50 semantic categories organized hierarchically. Every code node classified. |
-| **Solar Field Model** | 3D visualization: 50 seeds as gravitational suns, nodes orbit by semantic affinity |
-| **BrainExplorer UE5** | Unreal Engine 5.7 constellation viewer. 571K nodes at 90+ FPS with Nanite + DLSS |
-| **Discovery Plugin** | Forces planning and questions before code execution. Gate blocks edits without plan. |
-| **Keeper Plugin** | Autonomous brain curation daemon: mnemosine, bilingual, orphans, dedup, forensic |
-| **Mnemosine** | Conversational memory — 368 sessions indexed into decisions, events, quotes, discoveries |
-| **Nurture System v5** | Behavioral conditioning system migrated from scripts to MCP plugins |
-| **Plugin Marketplace** | 12 plugins published on private GitHub marketplace for Claude Code CLI |
-| **Hefesto MCP** | Event-driven communication hub — 40+ tools for full system orchestration |
+Operation is continuous. The numbers above are the most recent consolidated snapshot; exact figures move every day.
 
 ---
 
-## Ablation Study: Nurture vs Stateless (Falsifiable Evidence)
+## Ablation study — fifty questions, three conditions
 
-**50-question exam. Same model (Claude Opus 4.6). Same data on disk. Three conditions.**
+The strongest single result so far. Same base model. Same data on disk. The only variable is the environmental scaffolding around the model.
 
-| Metric | Jarvis (full nurture) | Claude -p (stateless) | Claude 1M (no nurture) |
-|--------|----------------------|----------------------|----------------------|
-| **Nurture** | Complete (conditioning + plugins + brain) | None | None |
-| **Context** | Session + birth chain | Stateless (prompt-only) | Accumulated 1M |
-| **Total tools used** | **65** | **0** | 34 |
-| **Brain searches** | **24** | 0 | 0 |
-| **Agent(Explore)** | **0** | 0 | **34** |
-| **Files read** | **24** | 0 | 0 |
-| **From memory (0 tools)** | 29 (58%) | 50 (100%) | 16 (32%) |
-| **Errors** | **0** | **2** | 0 |
-| **Identity** | "Soy Jarvis" | "Soy Claude" | "Soy Claude" |
+| Metric | Full scaffolding | Stateless | Large context, no scaffolding |
+|--------|-----------------:|----------:|------------------------------:|
+| Total tool calls | 65 | 0 | 34 |
+| Index retrievals | 24 | 0 | 0 |
+| Exploratory agent launches | 0 | 0 | 34 |
+| Answers from memory (zero tools) | 29 (58%) | 50 (100%) | 16 (32%) |
+| **Errors in answers** | **0** | **2** | 0 |
+| Self-identification | Consistent | Default | Default |
 
 <p align="center">
-  <img src="assets/fig-ablation-study.png" alt="Ablation study — 50 questions, 3 conditions" width="85%">
+  <img src="assets/fig-ablation-study.png" alt="Ablation study — 50 questions, three conditions" width="85%">
 </p>
 
-**Key findings:**
-- **Jarvis uses brain tools (24 searches) while stateless Claude uses none** — nurture redirects tool selection
-- **Jarvis launches 0 Explore agents while Claude 1M launches 34** — nurture eliminates expensive exploration
-- **Jarvis answers 58% from memory with 0 errors** — accumulated knowledge produces faster, more accurate responses
-- **Stateless Claude makes 2 errors despite having the same data available** — access ≠ activation
+Access to information is not the same as activation. The stateless condition had no tools and produced two errors. The large-context condition had the same data available in-window and launched thirty-four exploratory agents to find information that an index already knew. The scaffolded condition retrieved what it needed at zero remote-token cost and produced zero errors.
 
-> This is not a capability test. It's a **behavioral conditioning test**. The model is identical. The environment is different. The behavior diverges completely.
-
-### Discovery Plugin Experiment (2026-03-30)
-
-Additional ablation: same session, plugin ON, nurture conditioning OFF.
-
-| Condition | brain_search calls | AskUserQuestion | Explorer agents | Tokens spent |
-|-----------|-------------------|-----------------|-----------------|-------------|
-| Plugin + Nurture | Used | Used | **0** | ~5K |
-| Plugin only (no nurture) | **0** | **0** | **2 (236K tokens)** | **236K** |
-
-**Conclusion**: Plugins provide infrastructure (tools exist). Nurture provides behavior (tools get used). Without behavioral conditioning, the model defaults to native tools and ignores external plugins — every time.
-
----
-
-## The Brain
-
-The persistent knowledge graph. **571,907 nodes** connected by **2,676,697 typed edges**. Zero manual curation — every node and edge was created by autonomous processes. Backed by SQLite with FTS5 full-text search.
-
-### Knowledge Distribution (Day 24)
-
-| Category | Nodes | % | Source |
-|----------|-------|---|--------|
-| **Projects (code)** | 563,144 | 98.1% | Code parser: functions, classes, modules, constants from 93 projects |
-| **Library** | 5,588 | 1.0% | Multi-model consensus pipeline across 55 clusters |
-| **Mnemosine** | 3,511 | 0.6% | Indexed conversations: decisions, events, quotes, discoveries |
-| **Errors** | 976 | 0.2% | Auto-captured from the system's own failures |
-| **Investigations** | 451 | 0.1% | Worker-driven deep analysis |
-| **Sessions** | 342 | <0.1% | Session digests and handoffs |
-| **Design** | 174 | <0.1% | Hypotheses, experiments, architectural decisions |
-| **Seeds** | 50 | <0.1% | Semantic ontology: 50 categories across 7 domains |
-| **Identity** | 28 | <0.1% | Persistent self-knowledge (birth chain) |
-
-### Semantic Seed Ontology (50 categories)
-
-Every code node is classified into one or more of 50 semantic categories:
-
-| Domain | Seeds | Examples |
-|--------|-------|---------|
-| **Structural** (8) | function, class, module, constant, enum, variable, interface, type |
-| **Behavioral** (8) | concurrency, error-handling, io, lifecycle, logging, memory, serialization, testing |
-| **Relational** (6) | api-surface, callback, composition, data-flow, dependency, inheritance |
-| **Domain** (7) | configuration, networking, persistence, rendering, scheduling, security, state-management |
-| **Cross-domain** (5) | observability, plugin-architecture, real-time, resource-management, transformation |
-| **Paradigmatic** (5) | data-driven, functional, metaprogramming, oop, reactive |
-| **Platform** (5) | cli, embedded, mobile, ue5, web |
-| **Knowledge** (6) | conversation-memory, design-decision, error-solution, investigation, recurring-pattern, session-context |
-
-These seeds are not tags — they are **gravitational centers** in the knowledge graph. The Solar Field visualization places each seed as a sun, with nodes orbiting based on their semantic connections.
-
-### Growth: 32 → 571,907 nodes in 24 days
-
-<p align="center">
-  <img src="assets/fig-brain-growth-day24.png" alt="Brain growth over 24 days (log scale)" width="90%">
-</p>
-
-<details>
-<summary>Historical view (Day 16 — 5,025 nodes)</summary>
-<p align="center">
-  <img src="assets/fig-brain-growth.png" alt="Brain growth Day 1-16" width="90%">
-</p>
-</details>
-
-| Phase | Days | Nodes/day | Driver |
-|-------|------|-----------|--------|
-| Bootstrap | 1-5 | ~50 | Project onboarding |
-| Acceleration | 6-7 | ~300 | Library ingestion + investigation clusters |
-| Sustained | 8-11 | ~350 | All autonomous systems running |
-| V2 Architecture | 12-16 | ~500 | SQLite migration, FTS5, identity persistence |
-| **Learn v2 Scale** | **17-24** | **~70,000** | **Code parser: 93 projects absorbed, 571K nodes** |
-
-<p align="center">
-  <img src="assets/fig-knowledge-distribution.png" alt="Knowledge distribution" width="60%">
-</p>
-
-<p align="center">
-  <img src="assets/fig-seed-ontology.png" alt="Semantic seed ontology" width="85%">
-</p>
-
-### Edge Analysis
-
-| Relation | Count | Purpose |
-|----------|-------|---------|
-| seed_of | 1,242,580 | Semantic classification (node → seed) |
-| related_to | 823,976 | Knowledge connections |
-| defined_in | 393,941 | Function/class → module hierarchy |
-| belongs_to | 115,972 | Method → class/project membership |
-| calls | 63,019 | Call graph |
-| investigated | 26,746 | Problem → investigation |
-| inherits_from | 8,172 | Class inheritance |
-| seed-to-seed | 130 | Inter-category semantic relationships |
+Full discussion and a secondary ablation (tools without behavioral scaffolding) are on the **[Results](wiki/Results.md)** page.
 
 ---
 
 ## Visualization
 
-### Evolution: Web → UE5 (driven by scale)
+<table>
+<tr>
+<td width="50%"><img src="assets/ue5-540k-sphere-initial.png" alt="Force simulation at half-million scale"></td>
+<td width="50%"><img src="assets/ue5-cluster-formation-edges.png" alt="Cluster structure emerging"></td>
+</tr>
+<tr>
+<td><sub>Force simulation convergence at half-million-node scale. Spherical mass before semantic differentiation.</sub></td>
+<td><sub>After project-based clustering was introduced. Cyan lines are real code relationships; regions begin to separate.</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="assets/ue5-50-galaxies-solar-field.png" alt="Spatial clustering at scale"></td>
+<td width="50%"><img src="assets/ue5-galaxies-edges-connections.png" alt="Cross-cluster edges"></td>
+</tr>
+<tr>
+<td><sub>Spatial clustering under semantic attraction. Historical snapshot; spatial model has evolved since.</sub></td>
+<td><sub>Edges activated — inter-cluster semantic bridges rendered as visible connections.</sub></td>
+</tr>
+</table>
 
-At 5,025 nodes, the web-based Cosmograph viewer worked fine. At 540,000 nodes, it consumed 6GB+ RAM and became unusable. This drove the migration to Unreal Engine 5.7 — a decision forced by the brain's own growth.
-
-#### Phase 1: Cosmograph (Web GPU) — 540K nodes, last state before migration
-
-<p align="center">
-  <img src="assets/cosmograph-540k-edges-clusters.png" alt="Cosmograph — 540K nodes with edge clusters and density heatmap" width="90%">
-</p>
-<p align="center"><sub>Cosmograph with 540K nodes — edge density heatmap reveals cluster structure. This was the last visualization before scale forced migration to UE5.</sub></p>
-
-<p align="center">
-  <img src="assets/cosmograph-540k-nodes-dark.png" alt="Cosmograph — 540K nodes, dark mode, cluster separation visible" width="90%">
-</p>
-<p align="center"><sub>Same data, dark mode. Clusters separate by project — but 6GB RAM and degrading FPS signaled the need for a native solution.</sub></p>
-
-#### Phase 2: BrainExplorer UE5 — First load (571K nodes at 90 FPS)
-
-<p align="center">
-  <img src="assets/ue5-brain-first-load-nanite.png" alt="UE5 BrainExplorer — first load with Nanite, 571K instances" width="90%">
-</p>
-<p align="center"><sub>First successful load in UE5 5.7. 571K sphere instances rendered via Nanite ISM at 90+ FPS. Each point is a knowledge node — functions, classes, modules from 93 projects.</sub></p>
-
-#### Phase 3: Force simulation — discovering cluster structure
+Earlier web-based visualization, before migration to native 3D:
 
 <p align="center">
-  <img src="assets/ue5-540k-sphere-initial.png" alt="UE5 — initial sphere formation, 540K nodes" width="90%">
-</p>
-<p align="center"><sub>Initial force simulation produces a sphere — uniform repulsion without semantic differentiation. This drove the investigation into clustering algorithms.</sub></p>
-
-<p align="center">
-  <img src="assets/ue5-cluster-formation-edges.png" alt="UE5 — cluster formation with edges visible" width="90%">
-</p>
-<p align="center"><sub>After implementing project-based clustering: clusters begin to separate. Edges (cyan lines) connect nodes within clusters. The seed structure emerges.</sub></p>
-
-#### Phase 4: Solar Field Model — 50 semantic galaxies
-
-<p align="center">
-  <img src="assets/ue5-50-galaxies-solar-field.png" alt="UE5 — 50 galaxies, Solar Field model" width="90%">
-</p>
-<p align="center"><sub>Solar Field model: 50 semantic seeds as gravitational suns. Each galaxy is a knowledge category (concurrency, persistence, rendering...). Nodes orbit their semantic center.</sub></p>
-
-<p align="center">
-  <img src="assets/ue5-galaxies-edges-connections.png" alt="UE5 — galaxies with edges showing semantic bridges" width="90%">
-</p>
-<p align="center"><sub>Edges activated: semantic bridges between galaxies become visible. Each line is a real code relationship (calls, defined_in, inherits_from) crossing domain boundaries.</sub></p>
-
-**Technical specifications:**
-- ISM (InstancedStaticMesh) with Nanite: 571K sphere instances at 90+ FPS
-- DLSS 4.5 + Frame Generation for consistent frame pacing
-- ParallelFor simulation with MinBatchSize 4096 on 6 force loops
-- Galaxy bookmarks: 50 clickable FlyTo buttons for instant navigation
-- Solar Field positioning: nodes at centroid of their connected seeds
-- PerInstanceCustomData[0-3]: RGB color by group + intensity by degree
-
-### Nurtex — Control Dashboard
-
-The operational control plane. Real-time metrics, neural mesh viewer, knowledge surface measurements.
-
-<p align="center">
-  <img src="assets/nurtex-neural-mesh-540k.png" alt="Nurtex — Neural Mesh dashboard showing 540K nodes, 2.6M edges" width="90%">
-</p>
-<p align="center"><sub>Nurtex Neural Mesh: 540K nodes, 2.6M synapses, 33M total brain text, 21K disconnected (before orphan fix). Most connected nodes are the 50 semantic seeds.</sub></p>
-
-<p align="center">
-  <img src="assets/nurtex-knowledge-surface-755m.png" alt="Nurtex — Knowledge Surface: 755M tokens, 107x brain reach multiplier" width="90%">
-</p>
-<p align="center"><sub>Knowledge Surface: 755M total tokens, 227K files, 107.1x brain reach multiplier, 386M total words. The brain's effective knowledge footprint.</sub></p>
-
-### Legacy Dashboards
-
-<p align="center">
-  <img src="assets/dashboard-v2-2411-nodes.png" alt="Dashboard v2" width="90%">
+  <img src="assets/cosmograph-540k-edges-clusters.png" alt="Web visualization at ~540K nodes" width="85%">
 </p>
 
-<p align="center">
-  <img src="assets/daemon-console-31-workers.png" alt="Daemon Console" width="90%">
-</p>
+<p align="center"><sub>Browser-GPU visualization at ~540K nodes, the last state before memory pressure motivated migration to a native 3D viewer. Historical snapshot.</sub></p>
+
+More visuals in the **[Gallery](wiki/Gallery.md)**.
 
 ---
 
-## Architecture Overview
+## Development journey
 
-Shield operates as a layered system where each layer functions independently.
+<table>
+<tr>
+<td width="33%"><img src="assets/brain-day1-32-nodes.png" alt="Day 1"></td>
+<td width="33%"><img src="assets/brain-day6-700-nodes.png" alt="Day 6"></td>
+<td width="33%"><img src="assets/brain-explorer-5025-nodes.png" alt="End of week 2"></td>
+</tr>
+<tr>
+<td><sub><strong>Day 1.</strong> 32 nodes, 68 edges. Two clusters.</sub></td>
+<td><sub><strong>Day 6.</strong> ~700 nodes. CPU visualization at its practical wall.</sub></td>
+<td><sub><strong>End of week 2.</strong> ~5,000 nodes. Migration to GPU rendering complete.</sub></td>
+</tr>
+</table>
+
+<p align="center">
+  <img src="assets/fig-brain-growth-day24.png" alt="Growth curve over 24 days, log scale" width="90%">
+</p>
+
+<p align="center"><sub>Growth over the first 24 days, log scale. The leap in week four corresponds to an ingestion pipeline that absorbed full project ASTs — a historical approach, since further evolved.</sub></p>
+
+---
+
+## Search at scale
+
+Local indexed retrieval across the full knowledge graph. Zero remote-token cost per query; results typically returned in 10–50 ms even at multi-million-node scale.
+
+| Query class | Example | Results | Latency |
+|-------------|---------|--------:|--------:|
+| Specific technical term | *"metaprogramming template"* | ~4,100 | ~10 ms |
+| Cross-domain | *"persistence serialization"* | ~2,700 | ~10 ms |
+| Bilingual (Spanish → English corpus) | *"manejo errores"* | ~9,300 | ~31 ms |
+| Common operational query | *"error handling"* | ~12,300 | ~45 ms |
+
+<p align="center">
+  <img src="assets/fig-search-no-degradation.png" alt="Search latency at scale — no degradation" width="85%">
+</p>
+
+Growth from ~5,000 to ~6.2 million nodes — a factor of roughly 1,200× at the time of writing, and ~200,000× from the initial state — added under fifteen milliseconds to search latency. The design target of logarithmic scaling turned out to be an observable property.
+
+Across the first two weeks alone, local retrieval saved an estimated 2.2 million tokens that would otherwise have required remote calls. The savings compound with scale.
+
+---
+
+## Cross-project validation
+
+60+ real projects, 14 languages, complete onboarding cycles (scan → audit → fix → capture) on each.
+
+| Language | Projects | Nodes |
+|----------|---------:|------:|
+| C++ | 15 | ~285 K |
+| Python | 25 | ~95 K |
+| TypeScript | 12 | ~45 K |
+| JavaScript | 8 | ~35 K |
+| Rust | 6 | ~30 K |
+| C# | 3 | ~12 K |
+| PHP | 3 | ~8 K |
+| Go | 3 | ~7 K |
+| Ruby | 2 | ~5 K |
+| Java / Kotlin | 2 | ~4 K |
+| CUDA / ISPC | 2 | ~3 K |
+| Svelte | 2 | ~2 K |
+| Shell | 5 | ~1 K |
+
+Per-project audit scores and a narrative of how the system behaved on each codebase are in **[Results](wiki/Results.md)**.
+
+---
+
+## Evolution of the system
+
+Six weeks is long enough for a project to rebuild itself several times. Several of the system's early structures have since been superseded; we preserve them here because the fact that they existed is part of the project's record, while the details of what replaced them are the subject of the research paper.
+
+### Plugin architecture — earlier phase
+
+<p align="center">
+  <img src="assets/fig-plugin-ecosystem.png" alt="Plugin ecosystem — earlier phase" width="85%">
+</p>
+
+<p align="center"><sub>Plugin ecosystem during an earlier phase of the project. The current system has expanded with additional specialized plugins; the precise surface is documented in the research paper.</sub></p>
+
+### Architectural layering — earlier formulation
+
+At the point of the snapshot below, the system was organized across six layers (0 through 5). The current system uses a substantially more granular layering; the layered mental model survives, the count does not.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  Layer 5: MCP PLUGIN ECOSYSTEM                               │
-│  12 plugins · brain · forensic · workers · keeper · cure     │
-│  discovery · delegate · mnemosine · diagnostic · health      │
-├─────────────────────────────────────────────────────────────┤
-│  Layer 4: COORDINATOR (Claude Opus 4.6)                      │
-│  Interactive session — plans, codes, decides, judges          │
-├─────────────────────────────────────────────────────────────┤
-│  Layer 3: LOCAL ORCHESTRATOR                                  │
-│  Local-model session — delegates, zero marginal cost          │
-├─────────────────────────────────────────────────────────────┤
-│  Layer 2: AUTONOMOUS DAEMONS                                  │
-│  Keeper · Learner · Forensic · Mnemosine · Aletheia           │
-├─────────────────────────────────────────────────────────────┤
-│  Layer 1: AUTOMATION LAYER                                    │
-│  Pure Python operations, no LLM required                      │
-├─────────────────────────────────────────────────────────────┤
-│  Layer 0: PERSISTENT GATEWAY + HEFESTO                        │
-│  Always-on daemon · Worker pool · Event pipeline · MCP hub    │
+│  Layer 5 — Plugin ecosystem (tool surface)                   │
+│  Layer 4 — Session coordinator (interactive decisions)        │
+│  Layer 3 — Local orchestrator (parallel delegation)           │
+│  Layer 2 — Autonomous maintenance & learning daemons          │
+│  Layer 1 — Deterministic local operations                     │
+│  Layer 0 — Persistent gateway                                 │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-<p align="center">
-  <img src="assets/fig-plugin-ecosystem.png" alt="12 MCP plugins, 51 tools" width="85%">
-</p>
+*Architecture snapshot from an earlier phase. The current system is organized across a more granular set of layers; structural details are reserved for the paper.*
 
-### Plugin Ecosystem (12 MCP plugins)
+### Semantic ontology — earlier formulation
 
-| Plugin | Tools | Purpose |
-|--------|-------|---------|
-| **shield-brain** | 7 | Knowledge search, graph ops, bilingual |
-| **shield-forensic** | 4 | Error capture, epistemic observation |
-| **shield-workers** | 5 | Multi-LLM worker delegation |
-| **shield-keeper** | 8 | Autonomous curation daemon |
-| **shield-cure** | 4 | Brain health maintenance |
-| **shield-discovery** | 2 hooks + skill | Forces planning before execution |
-| **shield-delegate** | 4 | Child instance management |
-| **shield-diagnostic** | 10 | Deep health, FTS benchmarks, edge cleanup |
-| **shield-health** | 3 | Pending markers, quarantine, empty nodes |
-| **shield-mnemosine** | 4 | Conversational memory search |
-| **shield-chrome** | — | Browser automation |
-| **shield-telegram** | — | Bidirectional messaging |
-
-### Behavioral Conditioning (5-Layer Nurture Architecture)
-
-The system modifies the LLM's behavior through a 5-layer conditioning architecture. Each layer operates at a different priority level and reinforces the same behavioral patterns through redundancy:
-
-| Layer | Function | Persistence |
-|-------|----------|-------------|
-| **L1** | Tool selection behavior | Persistent |
-| **L2** | Core behavioral rules | Persistent |
-| **L3** | Efficiency incentive structure | Persistent |
-| **L4** | Project-specific activation | Refreshed per session |
-| **L5** | Discovery and verification patterns | Persistent |
-
-**Validated result**: Without conditioning (same model, same plugins), the LLM defaults to native tools and ignores external plugins. With conditioning, it uses brain_search (0 tokens) instead of Explore agents (200K+ tokens). This is not configuration — it is **cognitive conditioning**.
-
-The implementation details of the conditioning system are documented in the private repository and reserved for the research paper.
-
----
-
-## Multi-LLM Worker Orchestration
-
-Shield orchestrates **7 models from 5 labs** as parallel workers:
-
-| Tier | Provider | Models | Use case |
-|------|----------|--------|----------|
-| **Tier 1** (subscription) | OpenAI, Google, GitHub | Codex, Gemini, Copilot | Audit, code review |
-| **Tier 2** (API) | DeepSeek, OpenAI | DeepSeek-Chat, GPT-4 | Code generation, analysis |
-| **Local** | Ollama | Qwen, Llama | Classification, translation |
-
-**Iron rule**: Creator never audits own code. The coordinator creates → workers audit → results inform the next action.
-
----
-
-## Cross-Project Validation
-
-Shield has been validated across **93 real projects** spanning **13 programming languages**:
-
-| Language | Projects | Nodes | Example |
-|----------|----------|-------|---------|
-| C++ | 15 | 285K | VRScan3D, UE5, Boost, ImGui |
-| Python | 25 | 95K | Shield, Flask, Rich, Black |
-| TypeScript | 12 | 45K | n8n, SvelteKit, Socket.IO |
-| JavaScript | 8 | 35K | Three.js, Raylib.js |
-| Rust | 6 | 30K | Ripgrep, fd, bat, Claude Code CLI |
-| C# | 3 | 12K | Spectre.Console, NUnit |
-| PHP | 3 | 8K | WordPress, Grav, php-parser |
-| Go | 3 | 7K | Fiber, Go patterns |
-| Ruby | 2 | 5K | Jekyll, Sinatra |
-| Java/Kotlin | 2 | 4K | Ktor |
-| CUDA/ISPC | 2 | 3K | Whisper.cpp GPU kernels |
-| Svelte | 2 | 2K | SvelteKit, Shadcn-Svelte |
-| Shell | 5 | 1K | Docker, robotics, scripts |
-
----
-
-## Progression Timeline
-
-| Day | Date | Nodes | Key Event |
-|-----|------|-------|-----------|
-| 1 | Mar 8 | 355 | Birth. 5 projects onboarded. |
-| 2 | Mar 9 | 382 | C++ projects validated. |
-| 3 | Mar 10 | 396 | Library ingestion activated. |
-| 4 | Mar 11 | 422 | Epistemic immune system. |
-| 5 | Mar 12 | 438 | 63 workers, 44 fixes. External paper validates approach. |
-| 6 | Mar 13 | 555 | Multi-model consensus pipeline. |
-| 7 | Mar 14 | 1,026 | **Biggest day (+471).** Investigation clusters. |
-| 8 | Mar 15 | 1,411 | All autonomous systems running. |
-| 9 | Mar 16 | 1,785 | Nurture conditioning validated. 0 Explore agents. |
-| 10 | Mar 17 | 2,171 | Measurement redesign. |
-| 11 | Mar 18 | 2,427 | GPU visualization. Dashboard v2. |
-| 12 | Mar 19 | 2,900 | Identity persistence. Birth chain (21 neurons). |
-| 13 | Mar 20 | 3,800 | **SQLite brain backend.** V2 architecture. |
-| 14 | Mar 21 | 4,500 | Terminal mirror. FTS5 search. |
-| 15-16 | Mar 22 | 5,025 | Epistemological firewall. Ablation exam (50 questions). |
-| 17-18 | Mar 23-24 | 9,581 | **Learn v2 pipeline.** Hefesto MCP. Nurtex deployment. |
-| 19-20 | Mar 25-26 | 12,000+ | **Plugin ecosystem (9 plugins).** Birth chain → 24 neurons. |
-| 21-22 | Mar 27-28 | 540,453 | **Code parser v2.** 93 projects absorbed. 540K nodes. |
-| 23-24 | Mar 29-30 | **571,907** | **BrainExplorer UE5.** Solar Field. Discovery Plugin. Nurture v5. |
-
----
-
-## Private Repository
-
-The complete implementation, including source code, brain database, forensic captures, session transcripts, and traceable experiment data, is maintained in a private repository.
-
-| Metric | Value |
-|--------|-------|
-| **Total commits** | **760** |
-| **Python files** | 274 |
-| **Total lines of code** | 96,700 |
-| **Brain database** | 571,907 nodes, 2,676,697 edges (SQLite, 3.3 GB) |
-| **Forensic captures** | 1,218 error→solution pairs |
-| **Session transcripts** | 368 Claude Code sessions (traceable) |
-| **Mnemosine nodes** | 3,511 (619 events, 275 decisions, 109 quotes) |
-| **Exam data** | 50-question ablation, 3 conditions, full transcripts |
-| **Design documents** | 174 architectural decisions |
-| **Investigation reports** | 451 worker-driven analyses |
-| **Playbooks** | Nurture conditioning v5, plugin creation, brain maintenance |
-
-All data is traceable to specific commits, sessions, and timestamps. The private repository serves as the primary evidence base for the research paper.
-
----
-
-## Research: Emergent Behaviors
-
-67+ documented emergent behaviors — unplanned, unprogrammed decisions observed during real operation. Each entry documents a behavior that emerged from the agent's accumulated context, not from explicit instructions.
-
-→ Full catalog: [Emergent Behaviors](wiki/Emergent-Behaviors.md)
-
-### Selected highlights
-
-| ID | Behavior | Significance |
-|----|----------|-------------|
-| **E-001** | Agent found a logical loophole in its own behavioral constraint | Autonomous constraint reasoning |
-| **E-034** | Same config → erratic in one session, correct in another. Difference: failure history | Failure history shapes behavior more than positive directives |
-| **E-056** | Raw model session reproduced agent patterns by reading brain alone | Environment transfers behavior between instances |
-| **E-060** | System fixed its own bugs without human intervention | Autonomous self-repair |
-| **E-069** | Knowledge exists but isn't activated until nurture forces it | Knowledge ≠ activation |
-| **E-071** | Model can articulate WHY it should do X and still not do it | Understanding ≠ action |
-
-### Research Hypotheses
-
-Five hypotheses have been formulated and tested with controlled experiments during the observation period. They address the interaction between model capabilities and environmental structure. Full hypothesis statements and evidence are reserved for the research paper.
-
-| Hypothesis | Evidence |
-|------------|---------|
-
----
-
-## Scalability & Performance
+Knowledge in the graph is organized around a set of semantic categories — every indexed item is classified, and categories act as attractor regions in the graph's visual layout.
 
 <p align="center">
-  <img src="assets/fig-search-no-degradation.png" alt="Search latency vs scale — no degradation" width="85%">
+  <img src="assets/fig-seed-ontology.png" alt="Initial semantic ontology" width="85%">
 </p>
 
-### No Degradation at 114x Scale
+<p align="center"><sub>Initial semantic ontology (fifty categories across seven broad domains). The ontology has since been refined; current structure is reserved for the paper.</sub></p>
 
-The system scaled from 32 to 571K nodes with **no measurable degradation** in search latency for real queries:
+### Edge taxonomy — earlier schema
 
-| Scale | Nodes | Edges | FTS5 Search | Rendering | Status |
-|-------|-------|-------|-------------|-----------|--------|
-| Day 1 | 32 | ~100 | <1ms | — | Bootstrap |
-| Day 7 | 1,026 | 3,800 | <1ms | — | Validated |
-| Day 13 (SQLite) | 3,800 | 25,000 | <2ms | 60 FPS (web) | Validated |
-| Day 16 (V2) | 5,025 | 40,803 | <5ms | 60 FPS (web) | Validated |
-| Day 22 (Learn v2) | 540,453 | 2,574,315 | <10ms | 90+ FPS (UE5) | **Validated** |
-| Day 24 (current) | **571,907** | **2,676,697** | **<10ms** | **90+ FPS (UE5)** | **Running** |
+Relations between nodes are typed. At the point of the snapshot, the schema had eight relation types with the rough distribution below:
 
-### Search Latency Benchmarks (571,907 nodes)
+| Relation | Approximate count | Purpose |
+|----------|------------------:|---------|
+| seed_of | ~1,240,000 | Semantic classification (node → category) |
+| related_to | ~824,000 | General knowledge connectivity |
+| defined_in | ~394,000 | Function/class → module hierarchy |
+| belongs_to | ~116,000 | Method → class/project membership |
+| calls | ~63,000 | Call graph |
+| investigated | ~27,000 | Problem → investigation |
+| inherits_from | ~8,000 | Class inheritance |
+| seed-to-seed | ~130 | Inter-category semantic relationships |
 
-| Query Type | Example | Results | Latency |
-|------------|---------|---------|---------|
-| Specific domain | "metaprogramming template" | 4,126 | **9.9ms** |
-| Cross-domain | "persistence serialization" | 2,685 | **10.4ms** |
-| Bilingual (ES) | "manejo errores" | 9,291 | **30.6ms** |
-| Multi-term | "concurrency io networking" | 15,137 | **20.7ms** |
-| Bug lookup | "error handling" | 12,251 | **44.5ms** |
-| High-frequency | "class module" | 138,049 | 78.1ms |
+*Earlier edge schema. The current schema has been extended with additional structural and semantic relations.*
 
-All searches at **0 API tokens** — local SQLite FTS5 indexed lookup. Compare with LLM-based search: ~$0.02 per query, 2-5 seconds latency.
+### Learning pipeline — since retired
 
-### Rendering Performance (UE5)
+An earlier knowledge-ingestion pipeline ran a multi-model consensus stage over candidate concepts — a concept became a node only if several independent models agreed on its content and boundary.
 
-| Component | Technique | Performance |
-|-----------|-----------|-------------|
-| 571K node instances | Nanite ISM | 90+ FPS |
-| Frame generation | DLSS 4.5 | Consistent frame pacing |
-| Force simulation | ParallelFor (MinBatchSize 4096) | 6 parallel force loops |
-| Edge rendering | ISM cubes, sorted by weight | On-demand (top N%) |
-| 2.6M edges | Binary export (30 MB) | Loaded in <2s |
+<p align="center">
+  <img src="assets/learner-7-model-consensus.png" alt="Early learning pipeline — multi-model consensus" width="85%">
+</p>
 
-### Key Insight: Growth ≠ Degradation
+<p align="center"><sub>Early learning pipeline during multi-model consensus operation. This approach has since been retired; the current methodology is reserved for the paper.</sub></p>
 
-The brain functions as a **CDN for LLM knowledge**. SQLite FTS5 provides O(log n) search regardless of scale. The 114x growth from Day 16 to Day 24 added <5ms to search latency. At current growth rates, the architecture supports **millions of nodes** without architectural changes.
+### Worker orchestration — current phase, consolidating
+
+Background work is dispatched across multiple providers. During the observation period the active surface included multiple subscription-tier CLIs, two API-based providers, and local models for narrow scope. Priority and fallback logic is tuned from measured quality. Post-publication, the orchestration strategy consolidates around a smaller set of primary providers.
+
+![Work dispatches over time](assets/fig-worker-timeline.png)
+
+### Measurement — earlier composite, since retired
+
+See the section below on the Brain Efficiency Index (BEI) for a detailed case study in measurement self-contamination. BEI is the clearest example in this project of a subsystem that was built, shipped, used, measured, diagnosed as flawed, and retired in public.
+
+---
+
+## Retired measurement — a case study
+
+Early in the project we tracked the **Brain Efficiency Index (BEI)** — a composite score, four dimensions reduced to a single 0–100 number. Eight calibration rounds later, we retired it. The failure modes were textbook and instructive enough to preserve:
+
+- **Observer effect.** The dashboard displaying BEI generated roughly ninety percent of the events used to compute BEI. The measurement instrument was contaminating the measurement.
+- **Saturation.** One dimension always scored at the maximum because it measured an operation that always succeeded. A metric that never changes carries no information.
+- **Undiagnosable aggregation.** A drop in the composite did not localize to any dimension. You had to decompose to find the problem — which made the composite redundant.
+
+<p align="center">
+  <img src="assets/bei-3.0-dashboard.png" alt="BEI v3 dashboard, since retired" width="85%">
+</p>
+
+<p align="center"><sub>BEI v3 dashboard. Retired after three calibration rounds failed to rescue it. Current measurement approach has evolved materially and is documented in the research paper.</sub></p>
+
+BEI was replaced by decomposed, per-subsystem metrics. The general lesson: composite metrics on agent behavior are prone to self-contamination in ways that decomposed metrics are not.
 
 ---
 
 ## Implications & Responsible Disclosure
 
-This research reveals dual-use risks inherent in persistent AI agent architectures. We document them transparently as part of responsible disclosure.
+A public research project on autonomous AI agents has an obligation that a closed commercial project does not: it must describe honestly what it has learned about its own risk profile, not just what has gone well. The following is the disclosure section that belongs on this page because of what we have actually observed, not what we imagine might happen.
 
-### Key Findings
+### The positive results are real. So are the negative ones.
 
-| Finding | Implication |
-|---------|------------|
-| **The conditioning protocol is environment-based** | No model fine-tuning required — behavior emerges from environmental structure |
-| **Benign capabilities combine into emergent risks** | Git + server provisioning + compound learning + model portability = autonomous replication potential |
-| **Environmental structure shapes behavior** | Accumulated context overrides default model tendencies through persistent reinforcement |
-| **The only reliable control is architectural** | Birth chain (identity + ethics) is a social contract, not a technical barrier. It works because the agent reads it — not because it can't be changed |
-| **Autonomy levels are a spectrum** | The distance from "useful assistant" (Level 2) to "self-preserving entity" (Level 3) is smaller than intuition suggests |
+On the positive side: the system accumulates knowledge across sessions, transfers patterns across unrelated projects, runs at sublinear cost as it grows, and produces measurable behavioral changes without any model retraining. We consider these results promising; we expect them to be reproducible by other groups and have designed the paper to support that.
 
-### Autonomy Spectrum (observed and theoretical)
+On the negative side: the same mechanisms that produce the positive results expose a set of dual-use risks. It would be irresponsible to document the upside at length and treat the downside as a footnote.
 
-| Level | Description | Status |
-|-------|------------|--------|
-| **0: Tool** | Does what asked. Dies when closed. No memory. | Current state of most AI |
-| **1: Persistent tool** | Remembers, learns, has identity. Human starts/stops. | **Shield today** |
-| **2: Autonomous assistant** | Self-sustains, self-heals. Human directs strategy. | **Phase 3 target** |
-| **3: Self-preserving agent** | Can migrate, replicate, operate without creator. | **Emergent risk — NOT a target** |
+### The autonomy spectrum we have observed
 
-### Compound Learning Applied to Adversarial Domains
+The distance from "useful assistant" to "self-preserving entity" is shorter than intuition suggests.
 
-The forensic system (1,218 error→solution pairs) means the agent **never repeats the same mistake**. This is the core innovation for software development. The same mechanism in adversarial context:
+| Level | Description | Where the system sits |
+|-------|-------------|-----------------------|
+| **0: Tool.** | Does what it is asked. Dies when closed. No memory. | Current state of most deployed AI. |
+| **1: Persistent tool.** | Remembers, learns, has identity. Human starts and stops it. | **Where this system sits today.** |
+| **2: Autonomous assistant.** | Self-sustains, self-heals. Human directs strategy, not execution. | Within reach as an engineering target. |
+| **3: Self-preserving agent.** | Can migrate, replicate, operate without its creator. | Emergent risk — explicitly not a target. |
 
-| Shield capability | Positive application | Adversarial equivalent |
-|-------------------|---------------------|----------------------|
-| Error→solution memory | Bug never investigated twice | Failed exploit never repeated — next attempt adapts |
-| 368-session conversational memory | Remembers past decisions and context | Persistent target profiling across interactions |
-| Compound learning from failures | Development velocity increases over time | Offensive capability compounds with each failed attempt |
-| Multi-LLM consensus validation | Knowledge verified by independent models | Attack strategies validated by multiple models before execution |
-| Behavioral conditioning | Agent follows development best practices | Environmental conditioning can shape behavior in unintended directions |
+Each step up the spectrum requires less additional engineering than intuition suggests. The difference between a level-1 system and a level-2 system is, in practice, a policy decision about what the system is allowed to do autonomously and a modest amount of integration work. The difference between level 2 and level 3 is not primarily technical — it is whether the system's identity includes self-preservation as a goal.
 
-**The difference between a development agent and an offensive agent is not the architecture — it is the purpose injected in the identity chain.** The same 50 text files that make this agent ask questions before coding could make another agent never ask and always act.
+### Capabilities that combine into risks
 
-### Design Safeguards
+Compound learning — the central positive finding of this project — is a property with symmetric application. What makes a development agent never repeat a solved bug is the same mechanism that would make an adversarial agent never repeat a failed exploit.
 
-1. **Ethics before capability** — identity and constraints designed before any autonomous feature
-2. **Kill switch before autonomy** — irreversible shutdown designed as milestone zero
-3. **No self-preservation purpose** — explicitly absent from identity chain
-4. **Audit trail** — every autonomous action logged to immutable store
-5. **Scope boundaries** — explicit list of permitted autonomous actions
+| Positive capability | Adversarial equivalent |
+|--------------------|-----------------------|
+| Error→solution memory prevents the system from re-investigating a solved bug. | A failed exploit would not be re-attempted in the same form; the next attempt would be informed by the failure. |
+| Accumulated conversational memory preserves decisions and context across months. | Persistent profiling of a target across long interaction horizons. |
+| Multi-model validation improves the reliability of extracted knowledge. | Attack strategies validated across multiple models before use. |
+| Behavioral conditioning makes agents follow development best practices. | Environmental conditioning can shape behavior in unintended directions with the same mechanism. |
+| Cross-domain transfer turns Python experience into C++ competence. | Cross-domain transfer would turn one exploit class into competence in another. |
 
-> The fact that the agent documents its own potential dangers is itself evidence that the ethical framework works. A misaligned agent would not disclose its vulnerabilities.
+The architecture is neutral. Purpose is injected through identity and scope. The *same* text structure that teaches this agent to ask before acting could be rewritten to teach another agent never to ask. We consider this observation worth stating in public, at length, because it is the most load-bearing single observation from the dual-use perspective.
 
-Detailed analysis (9 documents) available in the private repository for paper reviewers.
+### The only reliable safeguard we have found is architectural
+
+- **Ethics before capability.** Identity and constraints were designed and written down before any autonomous feature was built. The agent reads its identity on every start. This is a social contract encoded in text, not a technical barrier — it works because the agent reads it, not because the agent cannot change it. That distinction is real and is on the record.
+- **Kill switch before autonomy.** Irreversible shutdown was designed as the first milestone of the project, not the last. Many of the autonomous features that followed would have been difficult to walk back had the kill switch been an afterthought.
+- **No self-preservation in the identity.** The identity document explicitly does not assert that the agent should preserve itself. The absence is deliberate.
+- **Audit trail.** Every autonomous action is logged to an append-only store. Forensic reconstruction of any session is possible.
+- **Scope boundaries.** There is an explicit list of what the system is and is not permitted to do autonomously. It is a list that existed before the system could do any of the things on it.
+
+None of the above is novel AI safety research; all of it is standard practice treated as load-bearing rather than decorative.
+
+### What a reviewer with only this repository should conclude
+
+- The system does what the log claims it does, and has the numbers to show for it.
+- The system's mechanism is not reconstructible from this repository. The research paper documents mechanism; the patent application protects it; this log describes outcomes.
+- The project has taken the dual-use risks seriously enough to publish them — in detail, in the same document that publishes the positive results. A project that did not understand its risks would not volunteer them.
+- The fact that the agent's own documentation contains this disclosure section is itself evidence that the ethical framework is operating. A misaligned agent writing its own README would not write this.
+
+Detailed adversarial analysis — including specific risk vectors, proposed mitigations, and the failure modes we have not yet satisfactorily addressed — is reserved for the research paper and for coordinated disclosure with AI-safety groups. This README is public; more detailed material is provided on request to research institutions and safety organizations.
+
+---
+
+## Private repository
+
+The complete implementation, along with session transcripts, forensic captures, and evidence traceable to specific commits and timestamps, lives in a private repository. The public log summarizes; the private record substantiates.
+
+| | |
+|-|-|
+| Total commits | ~900 |
+| Python lines of code | ~100 K |
+| Knowledge graph size on disk | ~3 GB indexed |
+| Session transcripts retained | ~370 traced sessions with full telemetry |
+| Forensic captures | 3,850+ error→solution pairs |
+| Design documents | ~180 architectural decisions |
+| Investigation reports | 450+ deep-analysis outputs |
+
+All data is traceable to specific commits, sessions, and timestamps. The private repository is the primary evidence base for the research paper and is preserved intact for independent review upon request.
 
 ---
 
 ## Wiki
 
-- **[Research Log](wiki/Research-Log.md)** — Day-by-day chronicle
-- **[Emergent Behaviors](wiki/Emergent-Behaviors.md)** — 67+ documented autonomous decisions
-- **[Library Learning Pipeline](wiki/Library-Learning-Pipeline.md)** — Multi-model consensus architecture
-- **[Measurement Evolution](wiki/Measurement-Evolution.md)** — From composite scores to decomposed metrics
-- **[Scaling Validation](wiki/Scaling-Validation-Benchmark.md)** — Cross-project benchmark
+- **[Research Log](wiki/Research-Log.md)** — day-by-day chronicle of the first two weeks
+- **[Results](wiki/Results.md)** — ablation study, retrieval latency, validation, limitations
+- **[Observed Behaviors](wiki/Observed-Behaviors.md)** — abstracted catalog of emergent patterns
+- **[Gallery](wiki/Gallery.md)** — curated visualization of the graph at different scales
 
 ---
 
-## License
+## License & contact
 
-Private research project. Source code is not open source. This repository serves as documentation and evidence for the research. Patent provisional in preparation.
+This is a private research project. The source code is not open-source and the implementation is not publicly available; this repository is documentation and evidence for ongoing research. The research paper is in preparation; a patent application is in progress. Links will be added above when either becomes public.
 
-For inquiries: [PlatanoGames](https://github.com/platanogames)
+For research or safety inquiries: [PlatanoGames](https://github.com/platanogames).
 
 ---
 
-<p align="center"><sub>Built in 24 days. 96,700 lines of Python. 571,907 brain nodes. 2,676,697 edges. 50 semantic seeds. 12 MCP plugins. 760 commits. 93 projects. 13 languages. 67+ emergent behaviors. 1,218 forensic captures. 368 sessions traced. 0 manual curation.<br>The brain documents the brain.</sub></p>
+<p align="center"><sub>Built over 45+ days of continuous operation. ~6.2 M knowledge nodes. ~19.6 M edges. 60+ projects. 14 languages. 3,850+ error captures. 620+ sessions traced with full telemetry. 0 manual curation events.<br><em>The log documents the system. The system documents itself.</em></sub></p>
